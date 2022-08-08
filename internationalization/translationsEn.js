@@ -3,6 +3,7 @@ import Mohammad2 from "../utils/muhamed2.jpg";
 
 const translationsEn = {
   learn: "Learn",
+  welcome: "Welcome",
   bannerText: "The Quran from",
   bannerText1: "experienced Islamic Instructors",
   verse:
@@ -95,6 +96,10 @@ const translationsEn = {
     "Recommended for Beginners",
     "50 minutes per session",
   ],
+  BeginnersDetails:
+    "Do you want to be able to read the holy Qur'an by yourself with correct pronunciation, our professional tutors can help you achieve that goal. This course is designed for begginers that want to be able to read the qur'an with proper prononciation. ",
+  BeginnersOutcome:
+    "By the end of this course, you will be able to read the Quran properly by yourself with good makhaarij and clear pronunciation of the letters.",
   BeginnersIntensiveItem: [
     "Introduction to Arabic Alphabet",
     "How to read",
@@ -102,12 +107,16 @@ const translationsEn = {
     "5 sessions per week",
     "50 minutes per session",
   ],
+  HifzDetails:
+    "This class is for those that want to memorize the qur'an. with the help of our tutors, you will memorize the holy qur'an with good tajwiid and correct prononciation. whether you are begining to memorize or you have memorized some chapters, you can enroll in this class and start memorizing the holy qur'an with our experienced tutors. they will help you throughout your journey of memorizing the word of Allah. they will be very patient with you and will help you achieve your goal of memorizing the holy qur'an incha'Allah.",
   HifzItems: ["Memorization", "3 sessions per week", "50 minutes per session"],
   HifzIntensiveItems: [
     "Memorization",
     "5 sessions per week",
     "50 minutes per session",
   ],
+  TilawahDetails:
+    "This class is for those that have difficulty memorizing the holy quran but are willing to be able to read the holy qur'an with a good tajwiid. Our tutors will help you recite the holy quran with proper pronunciation of the words.",
   TilawahItem: [
     "Reading",
     "Recommended for older student",
@@ -120,6 +129,8 @@ const translationsEn = {
     "5 sessions per week",
     "50 minutes per session",
   ],
+  MurajaDetails:
+    "have you memorized the qur'an and looking for a Cheick to help you with your Mouradja'a (revision), then this course is for you. Our experienced tutors will estabilish a good program that will help you with your revision so that you will not easily forget what you have memorized. After completion of the mouraja, the tutor will decide if you deserve an Ijaazah bi sanad certificate or if you need more practice before getting the Ijaazah. Enroll in this class and start revising the holy qur'an with our professional tutors.",
   MurajaItem: [
     "Revision",
     "Recommended for Hafiz",

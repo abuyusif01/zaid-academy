@@ -1,5 +1,6 @@
 const translationsFr = {
   learn: "Apprendre",
+  welcome: "Bienvenue",
   bannerText: "Le Coran auprès",
   bannerText1: "d’instituteurs islamiques expérimentés.",
   verse:
@@ -87,6 +88,10 @@ const translationsFr = {
   family: "Parfait pour une famille de plus de 3 personnes",
   Beginners: "Débutants",
   BeginnersIntensive: "Débutants Intensif",
+  BeginnersDetails:
+    "Voulez-vous être capable de lire le Saint Coran par vous-même avec une prononciation correcte, nos tuteurs professionnels peuvent vous aider à atteindre cet objectif. Ce cours est conçu pour les débutants qui veulent être capables de lire le coran avec une prononciation correcte.",
+  BeginnersOutcome:
+    "À la fin de ce cours, vous serez capable de lire correctement le Coran par vous-même avec un bon makhaarij et une prononciation claire des lettres.",
   BeginnersItem: [
     "Introduction à l'alphabet Arabe",
     "Comment lire",
@@ -101,12 +106,16 @@ const translationsFr = {
     "5 séances par semaine",
     "50 minutes par séance",
   ],
+  HifzDetails:
+    "Cette classe est pour ceux qui veulent mémoriser le coran.  avec l'aide de nos tuteurs, vous mémoriserez le saint coran avec un bon tajwiid et une prononciation correcte.  que vous commenciez à mémoriser ou que vous ayez mémorisé certains chapitres, vous pouvez vous inscrire à ce cours et commencer à mémoriser le saint coran avec nos tuteurs expérimentés.  ils vous aideront tout au long de votre parcours de mémorisation de la parole d'Allah.  ils seront très patients avec vous et vous aideront à atteindre votre objectif de mémoriser le saint coran incha'Allah.",
   HifzItems: ["Mémorisation", "3 séances par semaine", "50 minutes par séance"],
   HifzIntensiveItems: [
     "Mémorisation",
     "5 séances par semaine",
     "50 minutes par séance",
   ],
+  TilawahDetails:
+    "Ce cours est destiné à ceux qui ont des difficultés à mémoriser le saint coran mais qui souhaitent pouvoir lire le saint coran avec un bon tajwiid.  Nos tuteurs vous aideront à réciter le saint coran avec une prononciation correcte des mots.",
   TilawahItem: [
     " Comment Lire avec tajwiid ",
     " Recommandé pour les étudiants plus âgés",
@@ -121,6 +130,8 @@ const translationsFr = {
   ],
   revision: "Révision",
   revisionIntensive: "Révision Intensif",
+  MurajaDetails:
+    "vous avez mémorisé le coran et cherchez un Cheick pour vous aider dans votre Mouradja'a (révision), alors ce cours est pour vous.  Nos tuteurs expérimentés établiront un bon programme qui vous aidera dans votre révision afin que vous n'oubliiez pas facilement ce que vous avez mémorisé.  Après avoir terminé la mouraja, le tuteur décidera si vous méritez un certificat Ijaazah bi sanad ou si vous avez besoin de plus de pratique avant d'obtenir l'Ijaazah. Inscrivez-vous à ce cours et commencez à réviser le Saint Coran avec nos tuteurs professionnels.",
   MurajaItem: [
     "Révision",
     "Recommandé pour les Huffaaz( les gens qui ont finis de mémoriser)",

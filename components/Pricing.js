@@ -1,48 +1,39 @@
 import { t } from "i18next";
+import { useRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { BsCheck } from "react-icons/bs";
 
 const Pricing = ({ items, title, description, price }) => {
+  const router = useRouter();
   const { t } = useTranslation();
   return (
-    <div className="w-full md:w-1/3 m-4">
-      <div className="pt-8 px-11 xl:px-20 pb-10 bg-transparent border-b md:border-b-0 md:border-r border-gray-200 rounded-10">
-        <h3 className="mb-0.5 font-heading font-semibold text-lg text-gray-900">
-          {title}
-        </h3>
-        <p className="mb-5 text-gray-600 text-sm">{description}</p>
-        <div className="mb-9 flex">
-          <span className="mr-1 mt-0.5 font-heading font-semibold text-lg text-gray-900">
-            $
-          </span>
-          <span className="font-heading font-semibold text-6xl sm:text-7xl text-gray-900">
-            {price}
-          </span>
-          <span className="font-heading font-semibold self-end">
-            / {t("monthly")}
-          </span>
-        </div>
-        <div className="p-1">
-          <button className="group relative mb-9 p-px w-full font-heading font-semibold text-xs text-gray-50 bg-indigo-500 uppercase tracking-px overflow-hidden rounded-md">
-            <div className="absolute top-0 left-0 transform -translate-y-full group-hover:-translate-y-0 h-full w-full bg-gradient-green transition ease-in-out duration-500"></div>
-            <div className="p-4 bg-indigo-500 overflow-hidden rounded-md">
-              <p className="relative z-10">Join now</p>
-            </div>
-          </button>
-        </div>
-        <ul>
-          {items.map((item) => (
-            <li
-              key={item}
-              className="flex items-center font-heading mb-3 font-medium text-base text-gray-900"
-            >
-              <BsCheck />
-              <p>{item}</p>
-            </li>
-          ))}
-        </ul>
+    <div className="border border-gray-200 p-10 rounded w-1/4 text-center space-y-4">
+      <h5 className="border border-gray-500 rounded-2xl px-4 py-1 inline-flex text-sm">
+        {title}
+      </h5>
+      <p className="text-3xl text-gray-700 font-bold">
+        ${price} <span className="text-sm font-normal">/ {t("monthly")}</span>
+      </p>
+      <div
+        className="bg-indigo-500 py-2 px-5 inline-flex rounded-2xl text-white text-sm cursor-pointer mb-6"
+        onClick={() =>
+          router.push(`/pricing/${title.split(" ").join("-").toLowerCase()}`)
+        }
+      >
+        Learn More
       </div>
+      <ul className="text-left">
+        {items.map((item) => (
+          <li
+            key={item}
+            className="flex items-center font-heading mb-3 font-medium text-base text-gray-900"
+          >
+            <BsCheck />
+            <p>{item}</p>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

@@ -96,7 +96,7 @@ const PricingSection = () => {
   return (
     <div className="px-24">
       <p className="text-center text-2xl font-bold my-6 uppercase">Pricings</p>
-      <div className="flex justify-center">
+      <div className="flex justify-center space-x-6">
         <Pricing
           bestValue={false}
           title="Beginners"
@@ -119,7 +119,7 @@ const PricingSection = () => {
           items={TilawahItem}
         />
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center my-6">
         <Link href="/pricing">
           <button className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white">
             See more Pricing

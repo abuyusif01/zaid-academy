@@ -3,7 +3,7 @@ import Link from "next/link";
 import React from "react";
 import i18n from "i18next";
 
-import Logo from "../utils/zaid_W_S.png";
+import Logo from "../utils/logo.png";
 import { useTranslation } from "react-i18next";
 
 const Navbar = () => {
@@ -12,7 +12,9 @@ const Navbar = () => {
     <div className="py-6 px-24 bg-gray-100 flex items-center justify-between">
       <div className="relative">
         <Link href="/">
-          <p className="text-3xl font-bold cursor-pointer">Zaid Academy</p>
+          <div className="w-24 h-10 cursor-pointer">
+            <Image src={Logo} alt="logo" />
+          </div>
         </Link>
       </div>
       <div className="flex space-x-4 text-gray-600 text-sm">
