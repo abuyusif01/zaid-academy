@@ -5,6 +5,7 @@ import {
   FacebookAuthProvider,
   GoogleAuthProvider,
   signOut,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "../config/firebase";
 
@@ -37,6 +38,20 @@ const AuthProvider = ({ children }) => {
     }
   };
 
+  const signInWithEmail = async (email, password) => {
+    try {
+      const credential = await signInWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
+      const user = await credential.user;
+      console.log(user);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   const signInWithGoogle = async () => {
     try {
       const provider = new GoogleAuthProvider();
@@ -53,7 +68,13 @@ const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={{ user, signInWithFacebook, signInWithGoogle, logout }}
+      value={{
+        user,
+        signInWithFacebook,
+        signInWithGoogle,
+        signInWithEmail,
+        logout,
+      }}
     >
       {loading ? null : children}
     </AuthContext.Provider>

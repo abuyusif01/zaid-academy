@@ -2,14 +2,11 @@ import Head from "next/head";
 import Router, { useRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Table from "react-tailwind-table";
-// import Course from "../components/Course";
 import { UseAuth } from "../context/AuthContext";
 
 const Dashboard = () => {
   const { logout, user } = UseAuth();
   const router = useRouter();
-  console.log(user);
   const data = [
     {
       instructor: "Abdullah AbdulRahman",
@@ -130,25 +127,23 @@ const Dashboard = () => {
           </thead>
           <tbody className="divide-y divide-gray-200">
             {data.map((fig) => (
-              <>
-                <tr>
-                  <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                    {fig.course}
-                  </td>
-                  <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                    {fig.instructor}
-                  </td>
-                  <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                    {fig.date}
-                  </td>
-                  <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                    {fig.time}
-                  </td>
-                  <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                    {fig.status}
-                  </td>
-                </tr>
-              </>
+              <tr key={fig.id}>
+                <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
+                  {fig.course}
+                </td>
+                <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                  {fig.instructor}
+                </td>
+                <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                  {fig.date}
+                </td>
+                <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                  {fig.time}
+                </td>
+                <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                  {fig.status}
+                </td>
+              </tr>
             ))}
           </tbody>
         </table>

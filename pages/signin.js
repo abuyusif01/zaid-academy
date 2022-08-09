@@ -8,7 +8,7 @@ import Head from "next/head";
 const signin = () => {
   return (
     <div className="flex justify-center items-center h-[700px]">
-      <Head>
+      {/* <Head>
         <title>Zaid | Signin</title>
       </Head>
       <div className="w-11/12 sm:w-10/12 md:w-8/12 lg:w-1/3 py-12 px-8 border border-gray-200 shadow rounded-lg">
@@ -34,7 +34,7 @@ const signin = () => {
             </Link>
           </p>
         </form>
-      </div>
+      </div> */}
     </div>
   );
 };

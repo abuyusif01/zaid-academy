@@ -1,13 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useContext } from "react";
 import i18n from "i18next";
 
 import Logo from "../utils/logo.png";
 import { useTranslation } from "react-i18next";
+import { AuthContext, UseAuth } from "../context/AuthContext";
 
 const Navbar = () => {
   const { t } = useTranslation();
+  const { user } = UseAuth();
   return (
     <div className="py-6 px-24 bg-gray-100 flex items-center justify-between">
       <div className="relative">
@@ -48,14 +50,9 @@ const Navbar = () => {
         </p>
       </div>
       <div className="flex space-x-4 text-sm">
-        {/* <Link href="/signin">
-          <div className="px-8 py-3 rounded-md bg-indigo-500 text-sm text-white cursor-pointer">
-            Sign In
-          </div>
-        </Link> */}
         <Link href="/signup">
           <div className="px-8 py-3 rounded-md bg-indigo-500 text-sm text-white cursor-pointer">
-            Sign Up
+            {!user ? "Sign In" : "Dashboard"}
           </div>
         </Link>
       </div>

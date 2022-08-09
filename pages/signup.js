@@ -1,14 +1,21 @@
 /* eslint-disable react/no-unescaped-entities */
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { BsFacebook } from "react-icons/bs";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 import Head from "next/head";
 import { UseAuth } from "../context/AuthContext";
 
-const signup = () => {
+const Signup = () => {
   const { user, signInWithGoogle } = UseAuth();
+  const router = useRouter();
+  useEffect(() => {
+    if (user) {
+      router.push("/dashboard");
+    }
+  }, [user, router]);
+
   return (
     <div className="flex justify-center items-center h-[700px]">
       <Head>
@@ -25,7 +32,7 @@ const signup = () => {
           <button
             onClick={() => {
               signInWithGoogle();
-              Router.push("/dashboard");
+              router.push("/dashboard");
             }}
             className="space-x-5 flex justify-center items-center w-full py-4 rounded-lg bg-white border border-gray-200 whitespace-nowrap hover:bg-gray-50 transition duration-500 ease-in focus:outline-none focus:ring-2 focus:ring-indigo-400"
           >
@@ -50,4 +57,4 @@ const signup = () => {
   );
 };
 
-export default signup;
+export default Signup;

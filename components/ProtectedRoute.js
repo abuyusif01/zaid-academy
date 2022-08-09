@@ -7,7 +7,7 @@ const ProtectedRoute = ({ children }) => {
   const router = useRouter();
   useEffect(() => {
     if (!user) {
-      router.push("/signin");
+      router.push("/signup");
     }
   }, [user, router]);
   return <div>{user ? children : null}</div>;

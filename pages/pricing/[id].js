@@ -3,8 +3,10 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { BsCheck } from "react-icons/bs";
+import { useCourse } from "../../context/CourseContext";
 
 const PricingDetails = () => {
+  const { requestCourse } = useCourse();
   const onChange = (e) => {
     setCourse({ ...course, [e.target.name]: e.target.value });
   };
@@ -62,11 +64,20 @@ const PricingDetails = () => {
     email: "",
     phone: "",
     program: program.slug,
-    intensive: "",
+    intensive: "intensive",
+    registered: false,
   });
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(course);
+    requestCourse(course);
+    setCourse({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      program: program.slug,
+      intensive: "intensive",
+    });
   };
   return (
     <div className="px-48 my-16 space-y-8">
