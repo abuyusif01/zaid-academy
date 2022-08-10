@@ -18,7 +18,7 @@ const Admin = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     signInWithEmail(admin);
-    router.push("/admin/dash");
+    router.push("/admin/dash/classes");
   };
   return (
     <div className="flex justify-center items-center h-[700px]">

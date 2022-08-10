@@ -12,6 +12,7 @@ const Contact = () => {
     email: "",
     phone: "",
     content: "",
+    completed: false,
   });
   const onChange = (e) => {
     setMessage({ ...message, [e.target.name]: e.target.value });
@@ -19,6 +20,14 @@ const Contact = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     sendMessage(message);
+    setMessage({
+      firstName: "",
+      lastName: "",
+      email: "",
+      phone: "",
+      content: "",
+      completed: false,
+    });
   };
   return (
     <div className="px-48 my-20">
