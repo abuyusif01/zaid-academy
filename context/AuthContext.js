@@ -7,7 +7,9 @@ import {
   signOut,
   signInWithEmailAndPassword,
 } from "firebase/auth";
+import { collection, doc, getDoc, query, setDoc } from "firebase/firestore";
 import { auth } from "../config/firebase";
+import { db } from "../config/firebase";
 
 const AuthContext = createContext({});
 export const UseAuth = () => useContext(AuthContext);

@@ -7,6 +7,7 @@ import {
   query,
   getDocs,
   where,
+  onSnapshot,
 } from "firebase/firestore";
 import { db } from "../config/firebase";
 
@@ -43,17 +44,13 @@ const CourseProvider = ({ children }) => {
 
   const getOldMessages = async () => {
     const q = query(collection(db, "messages"), where("completed", "==", true));
-
-    try {
-      const querySnapshot = await getDocs(q);
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const msg = [];
       querySnapshot.forEach((doc) => {
         msg.push({ id: doc.id, ...doc.data() });
       });
       setOldMessages(msg);
-    } catch (error) {
-      console.log(error.message);
-    }
+    });
   };
 
   const getNewMessages = async () => {
@@ -61,17 +58,13 @@ const CourseProvider = ({ children }) => {
       collection(db, "messages"),
       where("completed", "==", false)
     );
-
-    try {
-      const querySnapshot = await getDocs(q);
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const msg = [];
       querySnapshot.forEach((doc) => {
         msg.push({ id: doc.id, ...doc.data() });
       });
       setNewMessages(msg);
-    } catch (error) {
-      console.log(error.message);
-    }
+    });
   };
 
   const sendMessage = async (message) => {
@@ -84,7 +77,6 @@ const CourseProvider = ({ children }) => {
 
   const answerMessage = async (id) => {
     try {
-      // await db.collection("messages").doc(id).update({ completed: true });
       const messageRef = doc(db, "messages", id);
       await updateDoc(messageRef, { completed: true });
     } catch (error) {

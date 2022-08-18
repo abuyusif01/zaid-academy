@@ -8,6 +8,7 @@ import Mission from "../components/Mission";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 import Head from "next/head";
+import Logo from "../utils/logo.png";
 
 const style = {
   backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -28,10 +29,11 @@ const About = () => {
           style={style}
           className="absolute top-0 left-0 text-white px-24 inline-flex flex-col justify-center py-10 w-[100vw] h-[600px]"
         >
-          <h1 className="text-5xl font-bold leading-relaxed">{t("learn")}</h1>
-          <h2 className="text-5xl font-bold leading-relaxed ">
-            About Zaid Academy
-          </h2>
+          {/* <div className="w-24 h-10 cursor-pointer">
+            <Image src={Logo} alt="logo" />
+          </div> */}
+          {/* <h1 className="text-5xl font-bold leading-relaxed">{t("learn")}</h1> */}
+          <h2 className="text-8xl font-bold leading-relaxed ">Zaid Academy</h2>
         </div>
       </div>
       <div className="my-10">

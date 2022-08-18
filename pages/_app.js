@@ -6,12 +6,12 @@ import { initReactI18next, useTranslation } from "react-i18next";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import ProtectedRoute from "../components/ProtectedRoute";
-import AuthProvider from "../context/AuthContext";
 import translationsEn from "../internationalization/translationsEn";
 import translationsFr from "../internationalization/translationsFr";
-import "../styles/globals.css";
-import { interpolateAs } from "next/dist/shared/lib/router/router";
 import CourseProvider from "../context/CourseContext";
+import StudentProvider from "../context/StudentContext";
+import AuthProvider from "../context/AuthContext";
+import "../styles/globals.css";
 
 const authRequired = ["/", "/"];
 
@@ -32,21 +32,23 @@ function MyApp({ Component, pageProps }) {
   return (
     <Suspense fallback="Loading...">
       <AuthProvider>
-        <CourseProvider>
-          <div className="font-Poppins min-h-screen flex flex-col">
-            <Navbar />
-            {authRequired ? (
-              <ProtectedRoute>
+        <StudentProvider>
+          <CourseProvider>
+            <div className="font-Poppins min-h-screen flex flex-col">
+              <Navbar />
+              {authRequired ? (
+                <ProtectedRoute>
+                  <Component {...pageProps} />
+                </ProtectedRoute>
+              ) : (
                 <Component {...pageProps} />
-              </ProtectedRoute>
-            ) : (
-              <Component {...pageProps} />
-            )}
-            <div className="">
-              <Footer />
+              )}
+              <div className="">
+                <Footer />
+              </div>
             </div>
-          </div>
-        </CourseProvider>
+          </CourseProvider>
+        </StudentProvider>
       </AuthProvider>
     </Suspense>
   );

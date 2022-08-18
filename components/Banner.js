@@ -1,6 +1,7 @@
 /* eslint-disable react/no-unescaped-entities */
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { Trans, useTranslation } from "react-i18next";
 import Quran from "../utils/quran.jpeg";
@@ -10,6 +11,7 @@ const style = {
 };
 
 const Banner = () => {
+  const router = useRouter();
   const { t } = useTranslation();
   return (
     <div className="relative">
@@ -33,7 +35,10 @@ const Banner = () => {
         </p>
         <div className="relative">
           <Link href="/">
-            <button className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white mt-8">
+            <button
+              className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white mt-8"
+              // onClick={() => router.push("/signup")}
+            >
               {t("apply")}
             </button>
           </Link>

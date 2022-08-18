@@ -2,17 +2,16 @@ const translationsFr = {
   learn: "Apprendre",
   welcome: "Bienvenue",
   bannerText: "Le Coran auprès",
-  bannerText1: "d’instituteurs islamiques expérimentés.",
+  bannerText1: "d’instituteurs expérimentés.",
   verse:
     "Certes, ceux qui récitent le Livre d'Allah, accomplissent la prière et donnent de ce que Nous leur avons attribué - en secret et ouvertement - peuvent espérer un échange qui ne manquera jamais",
   apply: "Appliquer maintenant",
   learnQuran:
     "Rendre l’apprentissage du Saint Coran facile et accessible à tout le monde",
-  learnLanguage:
-    "apprendre le Coran avec des tuteurs qui s’expriment en plusieurs langues",
+  learnLanguage: "nos instructeurs s'expriment en differentes langues",
   languages: "dont le Français, L’anglais, l’Arabe, le Poular et le Wolof",
   visions: [
-    "Fournir un accès illimité à l'éducation coranique",
+    "Fournir un accès à l'éducation coranique",
     "Faciliter le processus d'apprentissage du Coran",
     "Enseigner le Coran d'une manière qui est fidèle aux principes islamiques",
   ],
@@ -78,7 +77,7 @@ const translationsFr = {
     },
   ],
   aboutZaid:
-    "L'académie Zaid est une plate-forme d'éducation en ligne qui donne aux musulmans la possibilité d'apprendre le Coran et la langue arabe auprès d'instructeurs renommés de manière pratique.  Notre objectif est de fournir un accès à l'éducation coranique aux personnes du monde entier, en particulier aux personnes vivant dans des régions du monde disposant de très peu de ressources pour obtenir l'éducation dont elles ont besoin.  nous le faisons en proposant des cours avec des enseignants du Coran qui sont expérimentés et qui s’expriment dans différentes langues dont L’anglais, L'arabe, Le Français, Le Poular et Le wolof",
+    "L'académie Zaid est une plate-forme d'éducation en ligne qui donne aux musulmans la possibilité d'apprendre le Coran auprès d'instructeurs renommés de manière pratique.  Notre objectif est de fournir un accès à l'éducation coranique aux personnes du monde entier, en particulier aux personnes vivant dans des régions du monde disposant de très peu de ressources pour obtenir l'éducation dont elles ont besoin.  Nous le faisons en proposant des cours avec des enseignants du Coran qui sont expérimentés et qui s’expriment dans différentes langues dont L’anglais, L'arabe, Le Français, Le Poular et Le wolof",
   join: "Rejoigner nos lecons ",
   platform: "Platform pour apprendre le Coran",
   struggle:

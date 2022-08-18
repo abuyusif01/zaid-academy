@@ -5,15 +5,15 @@ const translationsEn = {
   learn: "Learn",
   welcome: "Welcome",
   bannerText: "The Quran from",
-  bannerText1: "experienced Islamic Instructors",
+  bannerText1: "experienced teachers",
   verse:
     "Surely those who recite the Book of Allah, establish prayer, and donate from what We have provided for them—secretly and openly—˹can˺ hope for an exchange that will never fail",
   apply: "Apply Now",
   learnQuran: " Make the Learning of the Quran Easy",
-  learnLanguage: "learn the quran in 5 different languages",
+  learnLanguage: "our instructors speak several languages which includes",
   languages: "French, English, Arabic, Fullani and Wollof",
   visions: [
-    "Provide unrestricted access to Quran Education",
+    "Provide access to Quran Education",
     "Ease the process of learning the Quran",
     "Teach Quran in a way that's true to Islamic principles",
   ],
@@ -79,7 +79,7 @@ const translationsEn = {
     },
   ],
   aboutZaid:
-    "Zaid academy is an online education platform that gives muslims the opportunity to learn the Quran and Arabic language from renowned instructors in a convenient fashion. Our objective is to provide access to Quran Education to people all over the world, especially people living in parts of the world with very fewer resources at their disposal to get the education they require. we do so by providing Quran lessons with English, Arabic, French, Fullani and Wolof",
+    "Zaid academy is an online education platform that gives muslims the opportunity to learn the Quran from renowned instructors in a convenient fashion. Our objective is to provide access to Quran Education to people all over the world, especially people living in parts of the world with very fewer resources at their disposal to get the education they require. we do so by providing Quran lessons with English, Arabic, French, Fullani and Wolof",
   join: "Join for lessons",
   platform: "Platform to Learn the quran",
   struggle:

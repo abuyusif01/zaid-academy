@@ -3,7 +3,6 @@ import { useCourse } from "../context/CourseContext";
 
 const Request = ({ message }) => {
   const { answerMessage } = useCourse();
-  console.log(message);
   return (
     <div className="min-w-1/4  border border-gray-300 rounded pb-4">
       <div className="py-4 px-8 ">

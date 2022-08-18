@@ -23,7 +23,7 @@ const Messages = () => {
           <p className="text-2xl text-gray-600 font-semibold">New Messages</p>
           <div className="flex flex-wrap items-start space-x-4">
             {newMessages.map((mesg) => (
-              <Message key={mesg.id} message={mesg} />
+              <Message key={mesg.id} message={mesg} id={mesg.id} />
             ))}
           </div>
           <p className="text-2xl text-gray-600 font-semibold">Old Messages</p>
