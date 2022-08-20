@@ -39,18 +39,13 @@ const Signup = () => {
             <FcGoogle className="text-xl" />
             <span>Sign in with Google</span>
           </button>
-          <button className="space-x-5 flex justify-center items-center w-full py-4 rounded-lg bg-blue-500 text-white border-gray-400 whitespace-nowrap hover:bg-blue-400 transition duration-500 ease-in">
+          <button
+            disabled
+            className="space-x-5 flex justify-center items-center w-full py-4 rounded-lg bg-blue-500 text-white border-gray-400 whitespace-nowrap hover:bg-blue-400 transition duration-500 ease-in"
+          >
             <BsFacebook className="text-white text-xl" />
             <span>Sign in with Facebook</span>
           </button>
-          <p className="text-center text-sm text-gray-500 my-4">
-            Don't have an account?{" "}
-            <Link href="/signup">
-              <span className="text-indigo-500 cursor-pointer">
-                Register here
-              </span>
-            </Link>
-          </p>
         </div>
       </div>
     </div>

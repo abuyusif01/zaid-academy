@@ -1,5 +1,6 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
+import Ousmane from "../utils/ousmane.png";
 import Biallo from "../utils/muhamed-1.jpg";
 import Mujtaba from "../utils/muhamed2.jpg";
 
@@ -8,7 +9,7 @@ import Teacher from "./Teacher";
 const TeacherSection = () => {
   const { t } = useTranslation();
   const teachers = t("teachers", { returnObjects: true });
-  const images = [Biallo, Biallo, Mujtaba];
+  const images = [Ousmane, Biallo, Mujtaba];
 
   return (
     <div className="px-24">

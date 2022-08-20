@@ -1,22 +1,24 @@
 import Mohammad1 from "../utils/muhamed-1.jpg";
 import Mohammad2 from "../utils/muhamed2.jpg";
+import Ousmane from "../utils/ousmane.png";
 
 const translationsEn = {
   learn: "Learn",
   welcome: "Welcome",
-  bannerText: "The Quran from",
+  bannerText: "the Quran from",
   bannerText1: "experienced teachers",
   verse:
     "Surely those who recite the Book of Allah, establish prayer, and donate from what We have provided for them—secretly and openly—˹can˺ hope for an exchange that will never fail",
   apply: "Apply Now",
   learnQuran: " Make the Learning of the Quran Easy",
-  learnLanguage: "our instructors speak several languages which includes",
+  learnLanguage: "Our instructors speak several languages which includes",
   languages: "French, English, Arabic, Fullani and Wollof",
   visions: [
-    "Provide access to Quran Education",
-    "Ease the process of learning the Quran",
-    "Teach Quran in a way that's true to Islamic principles",
+    "Ease access to Qur'an education",
+    "Facilitate the process of learning the Qur'an",
+    "Warrant success in outcome of education",
   ],
+  we: "We",
   missions: [
     "Teach Quran to People of all ages",
     "Put emphasis on the right pronunciation (Tajweed)",
@@ -28,7 +30,7 @@ const translationsEn = {
       name: "Ousmane Yahya Diallo",
       role: "Founder, Teacher",
       id: 1,
-      image: Mohammad1,
+      image: Ousmane,
       shortBio:
         "Ousmane Yahya Diallo is a renowned Instructor of the quran specializing in aspect such as Tajweed, Hifz (Memorization) with certification (Ijazah and Sanad), he has learned from many prominent scholars as well as in reputable institutions around the world, his qualification includes Islamic Studies in Al Qasimiah University in Sharjah UAE, Quran diploma from Institute Ahmad Sakhir Lo Senagal among others. Among his previous engagement is attending Halaqat for the memorization (Ijazah) of the Quran in the Holy Mosque of Mecca.",
       education: [
@@ -79,7 +81,7 @@ const translationsEn = {
     },
   ],
   aboutZaid:
-    "Zaid academy is an online education platform that gives muslims the opportunity to learn the Quran from renowned instructors in a convenient fashion. Our objective is to provide access to Quran Education to people all over the world, especially people living in parts of the world with very fewer resources at their disposal to get the education they require. we do so by providing Quran lessons with English, Arabic, French, Fullani and Wolof",
+    "Zaid academy is an online education platform that gives muslims the opportunity to learn the Quran from renowned instructors in a convenient fashion. Our objective is to provide access to Quran Education to people all over the world, especially people living in parts of the world with very fewer resources at their disposal to get the education they require. We do so by providing Quran lessons through instructors who speak English, Arabic, French, Fullani and Wolof",
   join: "Join for lessons",
   platform: "Platform to Learn the quran",
   struggle:
@@ -87,8 +89,8 @@ const translationsEn = {
   monthly: "monthly",
   oneOnOne: "Perfect for a Person that wants one on one classes",
   family: "Perfect for a family of more than 3 people",
-  Beginners: "Beginners",
-  BeginnersIntensive: "Beginners Intensive",
+  Beginners: "Beginners (Alphabet)",
+  BeginnersIntensive: "Beginners (Alphabet) Intensive",
   BeginnersItem: [
     "Introduction to Arabic Alphabet",
     "How to read",

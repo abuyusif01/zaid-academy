@@ -4,8 +4,10 @@ import Madrasah from "../../utils/madrosah-sunnah-UyWPZMofyi0-unsplash.jpg";
 import teachers from "../../utils/teachers";
 import Teacher from "../../components/Teacher";
 import Head from "next/head";
+import Ousmane from "../../utils/ousmane.png";
 import Biallo from "../../utils/muhamed-1.jpg";
 import Mujtaba from "../../utils/muhamed2.jpg";
+import Banner1 from "../../utils/banner1.jpeg";
 import { useTranslation } from "react-i18next";
 
 const style = {
@@ -15,7 +17,7 @@ const style = {
 const Instructor = () => {
   const { t } = useTranslation();
   const teachers = t("teachers", { returnObjects: true });
-  const images = [Biallo, Biallo, Mujtaba];
+  const images = [Ousmane, Biallo, Mujtaba];
   return (
     <div className="relative">
       <Head>
@@ -23,7 +25,7 @@ const Instructor = () => {
       </Head>
       <div className="">
         <div className="relative w-[100vw] h-[600px]">
-          <Image src={Madrasah} alt="banner" layout="fill" objectFit="cover" />
+          <Image src={Banner1} alt="banner" layout="fill" objectFit="cover" />
         </div>
         <div
           style={style}

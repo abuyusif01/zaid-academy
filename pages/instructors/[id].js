@@ -6,11 +6,12 @@ import Head from "next/head";
 import { useTranslation } from "react-i18next";
 import Biallo from "../../utils/muhamed-1.jpg";
 import Mujtaba from "../../utils/muhamed2.jpg";
+import Ousmane from "../../utils/ousmane.png";
 
 const IntructorsDetail = (props) => {
   const { t } = useTranslation();
   const teachers = t("teachers", { returnObjects: true });
-  const images = [Biallo, Biallo, Mujtaba];
+  const images = [Ousmane, Biallo, Mujtaba];
   const { query } = useRouter();
   const id = query.id * 1;
   const teacher = teachers.find((teach) => teach.id === id);

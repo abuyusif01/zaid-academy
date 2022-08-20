@@ -45,41 +45,6 @@ const StudentProvider = ({ children }) => {
     });
   };
 
-  const registerNewStudent = async (user) => {
-    const studentRef = doc(db, "students", user.uid);
-    const docSnap = await getDoc(studentRef);
-    if (!docSnap.exists()) {
-      await setDoc(doc(db, "students", user.uid), {
-        id: user.uid,
-        name: user.displayName,
-        email: user.email,
-        gender: "",
-        nationality: "",
-        language: "",
-        course: "",
-        lecturer: "",
-        payment: "",
-        expiryDate: "",
-        attendance: [{ date: "", status: "Upcoming" }],
-      });
-      setStudent({
-        id: user.uid,
-        name: user.displayName,
-        email: user.email,
-        gender: "",
-        nationality: "",
-        language: "",
-        course: "",
-        lecturer: "",
-        payment: "",
-        expiryDate: "",
-        attendance: [{ date: "", status: "Upcoming" }],
-      });
-    } else {
-      setStudent(docSnap.data());
-    }
-  };
-
   const updateStudent = async (id, data) => {
     try {
       const studentRef = doc(db, "students", id);
@@ -100,7 +65,6 @@ const StudentProvider = ({ children }) => {
         students,
         classes,
         getStudents,
-        registerNewStudent,
         selfRegister,
         updateStudent,
         getStudentByInstructor,

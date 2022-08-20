@@ -20,6 +20,7 @@ const translationsFr = {
     "Mettre l'accent sur la bonne prononciation (Tajwid)",
     "Apporter une plateforme d'apprentissage propice",
   ],
+  we: "Nous",
   popularTeacher: "Nos professeurs ",
   teachers: [
     {

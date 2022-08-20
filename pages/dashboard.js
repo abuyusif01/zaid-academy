@@ -1,18 +1,27 @@
 import Head from "next/head";
-import Router, { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import StudentDashboard from "../components/StudentDashboard";
+import Modal from "../components/Modal";
 import CourseRegistration from "../components/CourseRegistration";
 import { UseAuth } from "../context/AuthContext";
 import { useStudent } from "../context/StudentContext";
 
 const Dashboard = () => {
   const { user } = UseAuth();
-  const { student, registerNewStudent } = useStudent();
+  const { student } = useStudent();
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   useEffect(() => {
-    registerNewStudent(user);
+    // registerNewStudent(user);
   }, []);
 
   return (
@@ -20,11 +29,13 @@ const Dashboard = () => {
       <Head>
         <title>Dashboard | {user.displayName}</title>
       </Head>
-      {student.course !== "" ? (
-        <StudentDashboard student={student} />
-      ) : (
-        <CourseRegistration student={student} />
-      )}
+      {/* <div onClick={openModal}>Update Profile</div> */}
+      <StudentDashboard student={student} open={openModal} />
+      <div>
+        <Modal open={showModal} close={closeModal}>
+          <CourseRegistration student={student} close={closeModal} />
+        </Modal>
+      </div>
     </div>
   );
 };

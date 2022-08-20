@@ -54,92 +54,96 @@ const PricingX = () => {
       <Head>
         <title>Zaid | Pricing</title>
       </Head>
-      <h4 className="uppercase text-2xl text-center font-bold">Pricing</h4>
-      <div className="mx-auto flex items-center justify-center w-[180px] space-x-4">
-        <div
-          className={`px-4 py-1 ${
-            !show ? "bg-white text-gray-700" : "bg-indigo-500 text-white"
-          } text-white rounded-2xl cursor-pointer`}
-          onClick={showBasic}
-        >
-          Basic
-        </div>
-        <div
-          className={`px-4 py-1 ${
-            show ? "bg-white text-gray-700" : "bg-indigo-500 text-white"
-          } text-white rounded-2xl cursor-pointer`}
-          onClick={showIntensive}
-        >
-          Intensive
-        </div>
-      </div>
-      <div className="w-10/12 mx-auto space-y-8">
-        {show ? (
-          <div className="flex justify-center space-x-8">
-            <Pricing
-              bestValue={false}
-              title="Beginners"
-              description={t("family")}
-              price={`110`}
-              items={BeginnersItem}
-              programs={[]}
-            />
-            <Pricing
-              bestValue={false}
-              title="Hifz"
-              description={t("family")}
-              price={`110`}
-              items={HifzItems}
-              programs={[]}
-            />
-            <Pricing
-              bestValue={false}
-              title="Tilawah"
-              description={t("family")}
-              price={`110`}
-              items={TilawahItem}
-              programs={[]}
-            />
-            <Pricing
-              bestValue={false}
-              title="Murajah"
-              description={t("family")}
-              price={`110`}
-              items={MurajaItem}
-            />
+      <div>
+        <h4 className="uppercase text-2xl text-center font-bold mb-8">
+          Pricing
+        </h4>
+        <div className="mx-auto mb-8 flex items-center justify-center w-[180px] space-x-4">
+          <div
+            className={`px-4 py-1 ${
+              !show ? "bg-white text-gray-700" : "bg-indigo-500 text-white"
+            } text-white rounded-2xl cursor-pointer`}
+            onClick={showBasic}
+          >
+            Basic
           </div>
-        ) : (
-          <div className="flex justify-center space-x-8">
-            <Pricing
-              bestValue={true}
-              title="Beginners Intensive"
-              description={t("oneOnOne")}
-              price={`180`}
-              items={BeginnersIntensiveItem}
-            />
-            <Pricing
-              bestValue={true}
-              title="Hifz Intensive"
-              description={t("oneOnOne")}
-              price={`180`}
-              items={HifzIntensiveItems}
-            />
-            <Pricing
-              bestValue={true}
-              title="Tilawah Intensive"
-              description={t("oneOnOne")}
-              price={180}
-              items={TilawahIntensiveItem}
-            />
-            <Pricing
-              bestValue={true}
-              title="Murajah Intensive"
-              description={t("oneOnOne")}
-              price={180}
-              items={MurajaIntensiveItem}
-            />
+          <div
+            className={`px-4 py-1 ${
+              show ? "bg-white text-gray-700" : "bg-indigo-500 text-white"
+            } text-white rounded-2xl cursor-pointer`}
+            onClick={showIntensive}
+          >
+            Intensive
           </div>
-        )}
+        </div>
+        <div className="w-10/12 mx-auto space-y-8">
+          {show ? (
+            <div className="flex justify-center space-x-8">
+              <Pricing
+                bestValue={false}
+                title="Beginners"
+                description={t("family")}
+                price={`110`}
+                items={BeginnersItem}
+                programs={[]}
+              />
+              <Pricing
+                bestValue={false}
+                title="Hifz"
+                description={t("family")}
+                price={`110`}
+                items={HifzItems}
+                programs={[]}
+              />
+              <Pricing
+                bestValue={false}
+                title="Tilawah"
+                description={t("family")}
+                price={`110`}
+                items={TilawahItem}
+                programs={[]}
+              />
+              <Pricing
+                bestValue={false}
+                title="Murajah"
+                description={t("family")}
+                price={`110`}
+                items={MurajaItem}
+              />
+            </div>
+          ) : (
+            <div className="flex justify-center space-x-8">
+              <Pricing
+                bestValue={true}
+                title="Beginners Intensive"
+                description={t("oneOnOne")}
+                price={`180`}
+                items={BeginnersIntensiveItem}
+              />
+              <Pricing
+                bestValue={true}
+                title="Hifz Intensive"
+                description={t("oneOnOne")}
+                price={`180`}
+                items={HifzIntensiveItems}
+              />
+              <Pricing
+                bestValue={true}
+                title="Tilawah Intensive"
+                description={t("oneOnOne")}
+                price={180}
+                items={TilawahIntensiveItem}
+              />
+              <Pricing
+                bestValue={true}
+                title="Murajah Intensive"
+                description={t("oneOnOne")}
+                price={180}
+                items={MurajaIntensiveItem}
+              />
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

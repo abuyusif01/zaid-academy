@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { BsCheck } from "react-icons/bs";
@@ -13,6 +14,7 @@ import Reading2 from "../utils/reading2.avif";
 
 const AboutSection = () => {
   const { t, ready } = useTranslation();
+  const router = useRouter();
   if (!ready) return "loading translations...";
   const datas = t("visions", { returnObjects: true });
   return (
@@ -30,7 +32,7 @@ const AboutSection = () => {
       </div>
       <div className="w-1/2  p-4">
         <h4 className="text-gray-800 text-2xl uppercase font-semibold leading-loose tracking-wider">
-          About Us
+          {t("we")}
         </h4>
         <p className="text-xl leading-relaxed">{t("learnQuran")}</p>
         <p className="text-sm leading-relaxed text-gray-700">
@@ -47,7 +49,10 @@ const AboutSection = () => {
         </ul>
         <div className="relative">
           <Link href="/">
-            <button className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white">
+            <button
+              className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white"
+              onClick={() => router.push("/signup")}
+            >
               {t("apply")}
             </button>
           </Link>

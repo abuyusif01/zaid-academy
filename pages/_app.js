@@ -34,7 +34,7 @@ function MyApp({ Component, pageProps }) {
       <AuthProvider>
         <StudentProvider>
           <CourseProvider>
-            <div className="font-Poppins min-h-screen flex flex-col">
+            <div className="font-Poppins min-h-screen flex flex-col justify-between">
               <Navbar />
               {authRequired ? (
                 <ProtectedRoute>

@@ -3,7 +3,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { UseAuth } from "../context/AuthContext";
 
-const StudentDashboard = () => {
+const StudentDashboard = ({ student, open }) => {
   const { t } = useTranslation();
   const { logout, user } = UseAuth();
   const router = useRouter();
@@ -48,8 +48,11 @@ const StudentDashboard = () => {
           {t("welcome")} {user.displayName}
         </p>
         <div className="space-x-6">
-          <button className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white">
-            Send Message to Instructor
+          <button
+            className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white"
+            onClick={open}
+          >
+            update profile
           </button>
           <button
             className="px-12 py-4 rounded-md bg-red-400 text-sm text-white"

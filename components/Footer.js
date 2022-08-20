@@ -40,7 +40,7 @@ const Footer = () => {
       <div className="flex space-x-4">
         <div className="space-y-2 flex flex-col justify-center items-center text-gray-600">
           <BsTelephone className="text-2xl" />
-          <p className="text-sm">Phone</p>
+          <p className="text-sm">+60-11-1605-0164</p>
         </div>
         <div className="space-y-2 flex flex-col justify-center items-center text-gray-600">
           <BsEnvelopeFill className="text-2xl" />
