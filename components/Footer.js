@@ -11,7 +11,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className="w-full px-16 py-8 bg-indigo-100 flex items-center justify-between">
+    <div className="w-full px-16 py-8 bg-gray-100 flex items-center justify-between">
       <div className="w-48 h-24">
         <Image src={Logo} alt="logo" />
       </div>

@@ -3,11 +3,11 @@ import {
   collection,
   doc,
   getDoc,
-  getDocs,
   query,
   setDoc,
   onSnapshot,
   updateDoc,
+  where,
 } from "firebase/firestore";
 import { db } from "../config/firebase";
 
@@ -17,6 +17,7 @@ export const useStudent = () => useContext(StudentContext);
 const StudentProvider = ({ children }) => {
   const [student, setStudent] = useState({});
   const [students, setStudents] = useState([]);
+  const [classes, setClasses] = useState([]);
 
   const getStudents = () => {
     const q = query(collection(db, "students"));
@@ -27,6 +28,20 @@ const StudentProvider = ({ children }) => {
         stud.push(doc.data());
       });
       setStudents(stud);
+    });
+  };
+
+  const getStudentByInstructor = (lecturer) => {
+    const q = query(
+      collection(db, "students"),
+      where("lecturer", "==", lecturer)
+    );
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const msg = [];
+      querySnapshot.forEach((doc) => {
+        msg.push({ id: doc.id, ...doc.data() });
+      });
+      setClasses(msg);
     });
   };
 
@@ -83,10 +98,12 @@ const StudentProvider = ({ children }) => {
       value={{
         student,
         students,
+        classes,
         getStudents,
         registerNewStudent,
         selfRegister,
         updateStudent,
+        getStudentByInstructor,
       }}
     >
       {children}

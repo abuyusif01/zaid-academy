@@ -13,9 +13,9 @@ const SideBar = () => {
       <div className="px-8 py-4 border-b border-b-1 border-b-indigo-400">
         <Link href="/admin/dash/messages">Messages</Link>
       </div>
-      <div className="px-8 py-4 border-b border-b-1 border-b-indigo-400">
+      {/* <div className="px-8 py-4 border-b border-b-1 border-b-indigo-400">
         <Link href="/admin/dash/requests">Request</Link>
-      </div>
+      </div> */}
       <div className="px-8 py-4 border-b border-b-1 border-b-indigo-400">
         <Link href="/admin/dash/students">Students</Link>
       </div>
