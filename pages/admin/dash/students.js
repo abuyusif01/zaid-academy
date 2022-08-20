@@ -47,6 +47,12 @@ const Students = () => {
                 </th>
                 <th
                   scope="col"
+                  className="px-6 py-3 text-xs font-bold text-right uppercase "
+                >
+                  Instructor
+                </th>
+                <th
+                  scope="col"
                   className="px-6 py-3 text-xs font-bold text-left uppercase "
                 >
                   Email
@@ -63,12 +69,7 @@ const Students = () => {
                 >
                   Payment
                 </th>
-                {/* <th
-                  scope="col"
-                  className="px-6 py-3 text-xs font-bold text-right uppercase "
-                >
-                  Status
-                </th> */}
+
                 <th
                   scope="col"
                   className="px-6 py-3 text-xs font-bold text-right uppercase "
@@ -83,6 +84,9 @@ const Students = () => {
                   <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
                     {fig.name}
                   </td>
+                  <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                    {fig.lecturer}
+                  </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                     {fig.email}
                   </td>
@@ -90,11 +94,9 @@ const Students = () => {
                     {fig.course ? fig.course : "Not Registered"}
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                    {fig.payment === "" ? "unpaid" : "paid"}
+                    {fig.payment !== "paid" ? "unpaid" : "paid"}
                   </td>
-                  {/* <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                    {fig.status}
-                  </td> */}
+
                   <td
                     className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap cursor-pointer text-indigo-500"
                     onClick={() => {

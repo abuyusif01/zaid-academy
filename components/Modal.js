@@ -13,7 +13,7 @@ const Modal = ({ close, open, children }) => {
             onClick={(e) => {
               e.stopPropagation();
             }}
-            className="w-4/6 h-48 bg-white rounded"
+            className="w-3/6 bg-white rounded p-8"
           >
             {children}
           </div>

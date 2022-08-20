@@ -16,7 +16,9 @@ const IntructorsDetail = (props) => {
   const teacher = teachers.find((teach) => teach.id === id);
   return (
     <div className="my-10 px-24">
-      <Head>{/* <title>{teacher.name}</title> */}</Head>
+      <Head>
+        <title>{teacher.name}</title>
+      </Head>
       <div className="flex justify-center">
         <div className="relative w-1/3 h-[650px]">
           <Image
