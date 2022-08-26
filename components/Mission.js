@@ -13,7 +13,7 @@ const Mission = () => {
   const router = useRouter();
   const datas = t("missions", { returnObjects: true });
   return (
-    <div className="my-16 flex flex-col-reverse sm:flex-row justify-center items-center">
+    <div className="my-16 md:px-48 flex flex-col-reverse sm:flex-row justify-center items-center">
       <div className="w-full py-4 px-8 md:w-1/2">
         <h4 className="text-gray-800 text-lg md:text-2xl uppercase font-semibold leading-loose tracking-wider">
           Mission

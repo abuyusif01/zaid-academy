@@ -8,7 +8,6 @@ import Mission from "../components/Mission";
 import { t } from "i18next";
 import { useTranslation } from "react-i18next";
 import Head from "next/head";
-import Logo from "../utils/logo.png";
 
 const style = {
   backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -38,7 +37,7 @@ const About = () => {
           </h2>
         </div>
       </div>
-      <div className="my-10">
+      <div className="my-10 md:px-24">
         <AboutZaid />
         <Vision />
         <Mission />
