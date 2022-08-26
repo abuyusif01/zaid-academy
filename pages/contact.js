@@ -31,16 +31,16 @@ const Contact = () => {
     });
   };
   return (
-    <div className="px-48 my-20">
+    <div className="md:px-48 md:my-20">
       <Head>
         <title>Zaid | Contact</title>
       </Head>
-      <h4 className="uppercase pb-10 text-2xl text-center font-bold">
+      <h4 className="uppercase p-4 pb-10 text-lg md:text-2xl text-center font-bold">
         You can Reach out to us via the following
       </h4>
 
-      <div className="flex items-center">
-        <div className="w-2/3">
+      <div className="flex flex-col md:flex-row items-center">
+        <div className="p-4 md:w-2/3 w-full">
           <form onSubmit={onSubmit}>
             <div className="py-6 border-b border-coolGray-100">
               <div className="w-full md:w-9/12">
@@ -171,17 +171,17 @@ const Contact = () => {
             </div>
           </form>
         </div>
-        <div className="w-1/3  p-4">
+        <div className="w-full md:w-1/3  p-4">
           <div className="bg-white border border-gray-100 shadow rounded-md p-12 space-y-8">
-            <div className="space-y-1">
-              <h4 className="text-2xl font-bold leading-loose mb-2">
+            <div className="space-y-1 text-sm md:text-base">
+              <h4 className="text-lg md:text-2xl font-bold leading-loose mb-2">
                 Malaysia Office
               </h4>
               <p>Jalan Gombak</p>
               <p>Gombak, Selangor</p>
               <p>Malaysia</p>
             </div>
-            <div className="">
+            <div className="text-sm md:text-base">
               <h4 className="text-lg leading-loose">Email us directly</h4>
               <p>
                 <a
