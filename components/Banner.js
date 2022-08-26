@@ -15,22 +15,24 @@ const Banner = () => {
   const { t } = useTranslation();
   return (
     <div className="relative">
-      <div className="relative w-[100vw] h-[600px]">
-        <Image src={Quran} alt="banner" layout="fill" />
+      <div className="relative w-[100vw] min-h-[650px]">
+        <Image src={Quran} alt="banner" layout="fill" className="w-[100vw]" />
       </div>
       <div
         style={style}
-        className="absolute top-0 left-0 text-white px-24 inline-flex flex-col justify-center py-10 w-[100vw] h-[600px]"
+        className="absolute top-0 left-0 text-white inline-flex px-4 md:px-32 flex-col justify-center w-[100vw] min-h-[650px] md:space-y-6"
       >
-        <h1 className="text-5xl font-bold leading-relaxed">{t("learn")}</h1>
+        <h1 className="md:text-5xl text-4xl font-bold leading-relaxed">
+          {t("learn")}
+        </h1>
 
-        <h2 className="text-5xl font-bold leading-relaxed ">
+        <h2 className="md:text-5xl text-4xl font-bold leading-relaxed ">
           {t("bannerText")}
         </h2>
-        <h2 className="text-5xl font-bold leading-relaxed ">
+        <h2 className="md:text-5xl text-4xl font-bold leading-relaxed ">
           {t("bannerText1")}
         </h2>
-        <p className="xl:w-2/3 leading-relaxed mt-10 italic text-sm">
+        <p className="md:w-2/3 leading-relaxed mt-10 italic text-sm md:text-lg">
           "{t("verse")}" (Surah fatir verse 29)
         </p>
         <div className="relative">

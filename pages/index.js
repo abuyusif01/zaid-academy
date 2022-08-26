@@ -13,7 +13,7 @@ const Home = () => {
       </Head>
       <Banner />
       <AboutSection />
-      <div className="bg-gray-200 py-12">
+      <div className="bg-gray-100 py-12">
         <TeacherSection />
       </div>
       <div className="py-12">

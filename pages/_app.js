@@ -35,7 +35,7 @@ function MyApp({ Component, pageProps }) {
         <StudentProvider>
           <CourseProvider>
             <div className="font-Poppins min-h-screen flex flex-col justify-between">
-              <Navbar />
+              {/* <Navbar /> */}
               {authRequired ? (
                 <ProtectedRoute>
                   <Component {...pageProps} />
@@ -43,9 +43,7 @@ function MyApp({ Component, pageProps }) {
               ) : (
                 <Component {...pageProps} />
               )}
-              <div className="">
-                <Footer />
-              </div>
+              <div className="">{/* <Footer /> */}</div>
             </div>
           </CourseProvider>
         </StudentProvider>

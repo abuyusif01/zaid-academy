@@ -12,11 +12,11 @@ const TeacherSection = () => {
   const images = [Ousmane, Biallo, Mujtaba];
 
   return (
-    <div className="px-24">
-      <p className="text-center text-2xl font-bold my-6 uppercase">
+    <div className="md:px-24">
+      <p className="text-center md:text-2xl font-bold my-6 uppercase">
         {t("popularTeacher")}
       </p>
-      <div className="flex items-center justify-center">
+      <div className="flex flex-col md:flex-row items-center justify-center">
         {teachers.map((teacher) => (
           <Teacher
             key={teacher.name}

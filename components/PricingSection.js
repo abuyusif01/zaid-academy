@@ -94,9 +94,9 @@ const PricingSection = () => {
   const HifzItems = t("HifzItems", { returnObjects: true });
   const TilawahItem = t("TilawahItem", { returnObjects: true });
   return (
-    <div className="px-24">
+    <div className="px-4 md:px-24">
       <p className="text-center text-2xl font-bold my-6 uppercase">Pricings</p>
-      <div className="flex justify-center space-x-6">
+      <div className="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
         <Pricing
           bestValue={false}
           title="Beginners"
