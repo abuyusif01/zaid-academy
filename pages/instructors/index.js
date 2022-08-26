@@ -23,25 +23,25 @@ const Instructor = () => {
       <Head>
         <title>Zaid | Instructors</title>
       </Head>
-      <div className="">
-        <div className="relative w-[100vw] h-[600px]">
+      <div className="relative">
+        <div className="relative w-[100vw] min-h-[450px] md:min-h-[600px]">
           <Image src={Banner1} alt="banner" layout="fill" objectFit="cover" />
         </div>
         <div
           style={style}
-          className="absolute top-0 left-0 text-white px-24 inline-flex flex-col justify-center py-10 w-[100vw] h-[600px]"
+          className="absolute top-0 left-0 text-white inline-flex px-4 md:px-32 flex-col justify-center w-[100vw] min-h-[450px] md:min-h-[600px] md:space-y-6"
         >
           <h1 className="text-5xl font-bold leading-relaxed">Instructors</h1>
         </div>
       </div>
-      <div className="my-20">
-        <h1 className="text-2xl font-bold leading-loose tracking-wide text-center text-gray-800">
+      <div className="my-20 px-4">
+        <h1 className="md:text-2xl text-lg font-bold leading-loose tracking-wide text-center text-gray-800">
           {t("popularTeacher")}
         </h1>
         <p className="text-center font-light text-gray-500 leading-loose">
           {t("struggle")}
         </p>
-        <div className="flex items-center justify-center mt-10e">
+        <div className="flex flex-col md:flex-row items-center justify-center mt-10">
           {teachers.map((teacher) => (
             <Teacher
               key={teacher.name}
