@@ -43,7 +43,9 @@ function MyApp({ Component, pageProps }) {
               ) : (
                 <Component {...pageProps} />
               )}
-              <div className="">{/* <Footer /> */}</div>
+              <div className="">
+                <Footer />{" "}
+              </div>
             </div>
           </CourseProvider>
         </StudentProvider>

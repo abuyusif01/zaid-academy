@@ -11,7 +11,7 @@ import {
 
 const Footer = () => {
   return (
-    <div className="w-full px-16 py-8 bg-gray-100 flex items-center justify-between">
+    <div className="w-full space-y-8 md:space-y-0 md:px-16 py-8 bg-gray-100 flex flex-col md:flex-row items-center justify-between">
       <div className="w-48 h-24">
         <Image src={Logo} alt="logo" />
       </div>
@@ -37,7 +37,7 @@ const Footer = () => {
           </div>
         </Link>
       </div>
-      <div className="flex space-x-4">
+      <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 space-x-4">
         <div className="space-y-2 flex flex-col justify-center items-center text-gray-600">
           <BsTelephone className="text-2xl" />
           <p className="text-sm">+60-11-1605-0164</p>
