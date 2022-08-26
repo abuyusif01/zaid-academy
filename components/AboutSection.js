@@ -15,7 +15,7 @@ import Reading2 from "../utils/reading2.avif";
 const AboutSection = () => {
   const { t, ready } = useTranslation();
   const router = useRouter();
-  if (!ready) return "loading translations...";
+  if (!ready) return "loading translations....";
   const datas = t("visions", { returnObjects: true });
   return (
     <div className="my-16 flex flex-col sm:flex-row justify-center items-center">

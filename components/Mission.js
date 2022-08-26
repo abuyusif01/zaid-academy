@@ -13,16 +13,19 @@ const Mission = () => {
   const router = useRouter();
   const datas = t("missions", { returnObjects: true });
   return (
-    <div className="px-48 my-16 flex flex-col md:flex-row justify-center items-center">
-      <div className=" p-4">
-        <h4 className="text-gray-800 text-2xl uppercase font-semibold leading-loose tracking-wider">
+    <div className="my-16 flex flex-col-reverse sm:flex-row justify-center items-center">
+      <div className="w-full py-4 px-8 md:w-1/2">
+        <h4 className="text-gray-800 text-lg md:text-2xl uppercase font-semibold leading-loose tracking-wider">
           Mission
         </h4>
-        <p className="text-xl leading-relaxed">{t("learnQuran")}</p>
+        <p className="text-lg md:text-xl leading-relaxed">{t("learnQuran")}</p>
         <p className="text-sm leading-relaxed text-gray-700">{t("platform")}</p>
         <ul className="mt-6">
           {datas.map((data) => (
-            <li className="flex items-center mb-4" key={data}>
+            <li
+              className="flex text-sm md:text-lg items-center mb-4"
+              key={data}
+            >
               <BsCheck className="mr-4 text-3xl text-indigo-500 font-bold" />
               <span>{data}</span>
             </li>
@@ -39,8 +42,8 @@ const Mission = () => {
           </Link>
         </div>
       </div>
-      <div className="w-1/2 p-4 relative">
-        <div className="relative h-[400px] w-[400px] mx-auto">
+      <div className="w-full md:w-1/2 relative py-4 px-8">
+        <div className="relative md:w-11/12 h-[200px]  md:h-[500px] md:w-[500px] mx-auto">
           <Image
             src={vision}
             alt="reading"

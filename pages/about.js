@@ -22,18 +22,20 @@ const About = () => {
         <title>Zaid | About</title>
       </Head>
       <div className="relative">
-        <div className="relative w-[100vw] h-[600px]">
+        <div className="relative w-[100vw] min-h-[450px] md:min-h-[600px]">
           <Image src={Quran} alt="banner" layout="fill" />
         </div>
         <div
           style={style}
-          className="absolute top-0 left-0 text-white px-24 inline-flex flex-col justify-center py-10 w-[100vw] h-[600px]"
+          className="absolute top-0 left-0 text-white inline-flex px-4 md:px-32 flex-col justify-center w-[100vw] min-h-[450px] md:min-h-[600px] md:space-y-6"
         >
           {/* <div className="w-24 h-10 cursor-pointer">
             <Image src={Logo} alt="logo" />
           </div> */}
           {/* <h1 className="text-5xl font-bold leading-relaxed">{t("learn")}</h1> */}
-          <h2 className="text-8xl font-bold leading-relaxed ">Zaid Academy</h2>
+          <h2 className="text-3xl md:text-6xl font-bold leading-relaxed ">
+            Zaid Academy
+          </h2>
         </div>
       </div>
       <div className="my-10">
