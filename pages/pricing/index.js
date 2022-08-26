@@ -78,7 +78,7 @@ const PricingX = () => {
         </div>
         <div className="w-10/12 mx-auto space-y-8">
           {show ? (
-            <div className="flex justify-center space-x-8">
+            <div className="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
               <Pricing
                 bestValue={false}
                 title="Beginners"
@@ -112,7 +112,7 @@ const PricingX = () => {
               />
             </div>
           ) : (
-            <div className="flex justify-center space-x-8">
+            <div className="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
               <Pricing
                 bestValue={true}
                 title="Beginners Intensive"

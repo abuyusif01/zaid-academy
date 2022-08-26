@@ -88,28 +88,32 @@ const PricingDetails = () => {
     });
   };
   return (
-    <div className="px-48 my-16 space-y-8">
+    <div className="md:px-48 px-4 my-16 space-y-8">
       <Head>
         <title>Pricing | {program.slug}</title>
       </Head>
-      <h1 className="text-3xl text-center font-bold capitalize leading-loose">
+      <h1 className="md:text-3xl text-lg text-center font-bold capitalize leading-loose">
         {program.slug}
       </h1>
-      <p className="text-justify leading-loose">{program.details}</p>
+      <p className="text-justify text-sm md:text-base leading-loose">
+        {program.details}
+      </p>
       {program.outcome && (
         <>
-          <h4 className="text-2xl font-semibold">Outcome</h4>
-          <p>{program.outcome}</p>
+          <h4 className="md:text-2xl text-lg font-semibold">Outcome</h4>
+          <p className="text-justify text-sm md:text-base leading-loose">
+            {program.outcome}
+          </p>
         </>
       )}
-      <div className="flex space-x-8">
+      <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-8">
         <div className="space-y-4 px-4 py-8 rounded-lg border border-gray-200">
           <h4 className="text-2xl font-semibold">Basic Pricing</h4>
           <ul className="text-left">
             {program.basic.map((item) => (
               <li
                 key={item}
-                className="flex items-center font-heading mb-3 font-medium text-base text-gray-900"
+                className="flex text-sm md:text-base items-center font-heading mb-3 font-medium text-base text-gray-900"
               >
                 <BsCheck />
                 <p>{item}</p>
@@ -123,7 +127,7 @@ const PricingDetails = () => {
             {program.intensive.map((item) => (
               <li
                 key={item}
-                className="flex items-center font-heading mb-3 font-medium text-base"
+                className="flex text-sm md:text-base items-center font-heading mb-3 font-medium text-base"
               >
                 <BsCheck />
                 <p>{item}</p>
