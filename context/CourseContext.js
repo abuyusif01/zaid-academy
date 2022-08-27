@@ -27,21 +27,6 @@ const CourseProvider = ({ children }) => {
     }
   };
 
-  const checkCourse = async () => {
-    const q = query(collection(db, "courses"), where("completed", "==", true));
-
-    try {
-      const querySnapshot = await getDocs(q);
-      const msg = [];
-      querySnapshot.forEach((doc) => {
-        msg.push({ id: doc.id, ...doc.data() });
-      });
-      setOldMessages(msg);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
   const getOldMessages = async () => {
     const q = query(collection(db, "messages"), where("completed", "==", true));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
@@ -84,6 +69,15 @@ const CourseProvider = ({ children }) => {
     }
   };
 
+  const undoMessage = async (id) => {
+    try {
+      const messageRef = doc(db, "messages", id);
+      await updateDoc(messageRef, { completed: false });
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <CourseContext.Provider
       value={{
@@ -95,6 +89,7 @@ const CourseProvider = ({ children }) => {
         getOldMessages,
         getNewMessages,
         answerMessage,
+        undoMessage,
       }}
     >
       {children}

@@ -25,11 +25,10 @@ const Dashboard = () => {
   }, []);
 
   return (
-    <div className="px-24 my-10 space-y-8 min-h-screen">
+    <div className="px-8 md:px-24 my-10 space-y-8 min-h-screen">
       <Head>
         <title>Dashboard | {user.displayName}</title>
       </Head>
-      {/* <div onClick={openModal}>Update Profile</div> */}
       <StudentDashboard student={student} open={openModal} />
       <div>
         <Modal open={showModal} close={closeModal}>

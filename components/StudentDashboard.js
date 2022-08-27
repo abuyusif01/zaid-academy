@@ -1,12 +1,19 @@
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { UseAuth } from "../context/AuthContext";
+import { useStudent } from "../context/StudentContext";
+import moment from "moment";
 
 const StudentDashboard = ({ student, open }) => {
+  console.log(student);
   const { t } = useTranslation();
   const { logout, user } = UseAuth();
+  const { registerNewStudent } = useStudent();
   const router = useRouter();
+  useEffect(() => {
+    registerNewStudent(user);
+  }, []);
   const data = [
     {
       instructor: "Abdullah AbdulRahman",
@@ -44,26 +51,26 @@ const StudentDashboard = ({ student, open }) => {
   return (
     <div className="space-y-8">
       <div className="flex justify-between items-center">
-        <p className="text-3xl font-semibold">
+        <p className="text-lg md:text-3xl font-semibold">
           {t("welcome")} {user.displayName}
         </p>
         <div className="space-x-6">
-          <button
-            className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white"
+          {/* <button
+            className="md:px-12 md:py-4 rounded-md bg-indigo-500 text-sm text-white"
             onClick={open}
           >
             update profile
-          </button>
+          </button> */}
           <button
-            className="px-12 py-4 rounded-md bg-red-400 text-sm text-white"
+            className="px-8 py-2 md:px-12 md:py-4 rounded-md bg-red-400 text-sm text-white"
             onClick={onLogOut}
           >
             Log out
           </button>
         </div>
       </div>
-      <div className="flex space-x-6">
-        <div className="w-1/3 rounded-lg h-48 bg-indigo-500 p-4 flex flex-col items-end justify-between text-white">
+      <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
+        <div className="w-full md:w-1/3 rounded-lg h-48 bg-indigo-500 p-4 flex flex-col items-end justify-between text-white">
           <p className="bg-white text-indigo-500 font-semibold px-4 py-1 text-sm rounded-2xl">
             paid
           </p>
@@ -72,11 +79,11 @@ const StudentDashboard = ({ student, open }) => {
             <p className="text-2xl">Beginners</p>
           </div>
         </div>
-        <div className="w-1/3 rounded-lg h-48 bg-green-500 p-4 flex flex-col items-end justify-end text-white space-y-2">
+        <div className="w-full md:w-1/3 rounded-lg h-48 bg-green-500 p-4 flex flex-col items-end justify-end text-white space-y-2">
           <p>Attendance Percentage: </p>
           <p className="text-2xl">70%</p>
         </div>
-        <div className="w-1/3 rounded-lg h-48 bg-orange-200 p-4 flex flex-col items-end justify-end text-gray-800 space-y-2">
+        <div className="w-full md:w-1/3 rounded-lg h-48 bg-orange-200 p-4 flex flex-col items-end justify-end text-gray-800 space-y-2">
           <p className="text-2xl">Payment Due Date: </p>
           <p>Monday, 24th August, 2022</p>
         </div>
@@ -84,68 +91,16 @@ const StudentDashboard = ({ student, open }) => {
       <p className="text-xl text-gray-600 font-semibold">
         List of Upcoming classes
       </p>
-      <div>
-        {/* <Table
-        // columns={["Instructor", "Course", "Status", "Date", "Time"]}
-        // rows={data}
-        /> */}
-        <table className="min-w-full divide-y divide-gray-200 border border-gray-200 rounded">
-          <thead className="bg-indigo-500 text-white py-4">
-            <tr>
-              <th
-                scope="col"
-                className="px-6 py-3 text-xs font-bold text-left uppercase "
-              >
-                Course
-              </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-xs font-bold text-left uppercase "
-              >
-                Instructor
-              </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-xs font-bold text-left uppercase "
-              >
-                Date
-              </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-xs font-bold text-right uppercase "
-              >
-                Time
-              </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-xs font-bold text-right uppercase "
-              >
-                Status
-              </th>
-            </tr>
-          </thead>
-          <tbody className="divide-y divide-gray-200">
-            {data.map((fig) => (
-              <tr key={fig.id}>
-                <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                  {fig.course}
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                  {fig.instructor}
-                </td>
-                <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                  {fig.date}
-                </td>
-                <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                  {fig.time}
-                </td>
-                <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                  {fig.status}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+      <div className="space-y-4">
+        {student.attendance?.map((att) => (
+          <div
+            key={att.date}
+            className="flex justify-between p-4 border border-gray-500 rounded cursor-pointer"
+          >
+            <p>{moment(att.date).format("MMMM Do YYYY")}</p>
+            <p className="text-indigo-500 cursor-pointer">upcoming</p>
+          </div>
+        ))}
       </div>
     </div>
   );

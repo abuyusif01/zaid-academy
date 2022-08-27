@@ -17,6 +17,7 @@ const EditStudent = ({ student, close }) => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log(student.id);
     updateStudent(student.id, program);
     close();
   };

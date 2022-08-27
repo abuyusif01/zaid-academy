@@ -6,8 +6,13 @@ import { useCourse } from "../../../context/CourseContext";
 import { doc } from "firebase/firestore";
 
 const Messages = () => {
-  const { getOldMessages, getNewMessages, oldMessages, newMessages } =
-    useCourse();
+  const {
+    getOldMessages,
+    getNewMessages,
+    oldMessages,
+    newMessages,
+    undoMessage,
+  } = useCourse();
   useEffect(() => {
     getOldMessages();
     getNewMessages();
@@ -19,11 +24,13 @@ const Messages = () => {
       </Head>
       <div className="flex">
         <SideBar />
-        <div className="p-8 space-y-8">
+        <div className="p-8 space-y-8 flex-1">
           <p className="text-2xl text-gray-600 font-semibold">New Messages</p>
-          <div className="flex flex-wrap items-start space-x-4">
+          <div className="flex">
             {newMessages.map((mesg) => (
-              <Message key={mesg.id} message={mesg} id={mesg.id} />
+              <div key={mesg.id} className="w-1/4 p-4">
+                <Message message={mesg} id={mesg.id} />
+              </div>
             ))}
           </div>
           <p className="text-2xl text-gray-600 font-semibold">Old Messages</p>
@@ -60,6 +67,12 @@ const Messages = () => {
                 >
                   Date
                 </th>
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-xs font-bold text-right uppercase "
+                >
+                  Action
+                </th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
@@ -79,6 +92,12 @@ const Messages = () => {
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     N/A
+                  </td>
+                  <td
+                    className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap text-indigo-500 cursor-pointer"
+                    onClick={() => undoMessage(fig.id)}
+                  >
+                    undo
                   </td>
                 </tr>
               ))}

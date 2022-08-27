@@ -8,6 +8,8 @@ import {
   onSnapshot,
   updateDoc,
   where,
+  arrayUnion,
+  getDocs,
 } from "firebase/firestore";
 import { db } from "../config/firebase";
 
@@ -58,6 +60,39 @@ const StudentProvider = ({ children }) => {
     await setDoc(doc(db, "students", student.id), student);
   };
 
+  const addAttendance = async (id, attendance) => {
+    const studentRef = doc(db, "students", id);
+    try {
+      await updateDoc(studentRef, {
+        attendance: arrayUnion(attendance),
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const registerNewStudent = async (user) => {
+    const q = query(
+      collection(db, "students"),
+      where("email", "==", user.email)
+    );
+    const querySnapshot = await getDocs(q);
+    const stud = [];
+    querySnapshot.forEach((doc) => {
+      stud.push({ id: doc.id, ...doc.data() });
+    });
+    if (stud.length === 0) {
+      console.log(user.uid);
+      await setDoc(doc(db, "students", user.uid), {
+        name: user.displayName,
+        email: user.email,
+        id: user.uid,
+      });
+    } else {
+      setStudent(stud[0]);
+    }
+  };
+
   return (
     <StudentContext.Provider
       value={{
@@ -68,6 +103,8 @@ const StudentProvider = ({ children }) => {
         selfRegister,
         updateStudent,
         getStudentByInstructor,
+        addAttendance,
+        registerNewStudent,
       }}
     >
       {children}

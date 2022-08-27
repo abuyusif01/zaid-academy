@@ -4,7 +4,7 @@ import { useCourse } from "../context/CourseContext";
 const Request = ({ message }) => {
   const { answerMessage } = useCourse();
   return (
-    <div className="min-w-1/4  border border-gray-300 rounded pb-4">
+    <div className="w-full border border-gray-300 rounded pb-4">
       <div className="py-4 px-8 ">
         <p className="text-sm text-gray-500">message from</p>
         <p>{message.firstName + " " + message.lastName}</p>
