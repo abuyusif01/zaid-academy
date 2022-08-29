@@ -44,12 +44,12 @@ const translationsEn = {
       ],
     },
     {
-      name: "Muhammed El Moudjtaba Diallo",
+      name: "Mouhamed El Moudjtaba Diallo",
       role: "Co-founder, Teacher",
       id: 3,
       image: Mohammad2,
       shortBio:
-        "Muhammed El Moudjtaba Diallo is a renowned Instructor of the quran. He studied the principles of Tajweed (Quranic Intonation), Art of drawing, and priciples of different Quranic recitation style at Daroul Imane Institute, Senegal, Hifz (Memorization), Hijaza wa sanad and many more, he has learn in under many prominent scholars as well as in reputable institution around the world, his qualification includes Islamic Studies in Al Qasimiah University in Sharjah UAE, Quran diplomas from Institute Ahmad Sakhir Senagal among others",
+        "Mouhamed El Moudjtaba Diallo is a renowned Instructor of the quran. He studied the principles of Tajweed (Quranic Intonation), Art of drawing, and priciples of different Quranic recitation style at Daroul Imane Institute, Senegal, Hifz (Memorization), Hijaza wa sanad and many more, he has learn in under many prominent scholars as well as in reputable institution around the world, his qualification includes Islamic Studies in Al Qasimiah University in Sharjah UAE, Quran diplomas from Institute Ahmad Sakhir Senagal among others",
       education: [
         "Student at IIUM till date",
         "Daroul Imane Institute Senegal",

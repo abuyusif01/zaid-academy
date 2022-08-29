@@ -49,8 +49,8 @@ const Classes = () => {
                 <option value="Ousmane Yahya Diallo">
                   Ousmane Yahya Diallo{" "}
                 </option>
-                <option value="Muhammed El Moudjtaba Diallo">
-                  Muhammed El Moudjtaba Diallo
+                <option value="Mouhamed El Moudjtaba Diallo">
+                  Mouhamed El Moudjtaba Diallo
                 </option>
                 <option value="Mamadou Bailo Diallo">
                   Mamadou Bailo Diallo

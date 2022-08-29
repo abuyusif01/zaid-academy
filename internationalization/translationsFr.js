@@ -41,12 +41,12 @@ const translationsFr = {
       ],
     },
     {
-      name: "Muhammed El Moudjtaba Diallo",
+      name: "Mouhamed El Moudjtaba Diallo",
       role: "Co-Fondateur , Enseignant (professeur)",
       id: 3,
       // image: Mohammad2,
       shortBio:
-        "Muhammed El Moudjtaba Diallo est un instructeur du Coran renommé. Il a étudié les principes du Tajweed (intonation coranique), l'art du dessin, et les principes des différents styles de récitation du Coran à l'Institut Daroul Imane, Sénégal, Hifz (mémorisation), Hijaza wa sanad et beaucoup d'autres, il a appris sous de nombreux érudits éminents ainsi que dans des institutions réputées à travers le monde, sa qualification comprend des études islamiques à l'Université Al Qasimiah à Sharjah UAE, des diplômes de Coran de l'Institut Ahmad Sakhir Sénégal entre autres.",
+        "Mouhamed El Moudjtaba Diallo est un instructeur du Coran renommé. Il a étudié les principes du Tajweed (intonation coranique), l'art du dessin, et les principes des différents styles de récitation du Coran à l'Institut Daroul Imane, Sénégal, Hifz (mémorisation), Hijaza wa sanad et beaucoup d'autres, il a appris sous de nombreux érudits éminents ainsi que dans des institutions réputées à travers le monde, sa qualification comprend des études islamiques à l'Université Al Qasimiah à Sharjah UAE, des diplômes de Coran de l'Institut Ahmad Sakhir Sénégal entre autres.",
       education: [
         "Étudiant à L´UIMM ( Universite international islamique Malaisie )",
         "Institut Daroul Iman, Senegal",
