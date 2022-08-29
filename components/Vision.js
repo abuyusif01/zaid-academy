@@ -13,7 +13,7 @@ const Vision = () => {
   const { t } = useTranslation();
   const datas = t("visions", { returnObjects: true });
   return (
-    <div className="my-16 px-24 flex flex-col sm:flex-row justify-center items-center">
+    <div className="my-16 md:px-24 flex flex-col sm:flex-row justify-center items-center">
       <div className="w-full md:w-1/2 relative py-4 px-8">
         <div className="relative md:w-11/12 h-[200px]  md:h-[500px] md:w-[500px] mx-auto">
           <Image
