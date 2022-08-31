@@ -5,8 +5,9 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { BsCheck } from "react-icons/bs";
 
-import Reading2 from "../utils/reading2.avif";
-import vision from "../utils/vision.jpeg";
+// import Reading2 from "../utils/reading2.avif";
+import Slate from "../utils/slatequran.jpeg";
+// import vision from "../utils/slatequran.jpeg";
 
 const Mission = () => {
   const { t } = useTranslation();
@@ -45,7 +46,7 @@ const Mission = () => {
       <div className="w-full md:w-1/2 relative py-4 px-8">
         <div className="relative md:w-11/12 h-[200px]  md:h-[500px] md:w-[500px] mx-auto">
           <Image
-            src={vision}
+            src={Slate}
             alt="reading"
             layout="fill"
             objectFit="cover"

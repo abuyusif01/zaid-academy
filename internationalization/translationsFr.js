@@ -3,6 +3,10 @@ const translationsFr = {
   welcome: "Bienvenue",
   bannerText: "Le Coran auprès",
   bannerText1: "d’instituteurs expérimentés.",
+  aboutVerse:
+    "Et sûrement que Nous avons facilité le Coran pour le Rappel (Zikr). Malgré cela, y en a-t-il qui réfléchisse (qui en prenne leçon) ?",
+  instructorVerse:
+    "le Prophète (ﷺ) a dit : « Le meilleur d’entre vous est celui qui a appris le Coran et l’a enseigné. - Al-Bukhari",
   verse:
     "Certes, ceux qui récitent le Livre d'Allah, accomplissent la prière et donnent de ce que Nous leur avons attribué - en secret et ouvertement - peuvent espérer un échange qui ne manquera jamais",
   apply: "Appliquer maintenant",

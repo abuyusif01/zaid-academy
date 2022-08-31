@@ -37,7 +37,7 @@ const IntructorsDetail = (props) => {
           </h1>
           <h4 className="text-gray-600 text-sm">{teacher.role}</h4>
           <h2 className="text-gray-800 font-bold">Teachers Details</h2>
-          <h2 className="text-gray-800 text-sm font-bold">Short Bio</h2>
+          {/* <h2 className="text-gray-800 text-sm font-bold">Short Bio</h2> */}
           <p className="text-gray-600 text-sm md:text-base leading-loose md:leading-loose">
             {teacher.shortBio}
           </p>
@@ -53,9 +53,7 @@ const IntructorsDetail = (props) => {
               </li>
             ))}
           </ul>
-          <h2 className="text-gray-800 text-sm font-bold">
-            Certificate Skills and Awards
-          </h2>
+          <h2 className="text-gray-800 text-sm font-bold">Achievement</h2>
           <ul>
             {teacher.certificate.map((cert) => (
               <li

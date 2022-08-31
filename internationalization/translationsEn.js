@@ -7,6 +7,10 @@ const translationsEn = {
   welcome: "Welcome",
   bannerText: "the Quran from",
   bannerText1: "experienced teachers",
+  aboutVerse:
+    "And We have certainly made the Quran easy to remember. So is there anyone who will be mindful?",
+  instructorVerse:
+    "The Messenger of Allah (ﷺ) said, 'The best amongst you is the one who learns the Qur'an and teaches it.' - Al-Bukhari",
   verse:
     "Surely those who recite the Book of Allah, establish prayer, and donate from what We have provided for them—secretly and openly—˹can˺ hope for an exchange that will never fail",
   apply: "Apply Now",

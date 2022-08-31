@@ -36,14 +36,12 @@ const Banner = () => {
           "{t("verse")}" (Surah fatir verse 29)
         </p>
         <div className="relative">
-          <Link href="/">
-            <button
-              className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white mt-8"
-              onClick={() => router.push("/signup")}
-            >
-              {t("apply")}
-            </button>
-          </Link>
+          <button
+            className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white mt-8"
+            onClick={() => router.push("/signup")}
+          >
+            {t("apply")}
+          </button>
         </div>
       </div>
     </div>

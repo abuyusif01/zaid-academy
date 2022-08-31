@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { BsCheck } from "react-icons/bs";
-import Reading2 from "../utils/reading2.avif";
+import Reading2 from "../utils/childreciter.jpg";
 
 // const datas = [
 //   "Provide unrestricted access to Quran Education",

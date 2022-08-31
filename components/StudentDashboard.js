@@ -6,11 +6,11 @@ import { useStudent } from "../context/StudentContext";
 import moment from "moment";
 
 const StudentDashboard = ({ student, open }) => {
-  console.log(student);
   const { t } = useTranslation();
   const { logout, user } = UseAuth();
   const { registerNewStudent } = useStudent();
   const router = useRouter();
+  console.log(student);
   useEffect(() => {
     registerNewStudent(user);
   }, []);
@@ -55,12 +55,12 @@ const StudentDashboard = ({ student, open }) => {
           {t("welcome")} {user.displayName}
         </p>
         <div className="space-x-6">
-          {/* <button
+          <button
             className="md:px-12 md:py-4 rounded-md bg-indigo-500 text-sm text-white"
             onClick={open}
           >
             update profile
-          </button> */}
+          </button>
           <button
             className="px-8 py-2 md:px-12 md:py-4 rounded-md bg-red-400 text-sm text-white"
             onClick={onLogOut}
@@ -76,16 +76,18 @@ const StudentDashboard = ({ student, open }) => {
           </p>
           <div className="space-y-2">
             <p>Course Registered: </p>
-            <p className="text-2xl">Beginners</p>
+            <p className="text-2xl">
+              {student.course !== "" && student.course}
+            </p>
           </div>
         </div>
         <div className="w-full md:w-1/3 rounded-lg h-48 bg-green-500 p-4 flex flex-col items-end justify-end text-white space-y-2">
           <p>Attendance Percentage: </p>
-          <p className="text-2xl">70%</p>
+          <p className="text-2xl">--</p>
         </div>
         <div className="w-full md:w-1/3 rounded-lg h-48 bg-orange-200 p-4 flex flex-col items-end justify-end text-gray-800 space-y-2">
           <p className="text-2xl">Payment Due Date: </p>
-          <p>Monday, 24th August, 2022</p>
+          <p>{moment(student.expiryDate).format("MMMM Do YYYY")}</p>
         </div>
       </div>
       <p className="text-xl text-gray-600 font-semibold">
