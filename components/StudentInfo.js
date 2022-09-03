@@ -41,12 +41,21 @@ const StudentInfo = ({ student }) => {
   return (
     <div className="min-h-56 shadow p-8 space-y-4 rounded">
       <p>Student Information</p>
-      <p className="text-2xl">{student.name}</p>
+      <p className="text-2xl">{student.displayName}</p>
       <p>{student.email}</p>
       <div>
         <p>Instructor: </p>
         <p className="text-2xl">{student.lecturer}</p>
       </div>
+      <div>
+        <p>Language: </p>
+        <p className="text-2xl">{student.language}</p>
+      </div>
+      <div>
+        <p>Whatsapp number: </p>
+        <p className="text-2xl">{student.phone}</p>
+      </div>
+
       <div>
         <p>Course :</p>
         <p className="text-2xl">

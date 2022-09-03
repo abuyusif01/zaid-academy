@@ -125,13 +125,19 @@ const Navbar = () => {
           <div className="md:flex space-x-4 text-sm hidden">
             <p
               className="cursor-pointer"
-              onClick={() => i18n.changeLanguage("en")}
+              onClick={() => {
+                i18n.changeLanguage("en");
+                // closeNav();
+              }}
             >
               En
             </p>
             <p
               className="cursor-pointer"
-              onClick={() => i18n.changeLanguage("fr")}
+              onClick={() => {
+                i18n.changeLanguage("fr");
+                // closeNav();
+              }}
             >
               Fr
             </p>

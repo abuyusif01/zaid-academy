@@ -12,7 +12,7 @@ const Signup = () => {
   const router = useRouter();
   useEffect(() => {
     if (user) {
-      router.push("/dashboard");
+      router.push("/register");
     }
   }, [user, router]);
 
@@ -32,7 +32,7 @@ const Signup = () => {
           <button
             onClick={() => {
               signInWithGoogle();
-              router.push("/dashboard");
+              router.push("/register");
             }}
             className="space-x-5 flex justify-center items-center w-full py-4 rounded-lg bg-white border border-gray-200 whitespace-nowrap hover:bg-gray-50 transition duration-500 ease-in focus:outline-none focus:ring-2 focus:ring-indigo-400"
           >

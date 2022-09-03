@@ -8,42 +8,8 @@ import moment from "moment";
 const StudentDashboard = ({ student, open }) => {
   const { t } = useTranslation();
   const { logout, user } = UseAuth();
-  const { registerNewStudent } = useStudent();
+  // const { checkStudent, pupil } = useStudent();
   const router = useRouter();
-  console.log(student);
-  useEffect(() => {
-    registerNewStudent(user);
-  }, []);
-  const data = [
-    {
-      instructor: "Abdullah AbdulRahman",
-      course: "Beginners",
-      status: "Attended",
-      date: "Tuesday, 31 July, 2022",
-      time: "14:00",
-    },
-    {
-      instructor: "Abdullah AbdulRahman",
-      course: "Beginners",
-      status: "Absent",
-      date: "Tuesday, 5 August, 2022",
-      time: "14:00",
-    },
-    {
-      instructor: "Abdullah AbdulRahman",
-      course: "Beginners",
-      status: "Upcoming",
-      date: "Tuesday, 12 August, 2022",
-      time: "14:00",
-    },
-    {
-      instructor: "Abdullah AbdulRahman",
-      course: "Beginners",
-      status: "Upcoming",
-      date: "Tuesday, 19 August, 2022",
-      time: "14:00",
-    },
-  ];
   const onLogOut = () => {
     logout();
     router.replace("/");

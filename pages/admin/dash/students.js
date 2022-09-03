@@ -3,10 +3,12 @@ import React, { useEffect, useState, useRef } from "react";
 import EditStudent from "../../../components/EditStudent";
 import Modal from "../../../components/Modal";
 import SideBar from "../../../components/SideBar";
+import StudentInfo from "../../../components/StudentInfo";
 import { useStudent } from "../../../context/StudentContext";
 
 const Students = () => {
   const { students, getStudents } = useStudent();
+  const [student, setStudent] = useState({});
   const studentRef = useRef({});
   const [show, setShow] = useState(false);
   const openModal = () => {
@@ -81,13 +83,19 @@ const Students = () => {
             <tbody className="divide-y divide-gray-200">
               {students.map((fig) => (
                 <tr key={fig.id}>
-                  <td className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap">
-                    {fig.name}
+                  <td
+                    className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap cursor-pointer "
+                    onClick={() => setStudent(fig)}
+                  >
+                    <p className="text-indigo-500">{fig.displayName}</p>
                   </td>
                   <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                     {fig.lecturer}
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
+                  <td
+                    className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap"
+                    onClick={() => setStudent(fig)}
+                  >
                     {fig.email}
                   </td>
                   <td className="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
@@ -110,6 +118,11 @@ const Students = () => {
               ))}
             </tbody>
           </table>
+          <div>
+            {Object.keys(student).length > 0 && (
+              <StudentInfo student={student} />
+            )}
+          </div>
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@ import { useStudent } from "../context/StudentContext";
 
 const Dashboard = () => {
   const { user } = UseAuth();
-  const { student } = useStudent();
+  const { pupil, checkStudent } = useStudent();
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
@@ -21,20 +21,36 @@ const Dashboard = () => {
   };
 
   useEffect(() => {
-    // registerNewStudent(user);
+    checkStudent(user.email);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  console.log(pupil);
 
   return (
     <div className="px-8 md:px-24 my-10 space-y-8 min-h-screen">
       <Head>
         <title>Dashboard | {user.displayName}</title>
       </Head>
-      <StudentDashboard student={student} open={openModal} />
-      <div>
+      {pupil.active ? (
+        <StudentDashboard student={pupil} open={openModal} />
+      ) : (
+        <div className="text-center space-y-4">
+          <p className="text-2xl">Welcome, {user.displayName}</p>
+          <p className="text-xl font-bold">Wait for admin to give you access</p>
+          <p className="text-gray-700 text-lg">
+            Contact this number:{" "}
+            <span className="text-semibold">+60-11-1605-0164</span> to enroll
+            and / or for payment
+          </p>
+        </div>
+      )}
+
+      {/* <div>
         <Modal open={showModal} close={closeModal}>
           <CourseRegistration student={student} close={closeModal} />
         </Modal>
-      </div>
+      </div> */}
     </div>
   );
 };

@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useStudent } from "../context/StudentContext";
 
 const CourseRegistration = ({ student }) => {
-  const { selfRegister } = useStudent();
+  const router = useRouter();
+  const { selfRegister, checkStudent, pupil } = useStudent();
   const { t } = useTranslation();
   const [program, setProgram] = useState({
     course: "",
@@ -11,19 +13,31 @@ const CourseRegistration = ({ student }) => {
     phone: "",
     whatsapp: "",
     nationality: "",
+    language: "",
     gender: "",
+    active: false,
+    registered: true,
   });
   const onChange = (e) => {
     setProgram({ ...program, [e.target.name]: e.target.value });
   };
   const onSubmit = (e) => {
     e.preventDefault();
+    console.log({ ...student, ...program });
     selfRegister({ ...student, ...program });
+    router.push("/dashboard");
     close();
   };
+  useEffect(() => {
+    checkStudent(student.email);
+    // console.log(pupil);
+    if (pupil.registered === true) router.push("/dashboard");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div className="space-y-4 border border-gray-300 rounded p-8">
       <div className="text-center">
+        <p>Welcome, {student.displayName}</p>
         <p className="text-gray-700 text-lg">
           Contact this number:{" "}
           <span className="text-semibold">+60-11-1605-0164</span> to enroll and
@@ -144,6 +158,7 @@ const CourseRegistration = ({ student }) => {
             </div>
           </div>
         </div>
+
         <div className="py-6 border-b border-coolGray-100">
           <div className="w-full md:w-9/12">
             <div className="flex flex-wrap -m-3">
@@ -161,8 +176,51 @@ const CourseRegistration = ({ student }) => {
                   onChange={onChange}
                   name="intensive"
                 >
-                  <option>Intensive</option>
-                  <option>Basic</option>
+                  <option value="">Choose intensive level</option>
+                  <option value="intensive">Intensive</option>
+                  <option value="basic">Basic</option>
+                </select>
+                {program.intensive === "intensive" && (
+                  <div>
+                    <p>This is for intensive progam,</p>
+                    <p> it has 5 classes per week</p>
+                    <p>Price: $180</p>
+                  </div>
+                )}
+                {program.intensive === "basic" && (
+                  <div>
+                    <p>This is for basic progam,</p>
+                    <p> it has 3 classes per week</p>
+                    <p>Price: $110</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="py-6 border-b border-coolGray-100">
+          <div className="w-full md:w-9/12">
+            <div className="flex flex-wrap -m-3">
+              <div className="w-full md:w-1/3 p-3">
+                <p className="text-sm text-coolGray-800 font-semibold">
+                  Language
+                </p>
+              </div>
+              <div className="w-full md:flex-1 p-3">
+                <select
+                  className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-indigo-500 border border-coolGray-200 rounded-lg shadow-input"
+                  type="text"
+                  placeholder="language"
+                  name="language"
+                  value={program.language}
+                  onChange={onChange}
+                >
+                  <option value="">Choose a Language</option>
+                  <option value="Arabic">Arabic</option>
+                  <option value="Fulani">Fulani</option>
+                  <option value="English">English</option>
+                  <option value="French">French ({t("revision")})</option>
+                  <option value="Wollof">Wollof</option>
                 </select>
               </div>
             </div>

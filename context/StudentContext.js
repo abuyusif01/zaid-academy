@@ -17,7 +17,7 @@ const StudentContext = createContext();
 export const useStudent = () => useContext(StudentContext);
 
 const StudentProvider = ({ children }) => {
-  const [student, setStudent] = useState({});
+  const [pupil, setPupil] = useState({});
   const [students, setStudents] = useState([]);
   const [classes, setClasses] = useState([]);
 
@@ -57,7 +57,7 @@ const StudentProvider = ({ children }) => {
   };
 
   const selfRegister = async (student) => {
-    await setDoc(doc(db, "students", student.id), student);
+    await setDoc(doc(db, "students", student.uid), student);
   };
 
   const addAttendance = async (id, attendance) => {
@@ -71,40 +71,30 @@ const StudentProvider = ({ children }) => {
     }
   };
 
-  const registerNewStudent = async (user) => {
-    const q = query(
-      collection(db, "students"),
-      where("email", "==", user.email)
-    );
-    const querySnapshot = await getDocs(q);
-    const stud = [];
-    querySnapshot.forEach((doc) => {
-      stud.push({ id: doc.id, ...doc.data() });
-    });
-    if (stud.length === 0) {
-      console.log(user.uid);
-      await setDoc(doc(db, "students", user.uid), {
-        name: user.displayName,
-        email: user.email,
-        id: user.uid,
+  const checkStudent = async (email) => {
+    const q = query(collection(db, "students"), where("email", "==", email));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const student = [];
+      querySnapshot.forEach((doc) => {
+        student.push(doc.data());
       });
-    } else {
-      setStudent(stud[0]);
-    }
+      setPupil(student[0]);
+    });
   };
 
   return (
     <StudentContext.Provider
       value={{
-        student,
+        pupil,
         students,
         classes,
+        checkStudent,
         getStudents,
         selfRegister,
         updateStudent,
         getStudentByInstructor,
         addAttendance,
-        registerNewStudent,
+        // registerNewStudent,
       }}
     >
       {children}

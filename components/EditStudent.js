@@ -10,15 +10,16 @@ const EditStudent = ({ student, close }) => {
     lecturer: student.lecturer || "",
     intensive: student.intensive || "",
     payment: student.payment || "",
+    active: true,
     expiryDate: Date.now(),
   });
   const onChange = (e) => {
-    setProgram({ ...program, [e.target.name]: e.target.value });
+    setProgram({ ...program, active: true, [e.target.name]: e.target.value });
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(student.id);
-    updateStudent(student.id, program);
+    console.log(student.uid);
+    updateStudent(student.uid, program);
     close();
   };
   return (
