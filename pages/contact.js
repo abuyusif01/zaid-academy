@@ -185,11 +185,11 @@ const Contact = () => {
               <h4 className="text-lg leading-loose">Email us directly</h4>
               <p>
                 <a
-                  href="mailto:zaid.academy@yahoo.com"
+                  href="mailto:zaidacademy22@gmail.com"
                   target="blank"
                   className="text-gray-500 hover:text-indigo-500"
                 >
-                  zaid.academy@yahoo.com
+                  zaidacademy22@gmail.com
                 </a>
               </p>
             </div>
@@ -218,7 +218,7 @@ const Contact = () => {
                 </li>
                 <li>
                   <a
-                    href="mailto:zaid.academy@yahoo.com"
+                    href="mailto:zaidacademy22@gmail.com"
                     target="blank"
                     className="cursor-pointer"
                   >

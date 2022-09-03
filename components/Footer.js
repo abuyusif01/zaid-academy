@@ -45,11 +45,11 @@ const Footer = () => {
         <div className="space-y-2 flex flex-col justify-center items-center text-gray-600">
           <BsEnvelopeFill className="text-2xl" />
           <a
-            href="mailto:zaid.academy@yahoo.com"
+            href="mailto:zaidacademy22@gmail.com"
             target="blank"
             className="text-sm"
           >
-            zaid.academy@yahoo.com
+            zaidacademy22@gmail.com
           </a>
         </div>
         <div className="space-y-2 flex flex-col justify-center items-center  text-gray-600">
