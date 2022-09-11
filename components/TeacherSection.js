@@ -1,8 +1,8 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
-import Ousmane from "../utils/ousmane.png";
-import Biallo from "../utils/muhamed-1.jpg";
-import Mujtaba from "../utils/muhamed2.jpg";
+import Ousmane from "../utils/ousmane.jpeg";
+import Biallo from "../utils/muhamed-1.JPEG";
+import Mujtaba from "../utils/muhamed2.png";
 
 import Teacher from "./Teacher";
 

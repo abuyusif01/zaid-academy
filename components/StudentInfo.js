@@ -31,13 +31,11 @@ const StudentInfo = ({ student }) => {
   };
 
   const onAdd = () => {
-    console.log(attendance);
     addAttendance(student.id, attendance);
     setAttendance({ date: new Date(), status: "upcomming" });
     close();
   };
 
-  // console.log(student);
   return (
     <div className="min-h-56 shadow p-8 space-y-4 rounded">
       <p>Student Information</p>

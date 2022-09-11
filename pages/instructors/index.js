@@ -4,9 +4,9 @@ import Madrasah from "../../utils/madrosah-sunnah-UyWPZMofyi0-unsplash.jpg";
 import teachers from "../../utils/teachers";
 import Teacher from "../../components/Teacher";
 import Head from "next/head";
-import Ousmane from "../../utils/ousmane.png";
-import Biallo from "../../utils/muhamed-1.jpg";
-import Mujtaba from "../../utils/muhamed2.jpg";
+import Ousmane from "../../utils/ousmane.jpeg";
+import Biallo from "../../utils/muhamed-1.JPEG";
+import Mujtaba from "../../utils/muhamed2.png";
 import Banner1 from "../../utils/banner1.jpeg";
 import { useTranslation } from "react-i18next";
 

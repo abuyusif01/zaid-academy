@@ -46,7 +46,6 @@ const AuthProvider = ({ children }) => {
         password
       );
       const user = await credential.user;
-      console.log(user);
     } catch (error) {
       console.log(error.message);
     }

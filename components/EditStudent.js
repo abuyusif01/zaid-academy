@@ -18,7 +18,6 @@ const EditStudent = ({ student, close }) => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(student.uid);
     updateStudent(student.uid, program);
     close();
   };
@@ -70,8 +69,8 @@ const EditStudent = ({ student, close }) => {
                   name="intensive"
                 >
                   <option value="">Choose Intensity level</option>
-                  <option>Intensive</option>
-                  <option>Basic</option>
+                  <option value="intensive">Intensive</option>
+                  <option value="basic">Basic</option>
                 </select>
               </div>
             </div>

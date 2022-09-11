@@ -17,6 +17,7 @@ const StudentContext = createContext();
 export const useStudent = () => useContext(StudentContext);
 
 const StudentProvider = ({ children }) => {
+  const [studentExit, setStudentExist] = useState(false);
   const [pupil, setPupil] = useState({});
   const [students, setStudents] = useState([]);
   const [classes, setClasses] = useState([]);
@@ -71,7 +72,7 @@ const StudentProvider = ({ children }) => {
     }
   };
 
-  const checkStudent = async (email) => {
+  const checkStudent = async (email, action = () => {}) => {
     const q = query(collection(db, "students"), where("email", "==", email));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const student = [];
@@ -86,6 +87,7 @@ const StudentProvider = ({ children }) => {
     <StudentContext.Provider
       value={{
         pupil,
+        studentExit,
         students,
         classes,
         checkStudent,

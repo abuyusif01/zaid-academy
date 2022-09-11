@@ -25,8 +25,6 @@ const Dashboard = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(pupil);
-
   return (
     <div className="px-8 md:px-24 my-10 space-y-8 min-h-screen">
       <Head>

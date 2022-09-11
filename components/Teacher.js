@@ -11,9 +11,9 @@ const Teacher = ({ teacher, image }) => {
     });
   };
   return (
-    <div className="w-full md:w-1/3 py-4 px-8">
+    <div className="w-full md:w-1/3 px-8">
       <div className="cursor-pointer" onClick={goToDetails}>
-        <div className="border border-gray-50 rounded-lg shadow hover:shadow-xl cursor-pointer transition duration-300 ease-in">
+        <div className="border border-gray-50 rounded-lg shadow hover:shadow-xl py-8 cursor-pointer transition duration-300 ease-in">
           <div className="h-[250px] w-[250px] relative mb-6 mx-auto">
             <Image
               src={image}

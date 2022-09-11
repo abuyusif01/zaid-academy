@@ -1,6 +1,6 @@
-import Mohammad1 from "../utils/muhamed-1.jpg";
-import Mohammad2 from "../utils/muhamed2.jpg";
-import Ousmane from "../utils/ousmane.png";
+import Mohammad1 from "../utils/muhamed-1.JPEG";
+import Mohammad2 from "../utils/muhamed2.png";
+import Ousmane from "../utils/ousmane.jpeg";
 
 const translationsEn = {
   learn: "Learn",
@@ -36,15 +36,13 @@ const translationsEn = {
       id: 1,
       image: Ousmane,
       shortBio:
-        "Ousmane Yahya Diallo is a renowned Instructor of the quran specializing in aspect such as Tajweed, Hifz (Memorization) with certification (Ijazah and Sanad), he has learned from many prominent scholars as well as in reputable institutions around the world, his qualification includes Islamic Studies in Al Qasimiah University in Sharjah UAE, Quran diploma from Institute Ahmad Sakhir Lo Senagal among others. Among his previous engagement is attending Halaqat for the memorization (Ijazah) of the Quran in the Holy Mosque of Mecca.",
+        "Ousmane Yahya Diallo is the co-founder of Zaid Academy. He is a renowned Instructor of the quran specializing in aspect such as Tajweed, Hifz (Memorization) with certification (Ijazah and Sanad), he has learned from many prominent scholars as well as in reputable institutions around the world. He attained a bachelor’s degree in Shariah and Islamic Studies from Al Qasimia University in 2020. Ousmane began teaching the Holy Quran as early as 2012 upon attaining a certified status (ijazah) in different Quranic recitation styles. With an advanced grasp of the three widely spoken languages, namely, Arabic, French and English, as well as his mother-tongue, Fulani and Wolof, the co-founder of Zaid Academy is currently pursuing a Master’s degree in Islamic Finance at the International Islamic University of Malaysia (IIUM) with the aim to provide quality and efficient Quranic lessons.",
       education: [
-        "Alqasimia University Sharjah, UAE, Shari’a and Islamic Studies",
-        "MBA at IIUM",
-      ],
-      certificate: [
-        "Quran Diploma at institute Ahmed Sakhir Lo Senegal",
-        "Halaqat for the memorization of the Quran, Holy mosque of Mecca",
-        "Sharjah noble quran and sunnah est",
+        "International Islamic University Malaysia",
+        "Al-Qasimia University, Sharjah, United Arab Emirates",
+        "Sharjan Noble Quran and Sunnah, Sharjah, United Arab Emirates",
+        "The Holy Mosque, Mecca, Saudi Arabia",
+        "Institute Ahmed Sakhir Lo, Dakar, Senegal",
       ],
     },
     {
@@ -53,17 +51,12 @@ const translationsEn = {
       id: 3,
       image: Mohammad2,
       shortBio:
-        "Mouhamed El Moudjtaba Diallo is a renowned Instructor of the quran. He studied the principles of Tajweed (Quranic Intonation), Art of drawing, and priciples of different Quranic recitation style at Daroul Imane Institute, Senegal, Hifz (Memorization), Hijaza wa sanad and many more, he has learn in under many prominent scholars as well as in reputable institution around the world, his qualification includes Islamic Studies in Al Qasimiah University in Sharjah UAE, Quran diplomas from Institute Ahmad Sakhir Senagal among others",
+        "Muhammed El Moudjtaba Diallo completed his primary and high school at Senegal’s notable Institute of Daroul Imane. On top of achieving academic excellence, he mastered the principles of Quranic tajweed and was certified in three different Quranic recitation styles, namely, Warsh, Qaaloun of Imam Nafi’ and Hafs of Assim. Muhammed is no stranger to Quranic competitions. Having competed in a handful of such events, he managed to secure numerous first place awards, such as in the National Quranic Competition in Dakar, the International Quranic Competition in Malaysia and the Great Africa International Quranic Competition in Tanzania, among many others. Upon graduating from Daroul Imane Institute, the Senegalese bred student of knowledge went on to voluntarily coach junior Quranic reciters and prepare them for competitions. He also served as the Imam for prayers in the said Institute’s prestigious mosque (Daroul Imane Mosque) up until 2020, when he decided to travel to Malaysia and enroll in a Political Science bachelor’s degree in the International Islamic University of Malaysia (IIUM). Together with a number of his companions in the Quranic field, he has co-founded Zaid Academy in hopes to continue the prophetic legacy of teaching the Holy Quran.",
       education: [
-        "Student at IIUM till date",
-        "Daroul Imane Institute Senegal",
-      ],
-      certificate: [
-        "Participated in the Quran Readers' program in Medina Saudi Arabia",
-        "First Place at International Quran competiton Malaysia, 2017",
-        "First place at The greate African International Quranic competition, Tanzania, 2019",
-        "First place at the National Quranic competition Dakar, 2011",
-        "Second Place at Seneco National Quranic Competition, Senegal, 2016",
+        "International Islamic University Malaysia",
+        "The Holy mosque, Medinah, Saoudi Arabia",
+        "Daroul Imane Institute, Dakar, Senegal",
+        "Mahmoud Khalil Housari Quranic Center, Dakar, Senegal",
       ],
     },
     {
@@ -72,15 +65,13 @@ const translationsEn = {
       image: Mohammad1,
       id: 2,
       shortBio:
-        "Mamadou Baila Diallo is a graduate of Umm al Qura University with honours, he studied Arts in literature, He is licensed to teach people recitation in all Qira'aats. He has vast experience working as an instructor teaching people the Quran, Tajweed both in Senegal, Saudi Arabia and Malaysia.",
+        "The co-founder of Zaid Academy, Mamadou Bailo Diallo, graduated with a First-Class Honours from Saudi Arabia’s Umm al Qura University with two degrees, namely, Diploma in Language Rehabilitation (2016-2017) and Bachelors in Literature (2017-2021). Outside of the academic achievements, some of his other prestigious honours and experiences include obtaining an ijazah (authorization to teach the Quran) based on all 10 of the established Quranic readings (Qiraat) from the Holy Mecca. Over the years, he has used these qualifications to teach the Quran and its various Qiraat to aspiring students in Mecca, most notably at the A’achour Bukhari memorization Center. In addition to this, Mamadou has also participated and excelled in various Quranic competitions of the charity organization of memorization centers in Mecca. With a fluency in English, Arabic and French (both spoken and written), he volunteered as a translator (mostly English) in the Holy Mosque, facilitating hajj for pilgrims for more than 5 years. At the current time, the co-founder of Zaid Academy is pursuing a Master’s degree in Islamic Banking and Finance from the International Islamic University of Malaysia’s Institute of Islamic Banking & Finance (IIiBF).",
       education: [
-        "Bachelors of Arts in Literature, Umm al Qura University, Mecca, Saudi Arabia, 2021",
-        "Diploma in Language Rehabilitation's Degree, Umm al Qura University, Mecca, Saudi Arabia, 2017",
-      ],
-      certificate: [
-        "Taught Quran for several Years",
-        "Taught  Qira'aat A'achour Bukhari memorization center in Mecca",
-        "Hold an Authorization (Ijazah) to teach the 10 Quranic Readings",
+        "International Islamic University  Malaysia",
+        "Umm Al Qura University of Mecca, Saoudi Arabia.",
+        "A'achour Bukhari memorisation center, Makkah, Saoudi Arabia.",
+        "Dar Al Quran of Anyama in Abidjan, ivory Coast",
+        "Oubbaya bin kaab memorisation center, Conakry, Guinea",
       ],
     },
   ],

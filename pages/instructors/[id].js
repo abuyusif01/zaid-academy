@@ -4,9 +4,9 @@ import { BsCheck } from "react-icons/bs";
 import { useRouter } from "next/router";
 import Head from "next/head";
 import { useTranslation } from "react-i18next";
-import Biallo from "../../utils/muhamed-1.jpg";
-import Mujtaba from "../../utils/muhamed2.jpg";
-import Ousmane from "../../utils/ousmane.png";
+import Biallo from "../../utils/muhamed-1.JPEG";
+import Mujtaba from "../../utils/muhamed2.png";
+import Ousmane from "../../utils/ousmane.jpeg";
 
 const IntructorsDetail = (props) => {
   const { t } = useTranslation();
@@ -36,32 +36,19 @@ const IntructorsDetail = (props) => {
             {teacher.name}
           </h1>
           <h4 className="text-gray-600 text-sm">{teacher.role}</h4>
-          <h2 className="text-gray-800 font-bold">Teachers Details</h2>
           {/* <h2 className="text-gray-800 text-sm font-bold">Short Bio</h2> */}
-          <p className="text-gray-600 text-sm md:text-base leading-loose md:leading-loose">
+          <p className="text-gray-600 text-justify text-sm md:text-base leading-loose md:leading-loose">
             {teacher.shortBio}
           </p>
           <h2 className="text-gray-800 text-sm font-bold">Education</h2>
           <ul>
             {teacher.education.map((edu) => (
               <li
-                className="flex text-sm md:text-base items-center text-gray-600 mb-2"
+                className="flex text-sm capitalize md:text-base items-center text-gray-600 mb-2"
                 key={edu}
               >
                 <BsCheck className="mr-4 text-3xl text-indigo-500 font-bold" />
-                <span>{edu}</span>
-              </li>
-            ))}
-          </ul>
-          <h2 className="text-gray-800 text-sm font-bold">Achievement</h2>
-          <ul>
-            {teacher.certificate.map((cert) => (
-              <li
-                className="flex text-sm md:text-base leading-loose items-center text-gray-600 mb-2"
-                key={cert}
-              >
-                <BsCheck className="mr-4 text-3xl text-indigo-500 font-bold" />
-                <span>{cert}</span>
+                <span className="capitalize">{edu}</span>
               </li>
             ))}
           </ul>

@@ -82,7 +82,7 @@ const Students = () => {
             </thead>
             <tbody className="divide-y divide-gray-200">
               {students.map((fig) => (
-                <tr key={fig.id}>
+                <tr key={fig.uid}>
                   <td
                     className="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap cursor-pointer "
                     onClick={() => setStudent(fig)}

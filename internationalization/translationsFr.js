@@ -33,15 +33,13 @@ const translationsFr = {
       id: 1,
       // image: Mohammad1,
       shortBio:
-        "Ousmane Diallo est un instructeur renommé du Coran, spécialisé dans différents aspects tels que le Tajweed, Hifz (mémorisation) avec certification (Ijazah et Sanad), il a appris de nombreux érudits éminents ainsi que dans des institutions réputées à travers le monde, sa qualification comprend des études islamiques à l'Université Alqasimiah à Sharjah UAE, diplôme de Coran de l'Institut Ahmad Sakhir Lô Sénégal entre autres.Parmi ses engagements précédents, il a participé aux Halaqat pour la mémorisation (Ijazah) du Coran dans la Sainte mosquée de La Mecque.",
+        "Ousmane Yahya Diallo est le co-fondateur de Zaid Academy.  C'est un instructeur renommé du Coran spécialisé dans des aspects tels que le Tajwid, le Hifz (Mémorisation) avec certification (Ijazah et Sanad), il a appris le coran au près de nombreux éminents érudits, ainsi que dans des institutions réputées à travers le monde.  Il a obtenu un baccalauréat en jurisprudence et en études islamiques de l'Université Al Qasimia en 2020. Ousmane a commencé à enseigner le Saint Coran dès 2012 après avoir obtenu un statut certifié (ijazah) dans différents styles de récitation coranique. Maîtrisant les trois langues largement parlées, à savoir l'arabe, le français et l'anglais, ainsi que sa langue maternelle, le peul et le wolof, le co-fondateur de Zaid Academy poursuit actuellement une maîtrise en finance islamique à l'International  Université islamique de Malaisie (IIUM) dans le but de fournir des cours coraniques de qualité et efficaces.",
       education: [
-        "Université Alqasimi , Sharjah UAE, Sharia et etudes islamiques",
-        "MBA a UIIM (IIUM)",
-      ],
-      certificate: [
-        "Diplôme de Coran à l'institut Ahmed Sakhir Lo Sénégal",
-        "Halaqât pour la mémorisation du Coran, Sainte mosquée de la Mecque",
-        "Sharjah noble coran et sunnites est",
+        "Université Islamique Internationale Malaisie",
+        "Université Al-Qasimia, Charjah - Emirats Arabes Unis",
+        "Charjah Noble Coran et Sounna, Sharjah, Emirats Arabes Unis",
+        "La Sainte Mosquee La Mecque, Arabie Saoudite",
+        "Institut Ahmed Sakhir Lo, Dakar, Sénégal",
       ],
     },
     {
@@ -50,17 +48,12 @@ const translationsFr = {
       id: 3,
       // image: Mohammad2,
       shortBio:
-        "Mouhamed El Moudjtaba Diallo est un instructeur du Coran renommé. Il a étudié les principes du Tajweed (intonation coranique), l'art du dessin, et les principes des différents styles de récitation du Coran à l'Institut Daroul Imane, Sénégal, Hifz (mémorisation), Hijaza wa sanad et beaucoup d'autres, il a appris sous de nombreux érudits éminents ainsi que dans des institutions réputées à travers le monde, sa qualification comprend des études islamiques à l'Université Al Qasimiah à Sharjah UAE, des diplômes de Coran de l'Institut Ahmad Sakhir Sénégal entre autres.",
+        "Muhammed El Moudjtaba Diallo a terminé ses études primaires et secondaires au célèbre Institut Daroul Imane du Sénégal.  En plus d'atteindre l'excellence académique, il a maîtrisé les principes du tajweed coranique et a été certifié dans trois styles de récitation coranique différents, à savoir Warsh, Qaaloun de l'Imam Nafi' et Hafs d'Assim. Muhammed n'est pas étranger aux compétitions coraniques.  Ayant participé à une poignée d'événements de ce type, il a réussi à obtenir de nombreux prix de première place, tels que le Concours coranique national de Dakar, le Concours coranique international en Malaisie et le Concours coranique international en Tanzanie, entre autres. Après avoir obtenu son diplôme de l'Institut Daroul Imane, l'étudiant sénégalais a continué à entraîner volontairement des récitants coraniques juniors et à les préparer pour les compétitions.  Il a également été imam pour les prières dans la prestigieuse mosquée dudit institut (mosquée Daroul Imane) jusqu'en 2020, date à laquelle il a décidé de se rendre en Malaisie et de s'inscrire à un baccalauréat en sciences politiques à l'Université islamique internationale de Malaisie (IIUM). Avec un certain nombre de ses compagnons dans le domaine coranique, il a cofondé l'Académie Zaid dans l'espoir de poursuivre l'héritage prophétique de l'enseignement du Saint Coran.",
       education: [
-        "Étudiant à L´UIMM ( Universite international islamique Malaisie )",
+        "Université Islamique Internationale Malaisie",
+        "La Sainte Mosquee La Mecque, Arabie Saoudite",
         "Institut Daroul Iman, Senegal",
-      ],
-      certificate: [
-        "Participation au programme Quran readers au Medina, Arabie Saoudite.",
-        "Classé premier a la competition international du Coran, La Malaisie 2017",
-        "1er place à la grande compétition international africaine du Coran, Tanzanie , 2019",
-        "1er place au competition national de récitation du coran a Dakar, 2011",
-        "2em place au competition national de récitation du Coran de Seneco, Sénégal 2016",
+        "Centre coranique Mahmoud Khalil Housari, Dakar, Sénégal",
       ],
     },
     {
@@ -69,15 +62,13 @@ const translationsFr = {
       // image: Mohammad1,
       id: 2,
       shortBio:
-        "Mamadou Baila Diallo est  diplômé de l'Université Umm al Qura avec  mention, il a étudié les Arts en littérature, Il est autorisé à enseigner les récitations pour toutes les Qiraat .  Il a une vaste expérience de travail en tant qu'instructeur enseignant le Coran, le Tajwid au Sénégal, en Arabie Saoudite et en Malaisie.",
+        "Le co-fondateur de Zaid Academy, Mamadou Bailo Diallo, a obtenu deux diplômes avec mention très bien à l'Université Umm al Qura d'Arabie saoudite, à savoir un diplôme en réadaptation linguistique (2016-2017) et un baccalauréat en littérature (2017-2021). En dehors des réalisations académiques, certaines de ses autres distinctions et expériences prestigieuses incluent l'obtention d'une ijazah (autorisation d'enseigner le Coran) basée sur les 10 lectures coraniques établies (Qiraat) de la Sainte Mecque.  Au fil des années, il a utilisé ces qualifications pour enseigner le Coran et ses différents Qiraat aux étudiants à La Mecque, notamment au centre de mémorisation A'achour Bukhari (la oùilaobtenuson ijazah dans les 10 Qiraat du coran). En plus de cela, Mamadou Bailo a également participé et excellé dans divers concours coraniques dont l'organisation caritative des centres de mémorisation à La Mecque.  Avec une maîtrise de l'anglais, de l'arabe et du français (parlé et écrit), il s'est porté volontaire comme traducteur (principalement l'anglais) à la Sainte Mosquée, facilitant le hajj pour les pèlerins pendant plus de 5 ans. À l'heure actuelle, le co-fondateur de Zaid Academy poursuit une maîtrise en banque et finance islamiques de l'Institut de banque et finance islamique (IIiBF) de l'Université islamique internationale de Malaisie.",
       education: [
-        "Baccalaureat des arts en literature, Universite Umm Al Qura, La mecque , Arabie Saoudite 2021",
-        "Diplôme de réadaptation linguistique ,Université Umm Al Qura, La mecque , Arabie Saoudite 2017",
-      ],
-      certificate: [
-        "Enseignant du coran pendant plusieurs années ",
-        "Enseigne Qiraat A chour Bukhari au centre de mémorisation à la mecque",
-        "Détenir une autorisation (Ijazah) pour enseigner les 10 lectures du Coran",
+        "Université Islamique Internationale de Malaisie",
+        "Université Umm Al Qura de La Mecque, Arabie Saoudite.",
+        "Centre de mémorisation A'achour Bukhari, La Mecque, Arabie Saoudite.",
+        "Dar Al Quran d'Anyama à Abidjan, Côte d'Ivoire",
+        "Centre de mémorisation Oubbaya bin kaab, Conakry, Guinée",
       ],
     },
   ],

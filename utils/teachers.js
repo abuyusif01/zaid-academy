@@ -1,5 +1,5 @@
-import Mohammad1 from "./muhamed-1.jpg";
-import Mohammad2 from "./muhamed2.jpg";
+import Mohammad1 from "./muhamed-1.JPEG";
+import Mohammad2 from "./muhamed2.png";
 const teachers = [
   {
     name: "Ousmane Yahya Diallo",

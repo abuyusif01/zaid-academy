@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { useStudent } from "../context/StudentContext";
 
@@ -18,22 +18,24 @@ const CourseRegistration = ({ student }) => {
     active: false,
     registered: true,
   });
+
   const onChange = (e) => {
     setProgram({ ...program, [e.target.name]: e.target.value });
   };
+
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log({ ...student, ...program });
     selfRegister({ ...student, ...program });
     router.push("/dashboard");
     close();
   };
+
   useEffect(() => {
     checkStudent(student.email);
-    // console.log(pupil);
-    if (pupil.registered === true) router.push("/dashboard");
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  if (pupil) {
+    pupil.email !== "" && router.push("/dashboard");
+  }
   return (
     <div className="space-y-4 border border-gray-300 rounded p-8">
       <div className="text-center">
