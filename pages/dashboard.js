@@ -30,18 +30,24 @@ const Dashboard = () => {
       <Head>
         <title>Dashboard | {user.displayName}</title>
       </Head>
-      {pupil.active ? (
-        <StudentDashboard student={pupil} open={openModal} />
-      ) : (
-        <div className="text-center space-y-4">
-          <p className="text-2xl">Welcome, {user.displayName}</p>
-          <p className="text-xl font-bold">Wait for admin to give you access</p>
-          <p className="text-gray-700 text-lg">
-            Contact this number:{" "}
-            <span className="text-semibold">+60-11-1605-0164</span> to enroll
-            and / or for payment
-          </p>
-        </div>
+      {pupil && (
+        <>
+          {pupil.active ? (
+            <StudentDashboard student={pupil} open={openModal} />
+          ) : (
+            <div className="text-center space-y-4">
+              <p className="text-2xl">Welcome, {user.displayName}</p>
+              <p className="text-xl font-bold">
+                Wait for admin to give you access
+              </p>
+              <p className="text-gray-700 text-lg">
+                Contact this number:{" "}
+                <span className="text-semibold">+60-11-1605-0164</span> to
+                enroll and / or for payment
+              </p>
+            </div>
+          )}
+        </>
       )}
 
       {/* <div>

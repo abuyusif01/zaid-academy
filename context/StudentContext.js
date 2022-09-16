@@ -77,7 +77,11 @@ const StudentProvider = ({ children }) => {
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
       const student = [];
       querySnapshot.forEach((doc) => {
-        student.push(doc.data());
+        if (doc.exists()) {
+          student.push(doc.data());
+        } else {
+          console.log("Student doees not exist yet");
+        }
       });
       setPupil(student[0]);
     });

@@ -33,8 +33,12 @@ const CourseRegistration = ({ student }) => {
   useEffect(() => {
     checkStudent(student.email);
   }, []);
-  if (pupil) {
-    pupil.email !== "" && router.push("/dashboard");
+  console.log("Pupil data is: ", pupil);
+  if (pupil === undefined || Object.keys(pupil).length === 0) {
+    console.log("not yet registered");
+  } else {
+    console.log("Properties", Object.keys(pupil));
+    router.push("/dashboard");
   }
   return (
     <div className="space-y-4 border border-gray-300 rounded p-8">
@@ -151,6 +155,7 @@ const CourseRegistration = ({ student }) => {
                   value={program.course}
                   onChange={onChange}
                 >
+                  <option value="">Choose a Program</option>
                   <option value="beginners">{t("Beginners")}</option>
                   <option value="hifz">Hifz</option>
                   <option value="muraja">Muraja ({t("revision")})</option>
