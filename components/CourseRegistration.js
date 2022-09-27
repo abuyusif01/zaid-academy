@@ -228,7 +228,7 @@ const CourseRegistration = ({ student }) => {
                   <option value="Arabic">Arabic</option>
                   <option value="Fulani">Fulani</option>
                   <option value="English">English</option>
-                  <option value="French">French ({t("revision")})</option>
+                  <option value="French">French</option>
                   <option value="Wollof">Wollof</option>
                 </select>
               </div>
