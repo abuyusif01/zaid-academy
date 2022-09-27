@@ -43,7 +43,9 @@ const CourseRegistration = ({ student }) => {
   return (
     <div className="space-y-4 border border-gray-300 rounded p-8">
       <div className="text-center">
-        <p>Welcome, {student.displayName}</p>
+        <p>
+          {t("welcome")}, {student.displayName}
+        </p>
         <p className="text-gray-700 text-lg">
           Contact this number:{" "}
           <span className="text-semibold">+60-11-1605-0164</span> to enroll and
