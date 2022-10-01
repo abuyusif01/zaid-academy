@@ -357,8 +357,9 @@ const PricingDetails = () => {
             </div>
           </div>
           <button
-            className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white mt-8 mx-auto"
+            className="px-12 py-4 rounded-md bg-gray-300 text-sm text-white mt-8 mx-auto"
             onClick={onSubmit}
+            disabled
           >
             {t("apply")}
           </button>
