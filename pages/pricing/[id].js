@@ -283,18 +283,25 @@ const PricingDetails = () => {
               <div className="flex flex-wrap -m-3">
                 <div className="w-full md:w-1/3 p-3">
                   <p className="text-sm text-coolGray-800 font-semibold">
-                    Primary Language
+                    Language
                   </p>
                 </div>
                 <div className="w-full md:flex-1 p-3">
-                  <input
+                  <select
                     className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-indigo-500 border border-coolGray-200 rounded-lg shadow-input"
                     type="text"
-                    placeholder="Enter your Primary Language"
+                    placeholder="language"
                     name="language"
-                    value={course.language}
+                    value={program.language}
                     onChange={onChange}
-                  />
+                  >
+                    <option value="">Choose a Language</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="Fulani">Fulani</option>
+                    <option value="English">English</option>
+                    <option value="French">French</option>
+                    <option value="Wollof">Wollof</option>
+                  </select>
                 </div>
               </div>
             </div>
