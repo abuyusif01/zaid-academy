@@ -32,11 +32,11 @@ const translationsEn = {
   teachers: [
     {
       name: "Ousmane Yahya Diallo",
-      role: "Founder, Teacher",
+      role: "Master of Art, Islamic Banking and Finance",
       id: 1,
       image: Ousmane,
       shortBio:
-        "Ousmane Yahya Diallo is the founder of Zaid Academy. He is a renowned Instructor of the quran specializing in aspect such as Tajweed, Hifz (Memorization) with certification (Ijazah and Sanad), he has learned from many prominent scholars as well as in reputable institutions around the world. He attained a bachelor’s degree in Shariah and Islamic Studies from Al Qasimia University in 2020. Ousmane began teaching the Holy Quran as early as 2012 upon attaining a certified status (ijazah) in different Quranic recitation styles. With an advanced grasp of the three widely spoken languages, namely, Arabic, French and English, as well as his mother-tongue, Fulani and Wolof, the co-founder of Zaid Academy is currently pursuing a Master’s degree in Islamic Finance at the International Islamic University of Malaysia (IIUM) with the aim to provide quality and efficient Quranic lessons.",
+        "Ousmane Yahya Diallo is the founder of Zaid Academy. He is a renowned Instructor of the quran specializing in aspect such as Tajweed, Hifz (Memorization) with certification (Ijazah and Sanad), he has learned from many prominent scholars as well as in reputable institutions around the world. He attained a bachelor’s degree in Shariah and Islamic Studies from Al Qasimia University in 2020. Ousmane began teaching the Holy Quran as early as 2012 after memorizing the holy Quran. With an advanced grasp of the three widely spoken languages, namely, Arabic, French and English, as well as his mother-tongue, Fulani and Wolof, the co-founder of Zaid Academy is currently pursuing a Master’s degree in Islamic Finance at the International Islamic University of Malaysia (IIUM) with the aim to provide quality and efficient Quranic lessons.",
       education: [
         "International Islamic University Malaysia",
         "Al-Qasimia University, Sharjah, United Arab Emirates",
@@ -47,7 +47,7 @@ const translationsEn = {
     },
     {
       name: "Mouhamed El Moudjtaba Diallo",
-      role: "Co-founder, Teacher",
+      role: "Bsc., Business Admin",
       id: 3,
       image: Mohammad2,
       shortBio:
@@ -61,7 +61,7 @@ const translationsEn = {
     },
     {
       name: "Mamadou Bailo Diallo",
-      role: "Co-founder, Teacher",
+      role: "Master of Art Islamic Banking and Finance",
       image: Mohammad1,
       id: 2,
       shortBio:
