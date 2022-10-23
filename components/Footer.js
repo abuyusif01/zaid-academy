@@ -8,8 +8,10 @@ import {
   BsInstagram,
   BsTelephone,
 } from "react-icons/bs";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
   return (
     <div className="w-full space-y-8 md:space-y-0 md:px-16 py-8 bg-gray-100 flex flex-col md:flex-row items-center justify-between">
       <div className="w-48 h-24">
@@ -18,22 +20,22 @@ const Footer = () => {
       <div className="flex space-x-1 text-gray-600 text-sm">
         <Link href="/about">
           <div className="cursor-pointer px-4 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
-            About
+            {t("about")}
           </div>
         </Link>
         <Link href="/pricing">
           <div className="cursor-pointer px-4 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
-            Pricing
+            {t("pricings")}
           </div>
         </Link>
         <Link href="/instructors">
           <div className="cursor-pointer px-4 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
-            Instructors
+            {t("instructors")}
           </div>
         </Link>
         <Link href="/contact">
           <div className="cursor-pointer px-4 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
-            Contact
+            {t("contact")}
           </div>
         </Link>
       </div>

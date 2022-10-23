@@ -14,6 +14,9 @@ const translationsEn = {
   verse:
     "Surely those who recite the Book of Allah, establish prayer, and donate from what We have provided for them—secretly and openly—˹can˺ hope for an exchange that will never fail",
   apply: "Apply Now",
+  about: "About",
+  contact: "Contact",
+  instructors: "Instructors",
   learnQuran: " Make the Learning of the Quran Easy",
   learnLanguage: "Our instructors speak several languages which includes",
   languages: "French, English, Arabic, Fullani and Wollof",
@@ -84,6 +87,7 @@ const translationsEn = {
   monthly: "monthly",
   oneOnOne: "Perfect for a Person that wants one on one classes",
   family: "Perfect for a family of more than 3 people",
+  pricings: "Pricings",
   Beginners: "Beginners (Alphabet)",
   BeginnersIntensive: "Beginners (Alphabet) Intensive",
   BeginnersItem: [

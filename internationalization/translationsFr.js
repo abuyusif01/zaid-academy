@@ -10,9 +10,12 @@ const translationsFr = {
   verse:
     "Certes, ceux qui récitent le Livre d'Allah, accomplissent la prière et donnent de ce que Nous leur avons attribué - en secret et ouvertement - peuvent espérer un échange qui ne manquera jamais",
   apply: "Appliquer maintenant",
+  about: "Á proposal de nous",
+  contact: "Contact",
+  instructors: "Enseignants",
   learnQuran:
-    "Rendre l’apprentissage du Saint Coran facile et accessible à tout le monde",
-  learnLanguage: "nos instructeurs s'expriment en differentes langues",
+    "Facilitez l’apprentissage du Saint Coran facile et accessible à tout le monde",
+  learnLanguage: "nous Enseignants s'expriment en differentes langues",
   languages: "dont le Français, L’anglais, l’Arabe, le Poular et le Wolof",
   visions: [
     "Fournir un accès à l'éducation coranique",
@@ -81,6 +84,7 @@ const translationsFr = {
   monthly: "mois",
   oneOnOne: "Parfait pour une personne qui veut des cours particuliers",
   family: "Parfait pour une famille de plus de 3 personnes",
+  pricings: "Tarifs",
   Beginners: "Débutants",
   BeginnersIntensive: "Débutants Intensif",
   BeginnersDetails:
