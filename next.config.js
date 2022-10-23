@@ -6,6 +6,9 @@ const nextConfig = {
   webpack: (config, options) => {
     return config;
   },
+  images: {
+    domains: ["firebasestorage.googleapis.com"],
+  },
 };
 
 module.exports = withVideos(nextConfig);

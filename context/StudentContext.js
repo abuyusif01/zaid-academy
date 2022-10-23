@@ -11,7 +11,8 @@ import {
   arrayUnion,
   getDocs,
 } from "firebase/firestore";
-import { db } from "../config/firebase";
+import { db, storage } from "../config/firebase";
+import { getDownloadURL, ref } from "firebase/storage";
 
 const StudentContext = createContext();
 export const useStudent = () => useContext(StudentContext);
@@ -87,6 +88,10 @@ const StudentProvider = ({ children }) => {
     });
   };
 
+  const getVideo = async () => {
+    return "https://firebasestorage.googleapis.com/v0/b/zaid-276fa.appspot.com/o/video%2Fabout.MP4?alt=media&token=3a63c2eb-d2b5-4676-b085-e1ad4042eb2d";
+  };
+
   return (
     <StudentContext.Provider
       value={{
@@ -100,6 +105,7 @@ const StudentProvider = ({ children }) => {
         updateStudent,
         getStudentByInstructor,
         addAttendance,
+        getVideo,
         // registerNewStudent,
       }}
     >
