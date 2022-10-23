@@ -124,7 +124,7 @@ const PricingSection = () => {
       <div className="flex justify-center my-6">
         <Link href="/pricing">
           <button className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white">
-            See more Pricing
+            {t("seePricings")}
           </button>
         </Link>
       </div>

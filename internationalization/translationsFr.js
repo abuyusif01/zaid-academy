@@ -29,10 +29,14 @@ const translationsFr = {
   ],
   we: "Nous",
   popularTeacher: "Nos professeurs ",
+  master: "Maître des Arts",
+  ibf: "Banque et Finance Islamiques",
+  bachelor: "Baccalauréat",
+  bizadmin: "Administrateur d'entreprise",
   teachers: [
     {
       name: "Ousmane Yahya Diallo",
-      role: "Fondateur , Enseignant (professeur)",
+      role: "Maître des Arts, Banque et Finance Islamiques",
       id: 1,
       // image: Mohammad1,
       shortBio:
@@ -47,7 +51,7 @@ const translationsFr = {
     },
     {
       name: "Mouhamed El Moudjtaba Diallo",
-      role: "Co-Fondateur , Enseignant (professeur)",
+      role: "Baccalauréat, Administrateur d'entreprise",
       id: 3,
       // image: Mohammad2,
       shortBio:
@@ -61,7 +65,7 @@ const translationsFr = {
     },
     {
       name: "Mamadou Bailo Diallo",
-      role: "Co-Fondateur , Enseignant (professeur)",
+      role: "Maître des Arts, Banque et Finance Islamiques",
       // image: Mohammad1,
       id: 2,
       shortBio:
@@ -85,6 +89,7 @@ const translationsFr = {
   oneOnOne: "Parfait pour une personne qui veut des cours particuliers",
   family: "Parfait pour une famille de plus de 3 personnes",
   pricings: "Tarifs",
+  seePricings: "Voir les Tarifs",
   Beginners: "Débutants",
   BeginnersIntensive: "Débutants Intensif",
   BeginnersDetails:

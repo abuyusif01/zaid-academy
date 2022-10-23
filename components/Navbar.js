@@ -103,22 +103,22 @@ const Navbar = () => {
           <div className="md:flex space-x-4 text-gray-600 text-sm hidden">
             <Link href="/about">
               <div className="cursor-pointer px-8 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
-                About
+                {t("about")}
               </div>
             </Link>
             <Link href="/pricing">
               <div className="cursor-pointer px-8 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
-                Pricing
+                {t("pricings")}
               </div>
             </Link>
             <Link href="/instructors">
               <div className="cursor-pointer px-8 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
-                Instructors
+                {t("instructors")}
               </div>
             </Link>
             <Link href="/contact">
               <div className="cursor-pointer px-8 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
-                Contact
+                {t("contact")}
               </div>
             </Link>
           </div>

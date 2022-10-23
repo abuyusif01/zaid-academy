@@ -35,7 +35,7 @@ const translationsEn = {
   teachers: [
     {
       name: "Ousmane Yahya Diallo",
-      role: "Master of Art, Islamic Banking and Finance",
+      role: "Master of Arts, Islamic Banking and Finance",
       id: 1,
       image: Ousmane,
       shortBio:
@@ -64,7 +64,7 @@ const translationsEn = {
     },
     {
       name: "Mamadou Bailo Diallo",
-      role: "Master of Art Islamic Banking and Finance",
+      role: "Master of Arts, Islamic Banking and Finance",
       image: Mohammad1,
       id: 2,
       shortBio:
@@ -88,6 +88,7 @@ const translationsEn = {
   oneOnOne: "Perfect for a Person that wants one on one classes",
   family: "Perfect for a family of more than 3 people",
   pricings: "Pricings",
+  seePricings: "See Pricing",
   Beginners: "Beginners (Alphabet)",
   BeginnersIntensive: "Beginners (Alphabet) Intensive",
   BeginnersItem: [
