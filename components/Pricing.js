@@ -21,7 +21,7 @@ const Pricing = ({ items, title, description, price }) => {
           router.push(`/pricing/${title.split(" ").join("-").toLowerCase()}`)
         }
       >
-        Learn More
+        {t("learnMore")}
       </div>
       <ul className="text-left">
         {items.map((item) => (

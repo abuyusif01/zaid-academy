@@ -1,5 +1,6 @@
 const translationsFr = {
   learn: "Apprendre",
+  learnMore: "Apprendre Encore Plus",
   welcome: "Bienvenue",
   bannerText: "Le Coran auprès",
   bannerText1: "d’instituteurs expérimentés.",

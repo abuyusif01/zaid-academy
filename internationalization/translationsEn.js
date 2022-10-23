@@ -4,6 +4,7 @@ import Ousmane from "../utils/ousmane.jpeg";
 
 const translationsEn = {
   learn: "Learn",
+  learnMore: "Learn More",
   welcome: "Welcome",
   bannerText: "the Quran from",
   bannerText1: "experienced teachers",
