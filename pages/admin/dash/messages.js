@@ -16,6 +16,7 @@ const Messages = () => {
   useEffect(() => {
     getOldMessages();
     getNewMessages();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
     <div>
@@ -23,8 +24,10 @@ const Messages = () => {
         <title>Admin Messages</title>
       </Head>
       <div className="flex">
-        <SideBar />
-        <div className="p-8 space-y-8 flex-1">
+        <div className="w-2/12">
+          <SideBar />
+        </div>
+        <div className="p-8 w-10/12 space-y-8 flex-1">
           <p className="text-2xl text-gray-600 font-semibold">New Messages</p>
           <div className="flex">
             {newMessages.map((mesg) => (

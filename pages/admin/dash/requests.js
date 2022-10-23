@@ -8,9 +8,13 @@ const Request = () => {
       <Head>
         <title>Admin Request</title>
       </Head>
-      <div className="flex">
-        <SideBar />
-        <p>Request</p>
+      <div className="flex w-full">
+        <div className="w-2/12">
+          <SideBar />
+        </div>
+        <div className="w-10/12 p-8">
+          <p>Request</p>
+        </div>
       </div>
     </div>
   );

@@ -13,6 +13,7 @@ const Classes = () => {
   useEffect(() => {
     getStudentByInstructor(lecturer);
     setStudent({});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lecturer]);
 
   const onChange = (e) => {
@@ -29,8 +30,10 @@ const Classes = () => {
         <title>Admin Dashboard</title>
       </Head>
       <div className="flex">
-        <SideBar />
-        <div className="p-8 w-full">
+        <div className="w-2/12">
+          <SideBar />
+        </div>
+        <div className="p-8 w-10/12">
           <p className="text-2xl text-gray-600 font-semibold">Classes</p>
           <div className="py-6 border-b border-coolGray-100">
             <label className="text-sm text-coolGray-800 font-semibold">

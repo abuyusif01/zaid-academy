@@ -1,23 +1,48 @@
 import Link from "next/link";
 import React from "react";
+import { FaChalkboardTeacher } from "react-icons/fa";
+import {
+  BsEnvelopeFill,
+  BsPersonCheck,
+  BsFillPeopleFill,
+  BsEnvelopeOpenFill,
+} from "react-icons/bs";
+import SidebarLink from "./SidebarLink";
 
 const SideBar = () => {
   return (
-    <div className="w-2/12 min-h-screen bg-gray-100">
-      {/* <div className="h-24 flex justify-center items-center border-b border-b-1 border-b-indigo-400">
-        Ousmane Yahya Diallo
-      </div> */}
-      <div className="px-8 py-4 border-b border-b-1 border-b-indigo-400">
-        <Link href="/admin/dash/classes">Classes</Link>
+    <div className="min-h-[100vh] border-r border-gray-200 p-4 py-8 border-dashed space-y-3">
+      <div className="cursor-pointer bg-gray-200 rounded-lg text-center space-y-1 p-2">
+        <p>Zaid Dashboard</p>
+        <p className="text-sm">Admin</p>
       </div>
-      <div className="px-8 py-4 border-b border-b-1 border-b-indigo-400">
-        <Link href="/admin/dash/messages">Messages</Link>
-      </div>
-      {/* <div className="px-8 py-4 border-b border-b-1 border-b-indigo-400">
-        <Link href="/admin/dash/requests">Request</Link>
-      </div> */}
-      <div className="px-8 py-4 border-b border-b-1 border-b-indigo-400">
-        <Link href="/admin/dash/students">Students</Link>
+      <div className="space-y-4">
+        <SidebarLink
+          icon={<BsFillPeopleFill />}
+          name="Classes"
+          url="/admin/dash/classes"
+          active
+        />
+        <SidebarLink
+          icon={<BsPersonCheck />}
+          name="Students"
+          url="/admin/dash/students"
+        />
+        <SidebarLink
+          icon={<FaChalkboardTeacher />}
+          name="Instructors"
+          url="/admin/dash/instructors"
+        />
+        <SidebarLink
+          icon={<BsEnvelopeFill />}
+          name="Messages"
+          url="/admin/dash/messages"
+        />
+        <SidebarLink
+          icon={<BsEnvelopeOpenFill />}
+          name="Request"
+          url="/admin/dash/requests"
+        />
       </div>
     </div>
   );
