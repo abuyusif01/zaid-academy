@@ -41,9 +41,8 @@ const Dashboard = () => {
                 Wait for admin to give you access
               </p>
               <p className="text-gray-700 text-lg">
-                Contact this number:{" "}
-                <span className="text-semibold">+60-11-1605-0164</span> to
-                enroll and / or for payment
+                To enroll, contact:{" "}
+                <span className="text-semibold">+60-11-1605-0164</span>
               </p>
             </div>
           )}

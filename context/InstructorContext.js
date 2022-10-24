@@ -8,10 +8,16 @@ export const useInstructor = () => useContext(InstructorContext);
 
 const InstructorProvider = ({ children }) => {
   const addNewInstructor = async (email, password) => {
-    await createUserWithEmailAndPassword(auth, email, password);
+    const userCredential = await createUserWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    console.log(userCredential.user);
   };
+  const addInstructorToDb = () => {};
   return (
-    <InstructorContext.Provider value={{ addNewInstructor }}>
+    <InstructorContext.Provider value={{ addNewInstructor, addInstructorToDb }}>
       {children}
     </InstructorContext.Provider>
   );

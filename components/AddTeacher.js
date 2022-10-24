@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import { useInstructor } from "../context/InstructorContext";
 
 const AddTeacher = ({ close }) => {
+  const { addNewInstructor } = useInstructor();
   const [instructor, setInstructor] = useState({
     email: "",
     password: "",
@@ -9,7 +11,8 @@ const AddTeacher = ({ close }) => {
     setInstructor({ ...instructor, [e.target.name]: e.target.value });
   };
   const onSubmit = () => {
-    console.log(instructor);
+    addNewInstructor(instructor.email, instructor.password);
+    close();
   };
   return (
     <div>

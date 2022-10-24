@@ -12,6 +12,7 @@ import CourseProvider from "../context/CourseContext";
 import StudentProvider from "../context/StudentContext";
 import AuthProvider from "../context/AuthContext";
 import "../styles/globals.css";
+import InstructorProvider from "../context/InstructorContext";
 
 const authRequired = ["/", "/"];
 
@@ -34,19 +35,21 @@ function MyApp({ Component, pageProps }) {
       <AuthProvider>
         <StudentProvider>
           <CourseProvider>
-            <div className="font-Poppins min-h-screen flex flex-col justify-between">
-              <Navbar />
-              {authRequired ? (
-                <ProtectedRoute>
+            <InstructorProvider>
+              <div className="font-Poppins min-h-screen flex flex-col justify-between">
+                <Navbar />
+                {authRequired ? (
+                  <ProtectedRoute>
+                    <Component {...pageProps} />
+                  </ProtectedRoute>
+                ) : (
                   <Component {...pageProps} />
-                </ProtectedRoute>
-              ) : (
-                <Component {...pageProps} />
-              )}
-              <div className="">
-                <Footer />{" "}
+                )}
+                <div className="">
+                  <Footer />{" "}
+                </div>
               </div>
-            </div>
+            </InstructorProvider>
           </CourseProvider>
         </StudentProvider>
       </AuthProvider>

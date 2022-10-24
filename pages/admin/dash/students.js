@@ -37,11 +37,20 @@ const Students = () => {
           </div>
         </Modal>
       </div>
+
       <div className="flex w-full">
         <div className="w-2/12">
           <SideBar />
         </div>
-        <div className="p-8 w-10/12">
+        <div className="p-8 w-10/12 space-y-4">
+          <div className="flex items-center justify-between w-full">
+            <p className="text-2xl font-semibold">Students</p>
+            <div>
+              <button className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white mt-8 mx-auto">
+                Add Students
+              </button>
+            </div>
+          </div>
           <TableRow
             data={{
               name: "Name",

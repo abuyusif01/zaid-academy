@@ -47,11 +47,10 @@ const CourseRegistration = ({ student }) => {
           {t("welcome")}, {student.displayName}
         </p>
         <p className="text-gray-700 text-lg">
-          Contact this number:{" "}
-          <span className="text-semibold">+60-11-1605-0164</span> to enroll and
-          / or for payment
+          {t("toRegister")}{" "}
+          <span className="font-semibold">{t("whatsapp")}</span>
         </p>
-        <p className="text-baseline text-gray-500"> or enroll yourself below</p>
+        <p className="text-gray-700">{t("fillForm")}</p>
       </div>
       <form onSubmit={onSubmit}>
         <div className="py-6 border-b border-coolGray-100">
@@ -59,7 +58,7 @@ const CourseRegistration = ({ student }) => {
             <div className="flex flex-wrap -m-3">
               <div className="w-full md:w-1/3 p-3">
                 <p className="text-sm text-coolGray-800 font-semibold">
-                  Phone number
+                  {t("phoneNumber")}
                 </p>
               </div>
               <div className="w-full md:flex-1 p-3">
@@ -80,7 +79,7 @@ const CourseRegistration = ({ student }) => {
             <div className="flex flex-wrap -m-3">
               <div className="w-full md:w-1/3 p-3">
                 <p className="text-sm text-coolGray-800 font-semibold">
-                  Whatsapp number
+                  {t("whatsappNumber")}
                 </p>
               </div>
               <div className="w-full md:flex-1 p-3">
@@ -101,7 +100,7 @@ const CourseRegistration = ({ student }) => {
             <div className="flex flex-wrap -m-3">
               <div className="w-full md:w-1/3 p-3">
                 <p className="text-sm text-coolGray-800 font-semibold">
-                  Gender
+                  {t("gender")}
                 </p>
               </div>
               <div className="w-full md:flex-1 p-3">
@@ -124,7 +123,7 @@ const CourseRegistration = ({ student }) => {
             <div className="flex flex-wrap -m-3">
               <div className="w-full md:w-1/3 p-3">
                 <p className="text-sm text-coolGray-800 font-semibold">
-                  Nationality
+                  {t("nationality")}
                 </p>
               </div>
               <div className="w-full md:flex-1 p-3">
@@ -145,7 +144,7 @@ const CourseRegistration = ({ student }) => {
             <div className="flex flex-wrap -m-3">
               <div className="w-full md:w-1/3 p-3">
                 <p className="text-sm text-coolGray-800 font-semibold">
-                  Program
+                  {t("program")}
                 </p>
               </div>
               <div className="w-full md:flex-1 p-3">
@@ -173,7 +172,7 @@ const CourseRegistration = ({ student }) => {
             <div className="flex flex-wrap -m-3">
               <div className="w-full md:w-1/3 p-3">
                 <p className="text-sm text-coolGray-800 font-semibold">
-                  Intensive Level
+                  {t("intensiveLevel")}
                 </p>
               </div>
               <div className="w-full md:flex-1 p-3">
@@ -212,7 +211,7 @@ const CourseRegistration = ({ student }) => {
             <div className="flex flex-wrap -m-3">
               <div className="w-full md:w-1/3 p-3">
                 <p className="text-sm text-coolGray-800 font-semibold">
-                  Language
+                  {t("language")}
                 </p>
               </div>
               <div className="w-full md:flex-1 p-3">
