@@ -30,7 +30,7 @@ const SideBar = () => {
         />
         <SidebarLink
           icon={<FaChalkboardTeacher />}
-          name="Instructors"
+          name="Add Instructors"
           url="/admin/dash/instructors"
         />
         <SidebarLink
