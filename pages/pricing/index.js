@@ -38,6 +38,7 @@ const PricingX = () => {
   const [pricingPlan, setPricingPlan] = useState("family");
   const showFamily = () => setPricingPlan("family");
   const showSpecial = () => setPricingPlan("special");
+  const showPremium = () => setPricingPlan("premium");
   const showBasic = () => setShow("basic");
   const showIntensive = () => setShow("intensive");
   const { t } = useTranslation();
@@ -95,6 +96,16 @@ const PricingX = () => {
           </div>
           <div
             className={`px-4 py-1 ${
+              pricingPlan === "premium"
+                ? "bg-indigo-500 text-white"
+                : "bg-white text-gray-700"
+            } text-white rounded-2xl cursor-pointer`}
+            onClick={showPremium}
+          >
+            Premium Package
+          </div>
+          <div
+            className={`px-4 py-1 ${
               pricingPlan === "family"
                 ? "bg-indigo-500 text-white"
                 : "bg-white text-gray-700"
@@ -112,7 +123,7 @@ const PricingX = () => {
                 price={110}
                 description="This is suitable for 3 people"
                 items={[
-                  "2-3 people",
+                  "2-3 students",
                   "3 sessions per week",
                   "50 minutes per session",
                 ]}
@@ -121,7 +132,7 @@ const PricingX = () => {
                 title="intensive"
                 price={180}
                 items={[
-                  "2-3 people",
+                  "2-3 students",
                   "5 sessions per week",
                   "50 minutes per session",
                 ]}
@@ -184,6 +195,11 @@ const PricingX = () => {
                   items={["45 minutes", "20 classes /month", "5 classs /week"]}
                 />
               </div>
+            </div>
+          )}
+          {pricingPlan === "premium" && (
+            <div className="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
+              <div>Premium</div>
             </div>
           )}
           {/* {show === "basic" && (

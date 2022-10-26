@@ -11,7 +11,7 @@ const translationsFr = {
   verse:
     "Certes, ceux qui récitent le Livre d'Allah, accomplissent la prière et donnent de ce que Nous leur avons attribué - en secret et ouvertement - peuvent espérer un échange qui ne manquera jamais",
   apply: "Appliquer maintenant",
-  about: "Á proposal de nous",
+  about: "Á propos de nous",
   contact: "Contact",
   instructors: "Enseignants",
   learnQuran:
@@ -30,14 +30,14 @@ const translationsFr = {
   ],
   we: "Nous",
   popularTeacher: "Nos professeurs ",
-  master: "Maître des Arts",
+  master: "Master en",
   ibf: "Banque et Finance Islamiques",
   bachelor: "Baccalauréat",
-  bizadmin: "Administrateur d'entreprise",
+  bizadmin: "Administration des Affairs",
   teachers: [
     {
       name: "Ousmane Yahya Diallo",
-      role: "Maître des Arts, Banque et Finance Islamiques",
+      role: "Master en Banque et Finance Islamiques",
       id: 1,
       // image: Mohammad1,
       shortBio:
@@ -52,7 +52,7 @@ const translationsFr = {
     },
     {
       name: "Mouhamed El Moudjtaba Diallo",
-      role: "Baccalauréat, Administrateur d'entreprise",
+      role: "Baccalauréat Administration des Affairs",
       id: 3,
       // image: Mohammad2,
       shortBio:
@@ -66,11 +66,11 @@ const translationsFr = {
     },
     {
       name: "Mamadou Bailo Diallo",
-      role: "Maître des Arts, Banque et Finance Islamiques",
+      role: "Master en Banque et Finance Islamiques",
       // image: Mohammad1,
       id: 2,
       shortBio:
-        "Le co-fondateur de Zaid Academy, Mamadou Bailo Diallo, a obtenu deux diplômes avec mention très bien à l'Université Umm al Qura d'Arabie saoudite, à savoir un diplôme en réadaptation linguistique (2016-2017) et un baccalauréat en littérature (2017-2021). En dehors des réalisations académiques, certaines de ses autres distinctions et expériences prestigieuses incluent l'obtention d'une ijazah (autorisation d'enseigner le Coran) basée sur les 10 lectures coraniques établies (Qiraat) de la Sainte Mecque.  Au fil des années, il a utilisé ces qualifications pour enseigner le Coran et ses différents Qiraat aux étudiants à La Mecque, notamment au centre de mémorisation A'achour Bukhari (la oùilaobtenuson ijazah dans les 10 Qiraat du coran). En plus de cela, Mamadou Bailo a également participé et excellé dans divers concours coraniques dont l'organisation caritative des centres de mémorisation à La Mecque.  Avec une maîtrise de l'anglais, de l'arabe et du français (parlé et écrit), il s'est porté volontaire comme traducteur (principalement l'anglais) à la Sainte Mosquée, facilitant le hajj pour les pèlerins pendant plus de 5 ans. À l'heure actuelle, le co-fondateur de Zaid Academy poursuit une maîtrise en banque et finance islamiques de l'Institut de banque et finance islamique (IIiBF) de l'Université islamique internationale de Malaisie.",
+        "Le co-fondateur de Zaid Academy, Mamadou Bailo Diallo, a obtenu deux diplômes avec mention très bien à l'Université Umm al Qura d'Arabie saoudite, à savoir un diplôme en réadaptation linguistique (2016-2017) et un baccalauréat en littérature (2017-2021). En dehors des réalisations académiques, certaines de ses autres distinctions et expériences prestigieuses incluent l'obtention d'une ijazah (autorisation d'enseigner le Coran) basée sur les 10 lectures coraniques établies (Qiraat) de la Sainte Mecque.  Au fil des années, il a utilisé ces qualifications pour enseigner le Coran et ses différents Qiraat aux étudiants à La Mecque, notamment au centre de mémorisation A'achour Bukhari (lá où il a obtenu son ijazah dans les 10 Qiraat du coran). En plus de cela, Mamadou Bailo a également participé et excellé dans divers concours coraniques dont l'organisation caritative des centres de mémorisation à La Mecque.  Avec une maîtrise de l'anglais, de l'arabe et du français (parlé et écrit), il s'est porté volontaire comme traducteur (principalement l'anglais) à la Sainte Mosquée, facilitant le hajj pour les pèlerins pendant plus de 5 ans. À l'heure actuelle, le co-fondateur de Zaid Academy poursuit une maîtrise en banque et finance islamiques de l'Institut de banque et finance islamique (IIiBF) de l'Université islamique internationale de Malaisie.",
       education: [
         "Université Islamique Internationale de Malaisie",
         "Université Umm Al Qura de La Mecque, Arabie Saoudite.",

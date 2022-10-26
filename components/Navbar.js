@@ -38,7 +38,7 @@ const Navbar = () => {
                 className="cursor-pointer px-8 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in"
                 onClick={closeNav}
               >
-                About
+                {t("about")}
               </div>
             </Link>
             <Link href="/pricing">
@@ -46,7 +46,7 @@ const Navbar = () => {
                 className="cursor-pointer px-8 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in"
                 onClick={closeNav}
               >
-                Pricing
+                {t("pricings")}
               </div>
             </Link>
             <Link href="/instructors">
@@ -54,7 +54,7 @@ const Navbar = () => {
                 className="cursor-pointer px-8 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in"
                 onClick={closeNav}
               >
-                Instructors
+                {t("instructors")}
               </div>
             </Link>
             <Link href="/contact">
@@ -62,20 +62,34 @@ const Navbar = () => {
                 className="cursor-pointer px-8 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in"
                 onClick={closeNav}
               >
-                Contact
+                {t("contact")}
+              </div>
+            </Link>
+            <Link href="/program">
+              <div
+                className="cursor-pointer px-8 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in"
+                onClick={closeNav}
+              >
+                Program
               </div>
             </Link>
           </div>
           <div className="flex space-x-4 text-sm justify-center">
             <p
               className="cursor-pointer"
-              onClick={() => i18n.changeLanguage("en")}
+              onClick={() => {
+                i18n.changeLanguage("en");
+                closeNav();
+              }}
             >
               En
             </p>
             <p
               className="cursor-pointer"
-              onClick={() => i18n.changeLanguage("fr")}
+              onClick={() => {
+                i18n.changeLanguage("fr");
+                closeNav();
+              }}
             >
               Fr
             </p>
@@ -121,13 +135,17 @@ const Navbar = () => {
                 {t("contact")}
               </div>
             </Link>
+            <Link href="/program">
+              <div className="cursor-pointer px-8 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
+                Program
+              </div>
+            </Link>
           </div>
           <div className="md:flex space-x-4 text-sm hidden">
             <p
               className="cursor-pointer"
               onClick={() => {
                 i18n.changeLanguage("en");
-                // closeNav();
               }}
             >
               En
@@ -136,7 +154,6 @@ const Navbar = () => {
               className="cursor-pointer"
               onClick={() => {
                 i18n.changeLanguage("fr");
-                // closeNav();
               }}
             >
               Fr
