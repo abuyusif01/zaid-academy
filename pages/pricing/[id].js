@@ -1,12 +1,13 @@
 import Head from "next/head";
+import { v4 as uuidv4 } from "uuid";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { BsCheck } from "react-icons/bs";
-import { useCourse } from "../../context/CourseContext";
+import { useStudent } from "../../context/StudentContext";
 
 const PricingDetails = () => {
-  const { requestCourse } = useCourse();
+  const { selfRegister } = useStudent();
   const onChange = (e) => {
     setCourse({ ...course, [e.target.name]: e.target.value });
   };
@@ -72,12 +73,18 @@ const PricingDetails = () => {
     plan: "",
     planType: "",
     program: program.slug,
-    registered: false,
+    registered: true,
+    active: false,
   });
   const onSubmit = (e) => {
     e.preventDefault();
-    requestCourse({ ...course, plan, intensive });
-    console.log({ ...course, plan, intensive });
+    console.log({
+      ...course,
+      plan,
+      intensive,
+      displayName: course.firstName + " " + course.lastName,
+      uid: uuidv4(),
+    });
     setCourse({
       firstName: "",
       lastName: "",
@@ -90,7 +97,10 @@ const PricingDetails = () => {
       plan: "",
       planType: "",
       program: program.slug,
+      active: false,
+      registered: true,
     });
+    router.push("/signup");
   };
   return (
     <div className="md:px-48 px-4 my-16 space-y-8">
@@ -133,6 +143,30 @@ const PricingDetails = () => {
               <li
                 key={item}
                 className="flex text-sm md:text-base items-center font-heading mb-3 font-medium text-base"
+              >
+                <BsCheck />
+                <p>{item}</p>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div className="space-y-4 px-4 py-8 rounded-lg border border-gray-200">
+          <h4 className="text-2xl font-semibold">
+            Special and Premium Pricing
+          </h4>
+          <ul className="text-left">
+            <li className="flex text-sm md:text-base items-center font-heading mb-3 font-medium text-base text-gray-900">
+              <BsCheck />
+              <p>customized timing</p>
+            </li>
+            <li className="flex text-sm md:text-base items-center font-heading mb-3 font-medium text-base text-gray-900">
+              <BsCheck />
+              <p>More classes per week</p>
+            </li>
+            {program.basic.map((item) => (
+              <li
+                key={item}
+                className="flex text-sm md:text-base items-center font-heading mb-3 font-medium text-base text-gray-900"
               >
                 <BsCheck />
                 <p>{item}</p>
@@ -459,7 +493,7 @@ const PricingDetails = () => {
           )}
 
           <button
-            className="px-12 py-4 rounded-md bg-gray-300 text-sm text-white mt-8 mx-auto"
+            className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white mt-8 mx-auto"
             onClick={onSubmit}
             // disabled
           >

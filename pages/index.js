@@ -14,15 +14,11 @@ const Home = () => {
       </Head>
       <Banner />
       <AboutSection />
-
       <div className="py-12">
         <ProgramSection />
       </div>
       <div className="bg-gray-100 py-12">
         <TeacherSection />
-      </div>
-      <div className="py-12">
-        <PricingSection />
       </div>
     </div>
   );

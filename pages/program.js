@@ -1,5 +1,7 @@
+import Head from "next/head";
 import React from "react";
 import { useTranslation } from "react-i18next";
+import PricingSection from "../components/PricingSection";
 import ProgramSection from "../components/ProgramSection";
 
 const ProgramDetails = ({ details }) => <div></div>;
@@ -18,7 +20,13 @@ const Program = () => {
   ];
   return (
     <div className="py-12">
-      <div className="flex">
+      <Head>
+        <title>Zaid | Pricing</title>
+      </Head>
+      <div>
+        <ProgramSection />
+      </div>
+      {/* <div className="flex">
         {programs.map((program) => (
           <div key={program.name}>
             <div>
@@ -26,7 +34,7 @@ const Program = () => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 };

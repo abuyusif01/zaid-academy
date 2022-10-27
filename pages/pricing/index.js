@@ -63,29 +63,9 @@ const PricingX = () => {
         <h4 className="uppercase text-2xl text-center font-bold mb-8">
           Pricing
         </h4>
-        <div className="mx-auto mb-8 flex items-center justify-center space-x-4">
-          {/* <div
-            className={`px-4 py-1 ${
-              show === "basic"
-                ? "bg-indigo-500 text-white"
-                : "bg-white text-gray-700"
-            } text-white rounded-2xl cursor-pointer`}
-            onClick={showBasic}
-          >
-            Basic
-          </div>
+        <div className="mx-4 md:mx-auto mb-8 flex items-center justify-center space-x-4">
           <div
-            className={`px-4 py-1 ${
-              show === "intensive"
-                ? "bg-indigo-500 text-white"
-                : "bg-white text-gray-700"
-            } text-white rounded-2xl cursor-pointer`}
-            onClick={showIntensive}
-          >
-            Intensive
-          </div> */}
-          <div
-            className={`px-4 py-1 ${
+            className={`px-4 py-1 text-center ${
               pricingPlan === "special"
                 ? "bg-indigo-500 text-white"
                 : "bg-white text-gray-700"
@@ -95,7 +75,7 @@ const PricingX = () => {
             Special Package
           </div>
           <div
-            className={`px-4 py-1 ${
+            className={`px-4 py-1 text-center ${
               pricingPlan === "premium"
                 ? "bg-indigo-500 text-white"
                 : "bg-white text-gray-700"
@@ -105,7 +85,7 @@ const PricingX = () => {
             Premium Package
           </div>
           <div
-            className={`px-4 py-1 ${
+            className={`px-4 py-1 text-center ${
               pricingPlan === "family"
                 ? "bg-indigo-500 text-white"
                 : "bg-white text-gray-700"
@@ -140,140 +120,113 @@ const PricingX = () => {
             </div>
           )}
           {pricingPlan === "special" && (
-            <div className="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
-              <div className="w-full flex flex-col space-y-4">
-                <Plan
-                  title="Silver A"
-                  price={20}
-                  items={["30 minutes", "4 classes /month", "1 classs /week"]}
-                />
-                <Plan
-                  title="Silver B"
-                  price={40}
-                  items={["30 minutes", "8 classes /month", "2 classs /week"]}
-                />
-                <Plan
-                  title="Silver C"
-                  price={60}
-                  items={["30 minutes", "12 classes /month", "3 classs /week"]}
-                />
-                <Plan
-                  title="Silver D"
-                  price={80}
-                  items={["30 minutes", "16 classes /month", "4 classs /week"]}
-                />
-                <Plan
-                  title="Silver E"
-                  price={100}
-                  items={["30 minutes", "20 classes /month", "5 classs /week"]}
-                />
+            <div className="space-y-6">
+              <div className="w-full flex flex-col lg:flex-row">
+                <div className="w-full p-4">
+                  <Plan
+                    title="Silver A"
+                    price={20}
+                    items={["30 minutes", "4 classes /month", "1 classs /week"]}
+                  />
+                </div>
+                <div className="w-full p-4">
+                  <Plan
+                    title="Silver B"
+                    price={40}
+                    items={["30 minutes", "8 classes /month", "2 classs /week"]}
+                  />
+                </div>
+                <div className="w-full p-4">
+                  <Plan
+                    title="Silver C"
+                    price={60}
+                    items={[
+                      "30 minutes",
+                      "12 classes /month",
+                      "3 classs /week",
+                    ]}
+                  />
+                </div>
               </div>
-              <div className="w-full flex flex-col space-y-4">
-                <Plan
-                  title="Gold A"
-                  price={30}
-                  items={["45 minutes", "4 classes /month", "1 classs /week"]}
-                />
-                <Plan
-                  title="Gold B"
-                  price={60}
-                  items={["45 minutes", "8 classes /month", "2 classs /week"]}
-                />
-                <Plan
-                  title="Gold C"
-                  price={90}
-                  items={["45 minutes", "12 classes /month", "3 classs /week"]}
-                />
-                <Plan
-                  title="Gold D"
-                  price={120}
-                  items={["45 minutes", "16 classes /month", "4 classs /week"]}
-                />
-                <Plan
-                  title="Gold E"
-                  price={150}
-                  items={["45 minutes", "20 classes /month", "5 classs /week"]}
-                />
+              <div className="w-full flex flex-col lg:flex-row">
+                <div className="w-full p-4">
+                  <Plan
+                    title="Gold A"
+                    price={30}
+                    items={["45 minutes", "4 classes /month", "1 classs /week"]}
+                  />
+                </div>
+                <div className="w-full p-4">
+                  <Plan
+                    title="Gold B"
+                    price={60}
+                    items={["45 minutes", "8 classes /month", "2 classs /week"]}
+                  />
+                </div>
+                <div className="w-full p-4">
+                  <Plan
+                    title="Gold C"
+                    price={90}
+                    items={[
+                      "45 minutes",
+                      "12 classes /month",
+                      "3 classs /week",
+                    ]}
+                  />
+                </div>
               </div>
             </div>
           )}
           {pricingPlan === "premium" && (
             <div className="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
-              <div>Premium</div>
+              <div className="w-full flex flex-col lg:flex-row flex-wrap">
+                <div className="w-full md:w-1/2 p-4">
+                  <Plan
+                    title="Silver D"
+                    price={80}
+                    items={[
+                      "30 minutes",
+                      "16 classes /month",
+                      "4 classs /week",
+                    ]}
+                  />
+                </div>
+                <div className="w-full md:w-1/2 p-4">
+                  <Plan
+                    title="Silver E"
+                    price={100}
+                    items={[
+                      "30 minutes",
+                      "20 classes /month",
+                      "5 classs /week",
+                    ]}
+                  />
+                </div>
+                <div className="w-full md:w-1/2 p-4">
+                  <Plan
+                    title="Gold D"
+                    price={120}
+                    items={[
+                      "45 minutes",
+                      "16 classes /month",
+                      "4 classs /week",
+                    ]}
+                  />
+                </div>
+                <div className="w-full md:w-1/2 p-4">
+                  <Plan
+                    title="Gold E"
+                    price={150}
+                    items={[
+                      "45 minutes",
+                      "20 classes /month",
+                      "5 classs /week",
+                    ]}
+                  />
+                </div>
+              </div>
             </div>
           )}
-          {/* {show === "basic" && (
-            <div className="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
-              <Pricing
-                bestValue={false}
-                title="Beginners-Alphabet"
-                description={t("family")}
-                price={`110`}
-                items={BeginnersItem}
-                programs={[]}
-              />
-              <Pricing
-                bestValue={false}
-                title="Hifz"
-                description={t("family")}
-                price={`110`}
-                items={HifzItems}
-                programs={[]}
-              />
-              <Pricing
-                bestValue={false}
-                title="Tilawah"
-                description={t("family")}
-                price={`110`}
-                items={TilawahItem}
-                programs={[]}
-              />
-              <Pricing
-                bestValue={false}
-                title="Murajah"
-                description={t("family")}
-                price={`110`}
-                items={MurajaItem}
-              />
-            </div>
-          )}{" "}
-          {show === "intensive" && (
-            <div className="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
-              <Pricing
-                bestValue={true}
-                title="Beginners-Alphabet Intensive"
-                description={t("oneOnOne")}
-                price={`180`}
-                items={BeginnersIntensiveItem}
-              />
-              <Pricing
-                bestValue={true}
-                title="Hifz Intensive"
-                description={t("oneOnOne")}
-                price={`180`}
-                items={HifzIntensiveItems}
-              />
-              <Pricing
-                bestValue={true}
-                title="Tilawah Intensive"
-                description={t("oneOnOne")}
-                price={180}
-                items={TilawahIntensiveItem}
-              />
-              <Pricing
-                bestValue={true}
-                title="Murajah Intensive"
-                description={t("oneOnOne")}
-                price={180}
-                items={MurajaIntensiveItem}
-              />
-            </div>
-          )}
-          {show === "special" && (
-            <div>
-              <p>Special packages</p>
-            </div>
-          )} */}
         </div>
       </div>
     </div>
