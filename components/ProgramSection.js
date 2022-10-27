@@ -19,9 +19,12 @@ const ProgramSection = () => {
   return (
     <div className="space-y-8">
       <h2 className="text-center text-2xl">Our Programs</h2>
-      <div className="flex flex-row flex-wrap justify-center mx-40">
+      <div className="flex flex-row flex-wrap justify-center lg:mx-40">
         {programs.map((program) => (
-          <div key={program.name} className="w-1/2 p-4 cursor-pointer">
+          <div
+            key={program.name}
+            className="w-full lg:w-1/2 p-4 cursor-pointer"
+          >
             <div
               onClick={() =>
                 router.push(
