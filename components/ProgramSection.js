@@ -11,14 +11,14 @@ const ProgramSection = () => {
   const TilawahDetails = t("TilawahDetails");
   const MurajaDetails = t("MurajaDetails");
   const programs = [
-    { name: "Beginners", details: BeginnersDetails },
+    { name: `${t("Beginners")}`, details: BeginnersDetails },
     { name: "Tilawah", details: TilawahDetails },
     { name: "Hifz", details: HifzDetails },
     { name: "Muraja", details: MurajaDetails },
   ];
   return (
     <div className="space-y-8">
-      <h2 className="text-center text-2xl">Our Programs</h2>
+      <h2 className="text-center text-2xl">{t("ourProgram")}</h2>
       <div className="flex flex-row flex-wrap justify-center lg:mx-40">
         {programs.map((program) => (
           <div

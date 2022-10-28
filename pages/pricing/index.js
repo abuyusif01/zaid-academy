@@ -34,13 +34,10 @@ const IjazahIntensiveItem = [
 ];
 
 const PricingX = () => {
-  const [show, setShow] = useState("basic");
-  const [pricingPlan, setPricingPlan] = useState("family");
+  const [pricingPlan, setPricingPlan] = useState("special");
   const showFamily = () => setPricingPlan("family");
   const showSpecial = () => setPricingPlan("special");
   const showPremium = () => setPricingPlan("premium");
-  const showBasic = () => setShow("basic");
-  const showIntensive = () => setShow("intensive");
   const { t } = useTranslation();
   const BeginnersItem = t("BeginnersItem", { returnObjects: true });
   const BeginnersIntensiveItem = t("BeginnersIntensiveItem", {
@@ -72,7 +69,7 @@ const PricingX = () => {
             } text-white rounded-2xl cursor-pointer`}
             onClick={showSpecial}
           >
-            Special Package
+            {t("specialPackage")}
           </div>
           <div
             className={`px-4 py-1 text-center ${
@@ -82,7 +79,7 @@ const PricingX = () => {
             } text-white rounded-2xl cursor-pointer`}
             onClick={showPremium}
           >
-            Premium Package
+            {t("premiumPackage")}
           </div>
           <div
             className={`px-4 py-1 text-center ${
@@ -92,7 +89,7 @@ const PricingX = () => {
             } text-white rounded-2xl cursor-pointer`}
             onClick={showFamily}
           >
-            Family Package
+            {t("familyPackage")}
           </div>
         </div>
         <div className="w-10/12 mx-auto space-y-8">
@@ -103,18 +100,18 @@ const PricingX = () => {
                 price={110}
                 description="This is suitable for 3 people"
                 items={[
-                  "2-3 students",
-                  "3 sessions per week",
-                  "50 minutes per session",
+                  `2-3 ${t("student")}`,
+                  `3 ${t("sessionPerWeek")}`,
+                  `50 ${t("minutePerSession")}`,
                 ]}
               />
               <Plan
                 title="intensive"
                 price={180}
                 items={[
-                  "2-3 students",
-                  "5 sessions per week",
-                  "50 minutes per session",
+                  `2-3 ${t("student")}`,
+                  `5 ${t("sessionPerWeek")}`,
+                  `50 ${t("minutePerSession")}`,
                 ]}
               />
             </div>
@@ -126,14 +123,22 @@ const PricingX = () => {
                   <Plan
                     title="Silver A"
                     price={20}
-                    items={["30 minutes", "4 classes /month", "1 classs /week"]}
+                    items={[
+                      "30 minutes",
+                      `4 ${t("classes")}`,
+                      `1 ${t("weeklyClass")}`,
+                    ]}
                   />
                 </div>
                 <div className="w-full p-4">
                   <Plan
                     title="Silver B"
                     price={40}
-                    items={["30 minutes", "8 classes /month", "2 classs /week"]}
+                    items={[
+                      "30 minutes",
+                      `8 ${t("classes")}`,
+                      `2 ${t("weeklyClass")}`,
+                    ]}
                   />
                 </div>
                 <div className="w-full p-4">
@@ -142,8 +147,8 @@ const PricingX = () => {
                     price={60}
                     items={[
                       "30 minutes",
-                      "12 classes /month",
-                      "3 classs /week",
+                      `12 ${t("classes")}`,
+                      `3 ${t("weeklyClass")}`,
                     ]}
                   />
                 </div>
@@ -153,14 +158,22 @@ const PricingX = () => {
                   <Plan
                     title="Gold A"
                     price={30}
-                    items={["45 minutes", "4 classes /month", "1 classs /week"]}
+                    items={[
+                      "45 minutes",
+                      `4 ${t("classes")}`,
+                      `1 ${t("weeklyClass")}`,
+                    ]}
                   />
                 </div>
                 <div className="w-full p-4">
                   <Plan
                     title="Gold B"
                     price={60}
-                    items={["45 minutes", "8 classes /month", "2 classs /week"]}
+                    items={[
+                      "45 minutes",
+                      `8 ${t("classes")}`,
+                      `2 ${t("weeklyClass")}`,
+                    ]}
                   />
                 </div>
                 <div className="w-full p-4">
@@ -169,8 +182,8 @@ const PricingX = () => {
                     price={90}
                     items={[
                       "45 minutes",
-                      "12 classes /month",
-                      "3 classs /week",
+                      `12 ${t("classes")}`,
+                      `3 ${t("weeklyClass")}`,
                     ]}
                   />
                 </div>
@@ -186,8 +199,8 @@ const PricingX = () => {
                     price={80}
                     items={[
                       "30 minutes",
-                      "16 classes /month",
-                      "4 classs /week",
+                      `16 ${t("classes")}`,
+                      `4 ${t("weeklyClass")}`,
                     ]}
                   />
                 </div>
@@ -197,8 +210,8 @@ const PricingX = () => {
                     price={100}
                     items={[
                       "30 minutes",
-                      "20 classes /month",
-                      "5 classs /week",
+                      `20 ${t("classes")}`,
+                      `5 ${t("weeklyClass")}`,
                     ]}
                   />
                 </div>
@@ -208,8 +221,8 @@ const PricingX = () => {
                     price={120}
                     items={[
                       "45 minutes",
-                      "16 classes /month",
-                      "4 classs /week",
+                      `16 ${t("classes")}`,
+                      `4 ${t("weeklyClass")}`,
                     ]}
                   />
                 </div>
@@ -219,8 +232,8 @@ const PricingX = () => {
                     price={150}
                     items={[
                       "45 minutes",
-                      "20 classes /month",
-                      "5 classs /week",
+                      `20 ${t("classes")}`,
+                      `5 ${t("weeklyClass")}`,
                     ]}
                   />
                 </div>

@@ -70,7 +70,7 @@ const Navbar = () => {
                 className="cursor-pointer px-8 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in"
                 onClick={closeNav}
               >
-                Program
+                {t("program")}
               </div>
             </Link>
           </div>
@@ -106,7 +106,7 @@ const Navbar = () => {
           </div>
         </div>
       ) : (
-        <div className="py-6 px-2 md:px-24 bg-gray-100 flex items-center justify-between">
+        <div className="py-6 px-2 lg:px-24 bg-gray-100 flex items-center justify-between">
           <div className="relative">
             <Link href="/">
               <div className="w-24 h-10 cursor-pointer">
@@ -114,7 +114,7 @@ const Navbar = () => {
               </div>
             </Link>
           </div>
-          <div className="md:flex space-x-4 text-gray-600 text-sm hidden">
+          <div className="lg:flex space-x-2 text-gray-600 text-sm hidden">
             <Link href="/about">
               <div className="cursor-pointer px-8 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
                 {t("about")}
@@ -137,11 +137,11 @@ const Navbar = () => {
             </Link>
             <Link href="/program">
               <div className="cursor-pointer px-8 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
-                Program
+                {t("program")}
               </div>
             </Link>
           </div>
-          <div className="md:flex space-x-4 text-sm hidden">
+          <div className="flex space-x-4 text-sm">
             <p
               className="cursor-pointer"
               onClick={() => {
@@ -159,14 +159,14 @@ const Navbar = () => {
               Fr
             </p>
           </div>
-          <div className="flex space-x-4 text-sm">
+          <div className="hidden lg:flex space-x-4 text-sm">
             <Link href="/signup">
               <div className="px-8 py-3 rounded-md bg-indigo-500 text-sm text-white cursor-pointer">
                 {!user ? "Sign In" : "Dashboard"}
               </div>
             </Link>
           </div>
-          <div className="md:hidden" onClick={openNav}>
+          <div className="lg:hidden" onClick={openNav}>
             <GrMenu className="text-3xl" />
           </div>
         </div>
