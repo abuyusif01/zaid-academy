@@ -1,6 +1,6 @@
 import React from "react";
 
-const TableRow = ({ data, header, open, onAction }) => {
+const TableRow = ({ data, header, open, onAction, showAction }) => {
   const { name, instructor, email, course, payment, action } = data;
   return (
     <>
@@ -19,22 +19,32 @@ const TableRow = ({ data, header, open, onAction }) => {
         >
           <p className="text-left">{name || data.displayName}</p>
         </div>
-        <p className="col-span-2 text-left">{instructor || data.lecturer}</p>
+        {!showAction ? (
+          <p className="col-span-2 text-left">{instructor || data.lecturer}</p>
+        ) : null}
         <p className="col-span-2 text-left">{email}</p>
         <p className="col-span-1 text-left">{course}</p>
-        {header ? (
-          <p className="col-span-1">{payment}</p>
-        ) : (
-          <p className="col-span-1">{payment == "paid" ? "Paid" : "Unpaid"}</p>
-        )}
-        <p
-          className={`col-span-1 cursor-pointer ${
-            !header && "text-indigo-500"
-          }`}
-          onClick={!header && onAction}
-        >
-          Action
-        </p>
+        {!showAction ? (
+          <>
+            {header ? (
+              <p className="col-span-1">{payment}</p>
+            ) : (
+              <p className="col-span-1">
+                {payment == "paid" ? "Paid" : "Unpaid"}
+              </p>
+            )}
+          </>
+        ) : null}
+        {!showAction ? (
+          <p
+            className={`col-span-1 cursor-pointer ${
+              !header && "text-indigo-500"
+            }`}
+            onClick={!header && onAction}
+          >
+            Action
+          </p>
+        ) : null}
       </div>
     </>
   );

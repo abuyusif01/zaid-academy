@@ -4,12 +4,14 @@ import EditStudent from "../../../components/EditStudent";
 import Modal from "../../../components/Modal";
 import SideBar from "../../../components/SideBar";
 import StudentInfo from "../../../components/StudentInfo";
+import StudentReg from "../../../components/StudentReg";
 import TableRow from "../../../components/TableRow";
 import { useStudent } from "../../../context/StudentContext";
 
 const Students = () => {
   const { students, getStudents } = useStudent();
   const [student, setStudent] = useState({});
+  const [studentShow, setStudentShow] = useState(false);
   const studentRef = useRef({});
   const [show, setShow] = useState(false);
   const openModal = () => {
@@ -30,6 +32,12 @@ const Students = () => {
       <Head>
         <title>Admin Students</title>
       </Head>
+      <Modal open={studentShow} close={() => setStudentShow(false)}>
+        <StudentReg
+          program={{ slug: "" }}
+          close={() => setStudentShow(false)}
+        />
+      </Modal>
       <div className="relative">
         <Modal open={show} close={closeModal}>
           <div className="p-4">
@@ -46,7 +54,10 @@ const Students = () => {
           <div className="flex items-center justify-between w-full">
             <p className="text-2xl font-semibold">Students</p>
             <div>
-              <button className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white mt-8 mx-auto">
+              <button
+                className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white mt-8 mx-auto"
+                onClick={() => setStudentShow(true)}
+              >
                 Add Students
               </button>
             </div>
@@ -60,6 +71,8 @@ const Students = () => {
               payment: "Payment",
               action: "Action",
             }}
+            open={() => {}}
+            onAction={() => {}}
             header={true}
           />
           {students.map((stud) => (

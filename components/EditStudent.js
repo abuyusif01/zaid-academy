@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useInstructor } from "../context/InstructorContext";
 import { useStudent } from "../context/StudentContext";
 
 const EditStudent = ({ student, close }) => {
   const { updateStudent } = useStudent();
+  const { getInstructors, instructors } = useInstructor();
   const { t } = useTranslation();
   const [program, setProgram] = useState({
     course: student.course || "",
@@ -21,6 +23,10 @@ const EditStudent = ({ student, close }) => {
     updateStudent(student.uid, program);
     close();
   };
+  useEffect(() => {
+    getInstructors();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div>
       <form onSubmit={onSubmit}>
@@ -94,15 +100,11 @@ const EditStudent = ({ student, close }) => {
                   onChange={onChange}
                 >
                   <option value="">Choose an Instructor</option>
-                  <option value="Ousmane Yahya Diallo">
-                    Ousmane Yahya Diallo{" "}
-                  </option>
-                  <option value="Mouhamed El Moudjtaba Diallo">
-                    Mouhammed El Moudjtaba Diallo
-                  </option>
-                  <option value="Mamadou Bailo Diallo">
-                    Mamadou Bailo Diallo
-                  </option>
+                  {instructors.map((instructor) => (
+                    <option key={instructor.uid} value={instructor.displayName}>
+                      {instructor.displayName}
+                    </option>
+                  ))}
                 </select>
               </div>
             </div>

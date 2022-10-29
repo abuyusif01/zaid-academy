@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { BsCheck } from "react-icons/bs";
 import { useStudent } from "../../context/StudentContext";
+import StudentReg from "../../components/StudentReg";
 
 const PricingDetails = () => {
   const { selfRegister } = useStudent();
@@ -78,7 +79,7 @@ const PricingDetails = () => {
   });
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log({
+    selfRegister({
       ...course,
       plan,
       intensive,
@@ -177,7 +178,8 @@ const PricingDetails = () => {
       </div>
       <div className="my-4">
         <h1 className="text-2xl font-semibold">Register Here</h1>
-        <form onSubmit={onSubmit}>
+        <StudentReg program={program || ""} />
+        {/* <form onSubmit={onSubmit}>
           <div className="py-6 border-b border-coolGray-100">
             <div className="w-full md:w-9/12">
               <div className="flex flex-wrap -m-3">
@@ -499,7 +501,7 @@ const PricingDetails = () => {
           >
             {t("apply")}
           </button>
-        </form>
+        </form> */}
       </div>
     </div>
   );

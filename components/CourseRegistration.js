@@ -32,6 +32,7 @@ const CourseRegistration = ({ student }) => {
 
   useEffect(() => {
     checkStudent(student.email);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   console.log("Pupil data is: ", pupil);
   if (pupil === undefined || Object.keys(pupil).length === 0) {

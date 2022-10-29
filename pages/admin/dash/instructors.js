@@ -1,10 +1,13 @@
 import Head from "next/head";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AddTeacher from "../../../components/AddTeacher";
 import Modal from "../../../components/Modal";
 import SideBar from "../../../components/SideBar";
+import TableRow from "../../../components/TableRow";
+import { useInstructor } from "../../../context/InstructorContext";
 
 const Instructors = () => {
+  const { instructors, getInstructors } = useInstructor();
   const [show, setShow] = useState(false);
   const openModal = () => {
     setShow(true);
@@ -12,6 +15,10 @@ const Instructors = () => {
   const closeModal = () => {
     setShow(false);
   };
+  useEffect(() => {
+    getInstructors();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div>
       <Head>
@@ -39,6 +46,23 @@ const Instructors = () => {
                 Add Instructor
               </button>
             </div>
+          </div>
+          <div className="my-10">
+            <TableRow
+              data={{
+                name: "Name",
+                email: "Email",
+              }}
+              open={() => {}}
+              onAction={() => {}}
+              header={true}
+              showAction={true}
+            />
+            {instructors.map((instructor) => (
+              <div key={instructor.uid}>
+                <TableRow data={instructor} header={false} showAction={true} />
+              </div>
+            ))}
           </div>
         </div>
       </div>

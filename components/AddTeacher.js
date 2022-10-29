@@ -1,23 +1,42 @@
 import React, { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
 import { useInstructor } from "../context/InstructorContext";
 
 const AddTeacher = ({ close }) => {
-  const { addNewInstructor } = useInstructor();
+  const { addNewInstructor, addInstructorToDb } = useInstructor();
   const [instructor, setInstructor] = useState({
     email: "",
+    displayName: "",
     password: "",
+    role: "",
   });
   const onChange = (e) => {
     setInstructor({ ...instructor, [e.target.name]: e.target.value });
   };
   const onSubmit = () => {
     addNewInstructor(instructor.email, instructor.password);
+    addInstructorToDb({ ...instructor, uid: uuidv4() });
     close();
   };
   return (
     <div>
       <div className="py-6 border-b border-coolGray-100">
         <div className="w-full md:w-9/12">
+          <div className="flex flex-wrap -m-3">
+            <div className="w-full md:w-1/3 p-3">
+              <p className="text-sm text-coolGray-800 font-semibold">Name</p>
+            </div>
+            <div className="w-full md:flex-1 p-3">
+              <input
+                className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-indigo-500 border border-coolGray-200 rounded-lg shadow-input"
+                type="text"
+                placeholder="Full Name"
+                name="displayName"
+                value={instructor.displayName}
+                onChange={onChange}
+              />
+            </div>
+          </div>
           <div className="flex flex-wrap -m-3">
             <div className="w-full md:w-1/3 p-3">
               <p className="text-sm text-coolGray-800 font-semibold">Email</p>
@@ -31,6 +50,29 @@ const AddTeacher = ({ close }) => {
                 value={instructor.email}
                 onChange={onChange}
               />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="py-6 border-b border-coolGray-100">
+        <div className="w-full md:w-9/12">
+          <div className="flex flex-wrap -m-3">
+            <div className="w-full md:w-1/3 p-3">
+              <p className="text-sm text-coolGray-800 font-semibold">Gender</p>
+            </div>
+            <div className="w-full md:flex-1 p-3">
+              <select
+                className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-indigo-500 border border-coolGray-200 rounded-lg shadow-input"
+                type="text"
+                placeholder="Role"
+                value={instructor.role}
+                onChange={onChange}
+                name="role"
+              >
+                <option value="">Choose Role</option>
+                <option value="admin">Admin</option>
+                <option value="instructor">Instructor</option>
+              </select>
             </div>
           </div>
         </div>
