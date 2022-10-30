@@ -3,10 +3,12 @@ import React, { useEffect, useRef, useState } from "react";
 import SideBar from "../../../components/SideBar";
 import StudentCard from "../../../components/StudentCard";
 import StudentInfo from "../../../components/StudentInfo";
+import { useInstructor } from "../../../context/InstructorContext";
 import { useStudent } from "../../../context/StudentContext";
 
 const Classes = () => {
   const { getStudentByInstructor, classes } = useStudent();
+  const { getInstructors, instructors } = useInstructor();
   const [lecturer, setLecturer] = useState("");
   const [student, setStudent] = useState({});
 
@@ -15,6 +17,13 @@ const Classes = () => {
     setStudent({});
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lecturer]);
+
+  useEffect(() => {
+    getInstructors();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  console.log(instructors);
 
   const onChange = (e) => {
     setLecturer(e.target.value);
@@ -49,15 +58,11 @@ const Classes = () => {
                 onChange={onChange}
               >
                 <option value="">Choose an Instructor</option>
-                <option value="Ousmane Yahya Diallo">
-                  Ousmane Yahya Diallo{" "}
-                </option>
-                <option value="Mouhamed El Moudjtaba Diallo">
-                  Mouhamed El Moudjtaba Diallo
-                </option>
-                <option value="Mamadou Bailo Diallo">
-                  Mamadou Bailo Diallo
-                </option>
+                {instructors.map((instructor) => (
+                  <option key={instructor.uid} value={instructor.displayName}>
+                    {instructor.displayName}
+                  </option>
+                ))}
               </select>
             </div>
           </div>

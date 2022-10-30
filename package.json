@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "firebase": "^9.9.0",
+    "formik": "^2.2.9",
     "i18next": "^21.8.14",
     "moment": "^2.29.4",
     "next": "12.2.2",
@@ -19,7 +20,8 @@
     "react-dom": "18.2.0",
     "react-i18next": "^11.18.1",
     "react-icons": "^4.4.0",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",
