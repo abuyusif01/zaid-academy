@@ -33,6 +33,11 @@ const Footer = () => {
             {t("instructors")}
           </div>
         </Link>
+        <Link href="/program">
+          <div className="cursor-pointer px-4 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
+            {t("program")}
+          </div>
+        </Link>
         <Link href="/contact">
           <div className="cursor-pointer px-4 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
             {t("contact")}

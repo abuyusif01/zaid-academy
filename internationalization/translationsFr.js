@@ -14,6 +14,7 @@ const translationsFr = {
   about: "Á propos de nous",
   contact: "Contact",
   instructors: "Enseignants",
+  enroll: "S'inscrire",
   learnQuran:
     "Rendons l’apprentissage du Saint Coran facile et accessible à tout le monde",
   learnLanguage: "Nos Enseignants s'expriment en differentes langues",
@@ -87,7 +88,7 @@ const translationsFr = {
   whatsappNumber: "Numéro WhatsApp",
   gender: "Sex",
   nationality: "Nationalite",
-  program: "Programme",
+  program: "Programmes",
   intensiveLevel: "Niveau Intensif",
   language: "Langue",
   aboutZaid:
@@ -101,7 +102,7 @@ const translationsFr = {
   family: "Parfait pour une famille de plus de 3 personnes",
   pricings: "Nos Tarifs",
   seePricings: "Voir les Tarifs",
-  ourProgram: "Nos Programme",
+  ourProgram: "Nos Programmes",
   premiumPackage: "Packet Premium",
   specialPackage: "Packet Special",
   familyPackage: "Packet Family",
@@ -110,6 +111,7 @@ const translationsFr = {
   sessionPerWeek: "Seance par week",
   minutePerSession: "Minutes par seance",
   student: "Etudiants",
+  chooseProgram: "choisissez un programme",
   Beginners: "Débutants",
   BeginnersIntensive: "Débutants Intensif",
   BeginnersDetails:

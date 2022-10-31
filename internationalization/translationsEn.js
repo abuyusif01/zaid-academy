@@ -86,9 +86,10 @@ const translationsEn = {
   whatsappNumber: "Whatsapp Number",
   gender: "Gender",
   nationality: "Nationality",
-  program: "Program",
+  program: "Programs",
   intensiveLevel: "Intesive Level",
   language: "Language",
+  enroll: "Enroll",
   aboutZaid:
     "Zaid academy is an online education platform that gives muslims the opportunity to learn the Quran from renowned instructors in a convenient fashion. Our objective is to provide access to Quran Education to people all over the world, especially people living in parts of the world with very fewer resources at their disposal to get the education they require. We do so by providing Quran lessons through instructors who speak English, Arabic, French, Fullani and Wolof",
   join: "Join for lessons",
@@ -100,7 +101,7 @@ const translationsEn = {
   family: "Perfect for a family of more than 3 people",
   pricings: "Pricings",
   seePricings: "See Pricing",
-  ourProgram: "Our Program",
+  ourProgram: "Our Programs",
   premiumPackage: "Premium Package",
   specialPackage: "Special Package",
   familyPackage: "Family Package",
@@ -109,6 +110,7 @@ const translationsEn = {
   sessionPerWeek: "Sessions per week",
   minutePerSession: "Minutes per session",
   student: "Students",
+  chooseProgram: "Choose any of the programs",
   Beginners: "Beginners (Alphabet)",
   BeginnersIntensive: "Beginners (Alphabet) Intensive",
   BeginnersItem: [
