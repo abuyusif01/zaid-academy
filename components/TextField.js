@@ -4,7 +4,6 @@ import React from "react";
 const TextField = ({ label, ...props }) => {
   const { name, type } = props;
   const [field, meta] = useField(props);
-  // console.log(field, meta);
   return (
     <div className="py-6 border-b border-coolGray-100">
       <div className="w-full md:w-9/12">

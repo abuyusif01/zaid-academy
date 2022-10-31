@@ -2,8 +2,8 @@ import { useField } from "formik";
 import React from "react";
 
 const Select = ({ label, ...props }) => {
-  const { data, placeholder, name } = props;
-  const [field, meta] = useField(props);
+  const { intensive } = props;
+  const [field] = useField(props);
   return (
     <div className="py-6 border-b border-coolGray-100">
       <div className="w-full md:w-9/12">
