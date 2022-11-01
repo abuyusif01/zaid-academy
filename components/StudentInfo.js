@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import moment from "moment";
 import { useStudent } from "../context/StudentContext";
 
-const StudentInfo = ({ student }) => {
+const StudentInfo = ({ student, action }) => {
   const { addAttendance } = useStudent();
   const [editStudent, setEditStudent] = useState("none");
   const [show, setShow] = useState(false);
@@ -61,41 +61,43 @@ const StudentInfo = ({ student }) => {
         </p>
       </div>
       <p>Expires on: {moment(student.expiryDate).format("MMMM Do YYYY")}</p>
-      <div>
-        {!show ? (
-          <button
-            className="px-8 py-2 md:px-12 md:py-4 rounded-md bg-indigo-400 text-sm text-white"
-            onClick={open}
-          >
-            Add class
-          </button>
-        ) : (
-          <div className="space-y-6">
-            <div className="py-6 border-b border-coolGray-100">
-              <div className="w-full md:w-9/12">
-                <div className="flex flex-wrap -m-3">
-                  <div className="w-full md:flex-1 p-3">
-                    <input
-                      className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-indigo-500 border border-coolGray-200 rounded-lg shadow-input"
-                      type="date"
-                      placeholder="instructor"
-                      name="date"
-                      value={attendance.date}
-                      onChange={onChange}
-                    />
+      {action ? (
+        <div>
+          {!show ? (
+            <button
+              className="px-8 py-2 md:px-12 md:py-4 rounded-md bg-indigo-400 text-sm text-white"
+              onClick={open}
+            >
+              Add class
+            </button>
+          ) : (
+            <div className="space-y-6">
+              <div className="py-6 border-b border-coolGray-100">
+                <div className="w-full md:w-9/12">
+                  <div className="flex flex-wrap -m-3">
+                    <div className="w-full md:flex-1 p-3">
+                      <input
+                        className="w-full px-4 py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-indigo-500 border border-coolGray-200 rounded-lg shadow-input"
+                        type="date"
+                        placeholder="instructor"
+                        name="date"
+                        value={attendance.date}
+                        onChange={onChange}
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
+              <button
+                className="px-8 py-2 md:px-12 md:py-4 rounded-md bg-indigo-400 text-sm text-white"
+                onClick={onAdd}
+              >
+                Add Date
+              </button>
             </div>
-            <button
-              className="px-8 py-2 md:px-12 md:py-4 rounded-md bg-indigo-400 text-sm text-white"
-              onClick={onAdd}
-            >
-              Add Date
-            </button>
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      ) : null}
       <div>
         <p>Attendance: </p>
       </div>

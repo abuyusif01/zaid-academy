@@ -78,7 +78,7 @@ const Classes = () => {
             </div>
             <div className="w-1/2">
               {Object.keys(student).length !== 0 && (
-                <StudentInfo student={student} />
+                <StudentInfo student={student} action={true} />
               )}
             </div>
           </div>

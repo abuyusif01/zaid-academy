@@ -88,11 +88,16 @@ const Students = () => {
               />
             </div>
           ))}
-          <div>
-            {Object.keys(student).length > 0 && (
-              <StudentInfo student={student} />
-            )}
-          </div>
+          <Modal
+            open={Object.keys(student).length > 0}
+            close={() => setStudent({})}
+          >
+            <div>
+              {Object.keys(student).length > 0 && (
+                <StudentInfo student={student} action={false} />
+              )}
+            </div>
+          </Modal>
         </div>
       </div>
     </div>
