@@ -11,10 +11,14 @@ const ProgramSection = () => {
   const TilawahDetails = t("TilawahDetails");
   const MurajaDetails = t("MurajaDetails");
   const programs = [
-    { name: `${t("Beginners")}`, details: BeginnersDetails },
-    { name: "Tilawah", details: TilawahDetails },
-    { name: "Hifz", details: HifzDetails },
-    { name: "Muraja", details: MurajaDetails },
+    {
+      link: `beginners (alphabet)`,
+      name: `${t("Beginners")}`,
+      details: BeginnersDetails,
+    },
+    { link: `tilawah`, name: "Tilawah", details: TilawahDetails },
+    { link: `Hifz`, name: "Hifz", details: HifzDetails },
+    { link: `muraja`, name: "Muraja", details: MurajaDetails },
   ];
   return (
     <div className="space-y-12">
@@ -35,14 +39,15 @@ const ProgramSection = () => {
               <p className=" leading-relaxed text-justify">{program.details}</p>
               <button
                 className="px-12 select-none py-3 rounded-md bg-indigo-500 text-sm text-white"
-                onClick={() =>
+                onClick={() => {
+                  console.log(program.name);
                   router.push(
-                    `/pricing/${program.name
+                    `/pricing/${program.link
                       .split(" ")
                       .join("-")
                       .toLowerCase()}`
-                  )
-                }
+                  );
+                }}
               >
                 {t("enroll")}
               </button>
