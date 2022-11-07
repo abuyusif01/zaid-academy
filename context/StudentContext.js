@@ -10,6 +10,7 @@ import {
   where,
   arrayUnion,
   getDocs,
+  deleteDoc,
 } from "firebase/firestore";
 import { db, storage } from "../config/firebase";
 import { getDownloadURL, ref } from "firebase/storage";
@@ -88,6 +89,10 @@ const StudentProvider = ({ children }) => {
     });
   };
 
+  const deleteStudent = async (student) => {
+    await deleteDoc(doc(db, "students", student.uid));
+  };
+
   const getVideo = async () => {
     return "https://firebasestorage.googleapis.com/v0/b/zaid-276fa.appspot.com/o/video%2Fabout.MP4?alt=media&token=3a63c2eb-d2b5-4676-b085-e1ad4042eb2d";
   };
@@ -105,6 +110,7 @@ const StudentProvider = ({ children }) => {
         updateStudent,
         getStudentByInstructor,
         addAttendance,
+        deleteStudent,
         getVideo,
         // registerNewStudent,
       }}

@@ -8,7 +8,7 @@ import Select from "./Select";
 import TextField from "./TextField";
 
 const EditStudent = ({ student, close }) => {
-  const { updateStudent } = useStudent();
+  const { updateStudent, deleteStudent } = useStudent();
   const [lecturers, SetLecturers] = useState([]);
   const { getInstructors, instructors } = useInstructor();
   const { t } = useTranslation();
@@ -20,7 +20,19 @@ const EditStudent = ({ student, close }) => {
   }, []);
 
   return (
-    <div>
+    <div className="space-y-8">
+      <div className="flex items-center justify-between pb-8 border-b border-b-gray-200">
+        <p>Delete student account</p>
+        <button
+          onClick={() => {
+            deleteStudent(student);
+            close();
+          }}
+          className="px-4 py-2 font-semibold bg-red-500 text-white rounded text-sm"
+        >
+          Delete
+        </button>
+      </div>
       <Formik
         initialValues={{
           program: student.program,
