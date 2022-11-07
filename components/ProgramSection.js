@@ -57,7 +57,7 @@ const ProgramSection = () => {
       </div>
       <div className="text-center">
         <Link href="/pricing">
-          <button className="px-12 py-5 rounded-md bg-indigo-500 text-sm text-white">
+          <button className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white">
             {t("seePricings")}
           </button>
         </Link>
