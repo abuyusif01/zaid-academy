@@ -7,7 +7,7 @@ import TableRow from "../../../components/TableRow";
 import { useInstructor } from "../../../context/InstructorContext";
 
 const Instructors = () => {
-  const { instructors, getInstructors } = useInstructor();
+  const { instructors, getInstructors, deleteInstructor } = useInstructor();
   const [show, setShow] = useState(false);
   const openModal = () => {
     setShow(true);
@@ -60,7 +60,12 @@ const Instructors = () => {
             />
             {instructors.map((instructor) => (
               <div key={instructor.uid}>
-                <TableRow data={instructor} header={false} showAction={true} />
+                <TableRow
+                  data={instructor}
+                  header={false}
+                  showAction={true}
+                  instructorAction={() => deleteInstructor(instructor)}
+                />
               </div>
             ))}
           </div>

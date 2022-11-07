@@ -1,6 +1,13 @@
 import React from "react";
 
-const TableRow = ({ data, header, open, onAction, showAction }) => {
+const TableRow = ({
+  data,
+  header,
+  open,
+  onAction,
+  showAction,
+  instructorAction,
+}) => {
   const { name, instructor, email, course, payment, action } = data;
   return (
     <>
@@ -44,7 +51,20 @@ const TableRow = ({ data, header, open, onAction, showAction }) => {
           >
             Action
           </p>
-        ) : null}
+        ) : (
+          <>
+            {!header ? (
+              <button
+                onClick={instructorAction}
+                className="py-2 px-4 text-sm bg-red-500 text-white rounded font-semibold"
+              >
+                Delete
+              </button>
+            ) : (
+              <p className="font-semibold">Action</p>
+            )}
+          </>
+        )}
       </div>
     </>
   );

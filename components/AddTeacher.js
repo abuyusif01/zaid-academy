@@ -13,15 +13,20 @@ const AddTeacher = ({ close }) => {
   const onChange = (e) => {
     setInstructor({ ...instructor, [e.target.name]: e.target.value });
   };
-  const onSubmit = () => {
-    addNewInstructor(instructor.email, instructor.password);
+  const onSubmit = (e) => {
+    e.preventDefault();
+    addNewInstructor(instructor);
     addInstructorToDb({ ...instructor, uid: uuidv4() });
     close();
   };
   return (
     <div>
       <div className="py-6 border-b border-coolGray-100">
-        <div className="w-full md:w-9/12">
+        <form
+          autoComplete="off"
+          onSubmit={onSubmit}
+          className="w-full md:w-9/12"
+        >
           <div className="flex flex-wrap -m-3">
             <div className="w-full md:w-1/3 p-3">
               <p className="text-sm text-coolGray-800 font-semibold">Name</p>
@@ -52,7 +57,7 @@ const AddTeacher = ({ close }) => {
               />
             </div>
           </div>
-        </div>
+        </form>
       </div>
       <div className="py-6 border-b border-coolGray-100">
         <div className="w-full md:w-9/12">
