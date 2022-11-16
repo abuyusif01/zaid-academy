@@ -13,6 +13,7 @@ import StudentProvider from "../context/StudentContext";
 import AuthProvider from "../context/AuthContext";
 import "../styles/globals.css";
 import InstructorProvider from "../context/InstructorContext";
+import AdminRoute from "../components/AdminRoute";
 
 const authRequired = ["/", "/"];
 
@@ -30,6 +31,7 @@ function MyApp({ Component, pageProps }) {
   // const {t} = useTranslation()
   const router = useRouter();
   const authRequired = router.pathname.includes("dashboard");
+  const adminRequired = router.pathname.includes("dash");
   return (
     <Suspense fallback="Loading...">
       <AuthProvider>
@@ -44,6 +46,11 @@ function MyApp({ Component, pageProps }) {
                   </ProtectedRoute>
                 ) : (
                   <Component {...pageProps} />
+                )}
+                {adminRequired && (
+                  <AdminRoute>
+                    <Component {...pageProps} />
+                  </AdminRoute>
                 )}
                 <div className="">
                   <Footer />{" "}

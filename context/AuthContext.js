@@ -14,6 +14,7 @@ export const UseAuth = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [adminUser, setAdminUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -46,6 +47,8 @@ const AuthProvider = ({ children }) => {
         password
       );
       const user = await credential.user;
+      console.log(user);
+      setAdminUser(user);
     } catch (error) {
       console.log(error.message);
     }
@@ -65,13 +68,20 @@ const AuthProvider = ({ children }) => {
     await signOut(auth);
   };
 
+  const adminSignOut = async () => {
+    setAdminUser(null);
+    await signOut(auth);
+  };
+
   return (
     <AuthContext.Provider
       value={{
         user,
+        adminUser,
         signInWithFacebook,
         signInWithGoogle,
         signInWithEmail,
+        adminSignOut,
         logout,
       }}
     >

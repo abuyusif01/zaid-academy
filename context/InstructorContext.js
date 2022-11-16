@@ -30,6 +30,17 @@ const InstructorProvider = ({ children }) => {
     console.log(userCredential.user);
   };
 
+  const getAdminUser = (email) => {
+    const q = query(collection(db, "instructors"), where("email", "==", email));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const msg = [];
+      querySnapshot.forEach((doc) => {
+        msg.push({ id: doc.id, ...doc.data() });
+      });
+      setClasses(msg);
+    });
+  };
+
   const addInstructorToDb = async (instructor) => {
     await setDoc(doc(db, "instructors", instructor.uid), {
       displayName: instructor.displayName,
@@ -37,6 +48,21 @@ const InstructorProvider = ({ children }) => {
       uid: instructor.uid,
       role: instructor.role,
       password: instructor.password,
+    });
+  };
+
+  const checkRole = async (role) => {
+    const q = query(collection(db, "instructors"), where("role", "==", role));
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const instructor = [];
+      querySnapshot.forEach((doc) => {
+        if (doc.exists()) {
+          student.push(doc.data());
+        } else {
+          console.log("Student doees not exist yet");
+        }
+      });
+      setPupil(student[0]);
     });
   };
 
@@ -60,6 +86,8 @@ const InstructorProvider = ({ children }) => {
     <InstructorContext.Provider
       value={{
         instructors,
+        checkRole,
+        getAdminUser,
         getInstructors,
         addNewInstructor,
         addInstructorToDb,

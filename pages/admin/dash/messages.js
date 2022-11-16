@@ -29,7 +29,7 @@ const Messages = () => {
         </div>
         <div className="p-8 w-10/12 space-y-8 flex-1">
           <p className="text-2xl text-gray-600 font-semibold">New Messages</p>
-          <div className="flex">
+          <div className="flex flex-wrap">
             {newMessages.map((mesg) => (
               <div key={mesg.id} className="w-1/4 p-4">
                 <Message message={mesg} id={mesg.id} />

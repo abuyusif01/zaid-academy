@@ -17,8 +17,8 @@ const Admin = () => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    signInWithEmail(admin);
-    router.push("/admin/dash/classes");
+    signInWithEmail(admin.email, admin.password);
+    router.push("/admin/dash/students");
   };
   return (
     <div className="flex justify-center items-center h-[700px]">
@@ -41,6 +41,8 @@ const Admin = () => {
                 type="email"
                 className="text-sm text-gray-400 focus:outline-0 focus:bg-white focus:text-sm block w-full"
                 name="email"
+                autoComplete="off"
+                autoSave="off"
                 value={admin.email}
                 onChange={onChange}
               />
@@ -51,9 +53,11 @@ const Admin = () => {
             <div className="border border-gray-300 p-2 rounded-md">
               <input
                 placeholder="Password"
+                autoSave="off"
                 type="password"
                 className="text-sm text-gray-400 focus:outline-0 focus:bg-white focus:text-sm block w-full"
                 name="password"
+                autoComplete="off"
                 value={admin.password}
                 onChange={onChange}
               />
@@ -65,14 +69,14 @@ const Admin = () => {
           >
             Sign In
           </button>
-          <p className="text-center text-sm text-gray-500 my-4">
+          {/* <p className="text-center text-sm text-gray-500 my-4">
             Don't have an account?{" "}
             <Link href="/signup">
               <span className="text-indigo-500 cursor-pointer">
                 Register here
               </span>
             </Link>
-          </p>
+          </p> */}
         </form>
       </div>
     </div>

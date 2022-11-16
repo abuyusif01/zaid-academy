@@ -58,16 +58,18 @@ const Instructors = () => {
               header={true}
               showAction={true}
             />
-            {instructors.map((instructor) => (
-              <div key={instructor.uid}>
-                <TableRow
-                  data={instructor}
-                  header={false}
-                  showAction={true}
-                  instructorAction={() => deleteInstructor(instructor)}
-                />
-              </div>
-            ))}
+            {instructors
+              .sort((a, b) => a.role)
+              .map((instructor) => (
+                <div key={instructor.uid}>
+                  <TableRow
+                    data={instructor}
+                    header={false}
+                    showAction={true}
+                    instructorAction={() => deleteInstructor(instructor)}
+                  />
+                </div>
+              ))}
           </div>
         </div>
       </div>
