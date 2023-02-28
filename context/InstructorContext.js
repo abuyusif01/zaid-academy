@@ -12,6 +12,7 @@ import {
   onSnapshot,
   query,
   setDoc,
+  where,
 } from "firebase/firestore";
 
 const InstructorContext = createContext();
@@ -20,6 +21,7 @@ export const useInstructor = () => useContext(InstructorContext);
 
 const InstructorProvider = ({ children }) => {
   const [instructors, setInstructors] = useState([]);
+  const [loggedInAdmin, setLoggedInAdmin] = useState([]);
 
   const addNewInstructor = async (instructor) => {
     const userCredential = await createUserWithEmailAndPassword(
@@ -51,18 +53,20 @@ const InstructorProvider = ({ children }) => {
     });
   };
 
-  const checkRole = async (role) => {
-    const q = query(collection(db, "instructors"), where("role", "==", role));
+  const checkRole = async (email) => {
+    console.log(email);
+    const q = query(collection(db, "instructors"), where("email", "==", email));
     const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      const instructor = [];
+      let role;
+      const data = [];
       querySnapshot.forEach((doc) => {
         if (doc.exists()) {
-          student.push(doc.data());
+          data.push(doc.data());
         } else {
           console.log("Student doees not exist yet");
         }
       });
-      setPupil(student[0]);
+      setLoggedInAdmin(data);
     });
   };
 
@@ -86,6 +90,7 @@ const InstructorProvider = ({ children }) => {
     <InstructorContext.Provider
       value={{
         instructors,
+        loggedInAdmin,
         checkRole,
         getAdminUser,
         getInstructors,

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import React from "react";
+import React, { useEffect } from "react";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import {
   BsEnvelopeFill,
@@ -10,9 +10,12 @@ import {
 import SidebarLink from "./SidebarLink";
 import { UseAuth } from "../context/AuthContext";
 import { useRouter } from "next/router";
+import { useInstructor } from "../context/InstructorContext";
 
 const SideBar = () => {
-  const { adminSignOut } = UseAuth();
+  const { adminSignOut, adminUser } = UseAuth();
+  const { checkRole } = useInstructor();
+
   const router = useRouter();
   return (
     <div className="min-h-[100vh] border-r border-gray-200 p-4 py-8 border-dashed space-y-3">

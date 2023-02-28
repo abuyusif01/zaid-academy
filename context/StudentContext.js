@@ -51,12 +51,13 @@ const StudentProvider = ({ children }) => {
   };
 
   const updateStudent = async (id, data) => {
-    try {
-      const studentRef = doc(db, "students", id);
-      await updateDoc(studentRef, data);
-    } catch (error) {
-      console.log(error.message);
-    }
+    console.log(data);
+    // try {
+    //   const studentRef = doc(db, "students", id);
+    //   await updateDoc(studentRef, data);
+    // } catch (error) {
+    //   console.log(error.message);
+    // }
   };
 
   const selfRegister = async (student) => {

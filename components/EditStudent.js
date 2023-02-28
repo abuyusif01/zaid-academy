@@ -18,6 +18,7 @@ const EditStudent = ({ student, close }) => {
     SetLecturers(instructors.map((inst) => inst.displayName));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+  console.log(lecturers);
 
   return (
     <div className="space-y-8">
@@ -46,7 +47,6 @@ const EditStudent = ({ student, close }) => {
           registered: true,
         }}
         onSubmit={(values) => {
-          console.log(values);
           updateStudent(student.uid, values);
           close();
         }}
@@ -93,7 +93,7 @@ const EditStudent = ({ student, close }) => {
               label="Instructor"
               placeholder="Choose a instructor"
               name="lecturer"
-              data={lecturers}
+              data={lecturers.length > 0 ? lecturers : []}
             />
             <SelectField
               label="Payment"

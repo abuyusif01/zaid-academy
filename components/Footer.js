@@ -43,6 +43,16 @@ const Footer = () => {
             {t("contact")}
           </div>
         </Link>
+        <Link href="/faqs">
+          <div className="cursor-pointer px-4 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
+            FAQs
+          </div>
+        </Link>
+        <Link href="/policies">
+          <div className="cursor-pointer px-4 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
+            Policies
+          </div>
+        </Link>
       </div>
       <div className="flex flex-col md:flex-row space-y-8 md:space-y-0 space-x-4">
         <div className="space-y-2 flex flex-col justify-center items-center text-gray-600">

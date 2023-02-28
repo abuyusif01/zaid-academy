@@ -31,7 +31,8 @@ function MyApp({ Component, pageProps }) {
   // const {t} = useTranslation()
   const router = useRouter();
   const authRequired = router.pathname.includes("dashboard");
-  const adminRequired = router.pathname.includes("dash");
+  const adminRequired = router.pathname.split("/").includes("dash");
+  // console.log(router.pathname.split("/"));
   return (
     <Suspense fallback="Loading...">
       <AuthProvider>
@@ -44,14 +45,15 @@ function MyApp({ Component, pageProps }) {
                   <ProtectedRoute>
                     <Component {...pageProps} />
                   </ProtectedRoute>
-                ) : (
-                  <Component {...pageProps} />
-                )}
-                {adminRequired && (
+                ) : null}
+                {adminRequired ? (
                   <AdminRoute>
                     <Component {...pageProps} />
                   </AdminRoute>
-                )}
+                ) : null}
+                {!authRequired && !adminRequired ? (
+                  <Component {...pageProps} />
+                ) : null}
                 <div className="">
                   <Footer />{" "}
                 </div>

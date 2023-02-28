@@ -8,7 +8,6 @@ import { useInstructor } from "../../../context/InstructorContext";
 import { useStudent } from "../../../context/StudentContext";
 
 const Classes = () => {
-  const { checkRole } = useInstructor();
   const { adminUser, getAdminUser } = UseAuth();
   const { getStudentByInstructor, classes } = useStudent();
   const { getInstructors, instructors } = useInstructor();

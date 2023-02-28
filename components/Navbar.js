@@ -162,7 +162,7 @@ const Navbar = () => {
           <div className="hidden lg:flex space-x-4 text-sm">
             <Link href="/signup">
               <div className="px-8 py-3 rounded-md bg-indigo-500 text-sm text-white cursor-pointer">
-                {!user ? "Sign In" : "Dashboard"}
+                {user ? "Dashboard" : "Sign in"}
               </div>
             </Link>
           </div>
