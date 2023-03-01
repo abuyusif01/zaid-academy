@@ -2,11 +2,13 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import Image from "next/image";
+import Logo from "../../utils/logo.png";
 import { UseAuth } from "../../context/AuthContext";
 
 const Admin = () => {
-  const { signInWithEmail } = UseAuth();
+  const { signInWithEmail, adminUser, roleCheck, loggedInAdmin } = UseAuth();
   const router = useRouter();
   const [admin, setAdmin] = useState({
     email: "",
@@ -17,31 +19,61 @@ const Admin = () => {
   };
   const onSubmit = (e) => {
     e.preventDefault();
-    signInWithEmail(admin.email, admin.password);
-    router.push("/admin/dash/students");
+    const user = signInWithEmail(admin.email, admin.password);
+    console.log(user);
   };
+
+  useEffect(() => {
+    console.log(adminUser?.email);
+  }, [adminUser]);
+
   return (
-    <div className="flex justify-center items-center h-[700px]">
+    <div className="flex h-screen">
       <Head>
         <title>Admin Login</title>
       </Head>
-      <div className="w-11/12 sm:w-10/12 md:w-8/12 lg:w-1/3 py-12 px-8 border border-gray-200 shadow rounded-lg">
-        <h1 className="text-3xl text-center font-bold tracking-wide mb-6">
-          Zaid Academy
-        </h1>
-        <h4 className="text-2xl text-center font-bold tracking-wide mb-6">
-          Login to Get Access
-        </h4>
-        <form className="space-y-6 flex flex-col" onSubmit={onSubmit}>
+      <div className="hidden md:w-6/12 xl:w-9/12 bg-gray-200 md:flex flex-col h-full p-16">
+        <div className="relative">
+          <Link href="/">
+            <div className="w-24 h-10 cursor-pointer">
+              <Image src={Logo} alt="logo" />
+            </div>
+          </Link>
+        </div>
+        <div className="text-center flex-1 flex flex-col space-y-3 justify-center items-center">
+          <h1 className="text-3xl  font-bold tracking-wide mb-6">Welcome to</h1>
+          <h4 className="text-2xl  font-bold tracking-wide mb-6">
+            Zaid Academy
+          </h4>
+        </div>
+      </div>
+      <div className="w-full md:w-6/12 xl:w-3/12 px-8 flex flex-col">
+        <div className="relative md:hidden py-8">
+          <Link href="/">
+            <div className="w-24 h-10 cursor-pointer">
+              <Image src={Logo} alt="logo" />
+            </div>
+          </Link>
+        </div>
+        <form
+          className="flex-1 justify-center space-y-6 flex flex-col"
+          autoComplete="off"
+          onSubmit={onSubmit}
+        >
+          <div>
+            <h1 className="text-gray-700 font-semibold text-2xl">
+              Login to Zaid
+            </h1>
+          </div>
           <div className="space-y-2">
             <label className="text-gray-500 text-sm">Email</label>
             <div className="border border-gray-300 p-2 rounded-md">
               <input
                 placeholder="Email"
                 type="email"
-                className="text-sm text-gray-400 focus:outline-0 focus:bg-white focus:text-sm block w-full"
+                className="text-baseline py-3 px-2 text-gray-600 focus:outline-0 block w-full autofill:bg-white"
                 name="email"
-                autoComplete="off"
+                autoComplete="false"
                 autoSave="off"
                 value={admin.email}
                 onChange={onChange}
@@ -55,28 +87,20 @@ const Admin = () => {
                 placeholder="Password"
                 autoSave="off"
                 type="password"
-                className="text-sm text-gray-400 focus:outline-0 focus:bg-white focus:text-sm block w-full"
+                className="text-base py-3 px-2 text-gray-700 focus:outline-0 block w-full autofill:bg-white"
                 name="password"
-                autoComplete="off"
+                autoComplete="false"
                 value={admin.password}
                 onChange={onChange}
               />
             </div>
           </div>
           <button
-            className="block px-12 py-3 rounded-md bg-indigo-500 text-sm text-white mt-8"
+            className="block px-12 py-3 rounded-md bg-indigo-500 text-lg text-white mt-8"
             onClick={onSubmit}
           >
             Sign In
           </button>
-          {/* <p className="text-center text-sm text-gray-500 my-4">
-            Don't have an account?{" "}
-            <Link href="/signup">
-              <span className="text-indigo-500 cursor-pointer">
-                Register here
-              </span>
-            </Link>
-          </p> */}
         </form>
       </div>
     </div>

@@ -56,7 +56,7 @@ const InstructorProvider = ({ children }) => {
   const checkRole = async (email) => {
     console.log(email);
     const q = query(collection(db, "instructors"), where("email", "==", email));
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+    onSnapshot(q, (querySnapshot) => {
       let role;
       const data = [];
       querySnapshot.forEach((doc) => {

@@ -32,6 +32,8 @@ function MyApp({ Component, pageProps }) {
   const router = useRouter();
   const authRequired = router.pathname.includes("dashboard");
   const adminRequired = router.pathname.split("/").includes("dash");
+  const adminLogin = router.pathname.split("/").includes("admin");
+
   // console.log(router.pathname.split("/"));
   return (
     <Suspense fallback="Loading...">
@@ -40,7 +42,7 @@ function MyApp({ Component, pageProps }) {
           <CourseProvider>
             <InstructorProvider>
               <div className="font-Poppins min-h-screen flex flex-col justify-between">
-                <Navbar />
+                {!adminLogin && <Navbar />}
                 {authRequired ? (
                   <ProtectedRoute>
                     <Component {...pageProps} />
@@ -54,9 +56,7 @@ function MyApp({ Component, pageProps }) {
                 {!authRequired && !adminRequired ? (
                   <Component {...pageProps} />
                 ) : null}
-                <div className="">
-                  <Footer />{" "}
-                </div>
+                <div className="">{!adminLogin && <Footer />}</div>
               </div>
             </InstructorProvider>
           </CourseProvider>

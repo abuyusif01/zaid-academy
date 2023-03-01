@@ -7,7 +7,8 @@ import {
   signOut,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "../config/firebase";
+import { auth, db } from "../config/firebase";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
 
 const AuthContext = createContext({});
 export const UseAuth = () => useContext(AuthContext);
@@ -16,6 +17,7 @@ const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [adminUser, setAdminUser] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [loggedInAdmin, setLoggedInAdmin] = useState(null);
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -72,16 +74,39 @@ const AuthProvider = ({ children }) => {
     await signOut(auth);
   };
 
+  const roleCheck = async (email) => {
+    if (email) {
+      const q = query(
+        collection(db, "instructors"),
+        where("email", "==", email)
+      );
+      let data = [];
+      onSnapshot(q, (querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          if (doc.exists()) {
+            data.push(doc.data());
+            setLoggedInAdmin(doc.data());
+          } else {
+            console.log("Student doees not exist yet");
+            setLoggedInAdmin(null);
+          }
+        });
+      });
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
         user,
         adminUser,
+        loggedInAdmin,
         signInWithFacebook,
         signInWithGoogle,
         signInWithEmail,
         adminSignOut,
         logout,
+        roleCheck,
       }}
     >
       {loading ? null : children}
