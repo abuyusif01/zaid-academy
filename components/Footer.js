@@ -13,11 +13,11 @@ import { useTranslation } from "react-i18next";
 const Footer = () => {
   const { t } = useTranslation();
   return (
-    <div className="w-full space-y-8 md:space-y-0 md:px-16 py-8 bg-gray-100 flex flex-col md:flex-row items-center justify-between">
+    <div className="w-full space-y-8 xl:space-y-0 md:px-16 py-8 bg-gray-100 flex flex-col xl:flex-row items-center justify-between">
       <div className="w-48 h-24">
         <Image src={Logo} alt="logo" />
       </div>
-      <div className="flex space-x-1 text-gray-600 text-sm">
+      <div className="flex flex-col md:flex-row space-y-1 text-gray-600 text-sm">
         <Link href="/about">
           <div className="cursor-pointer px-4 py-3 rounded-md hover:text-white hover:bg-indigo-500 transition duration-300 ease-in">
             {t("about")}

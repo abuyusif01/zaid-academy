@@ -1,10 +1,11 @@
 import * as yup from "yup";
 
-const registerSchema = yup.object().shape({
+const personalSchema = yup.object().shape({
+  fullName: yup.string().required("Full Name is required"),
   whatsapp: yup.string().required("whatsapp number is required"),
   phone: yup.string().required("phone number is required"),
-  program: yup.string().required("program is required"),
   language: yup.string().required("language is required"),
+  gender: yup.string().required("gender is required"),
 });
 
-export default registerSchema;
+export default personalSchema;
