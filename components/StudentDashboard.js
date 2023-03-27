@@ -18,15 +18,9 @@ const StudentDashboard = ({ student, open }) => {
     <div className="space-y-8">
       <div className="flex justify-between items-center">
         <p className="text-lg md:text-3xl font-semibold">
-          {t("welcome")} {user.displayName}
+          {t("welcome")} {student.fullName}
         </p>
         <div className="space-x-6">
-          <button
-            className="md:px-12 md:py-4 rounded-md bg-indigo-500 text-sm text-white"
-            onClick={open}
-          >
-            update profile
-          </button>
           <button
             className="px-8 py-2 md:px-12 md:py-4 rounded-md bg-red-400 text-sm text-white"
             onClick={onLogOut}
@@ -38,10 +32,13 @@ const StudentDashboard = ({ student, open }) => {
       <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
         <div className="w-full md:w-1/3 rounded-lg h-48 bg-indigo-500 p-4 flex flex-col items-end justify-between text-white">
           <p className="bg-white text-indigo-500 font-semibold px-4 py-1 text-sm rounded-2xl">
-            paid
+            {student.active ? "paid" : "unpaid"}
           </p>
           <div className="space-y-2">
-            <p>Course Registered: </p>
+            <p className="text-lg">
+              Course Registered:{" "}
+              <span className="capitalize">{student.program}</span>
+            </p>
             <p className="text-2xl">
               {student.course !== "" && student.course}
             </p>

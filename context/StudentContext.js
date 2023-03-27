@@ -20,7 +20,7 @@ export const useStudent = () => useContext(StudentContext);
 
 const StudentProvider = ({ children }) => {
   const [studentExit, setStudentExist] = useState(false);
-  const [pupil, setPupil] = useState({});
+  const [pupil, setPupil] = useState([]);
   const [students, setStudents] = useState([]);
   const [classes, setClasses] = useState([]);
 
@@ -86,8 +86,19 @@ const StudentProvider = ({ children }) => {
           console.log("Student doees not exist yet");
         }
       });
-      setPupil(student[0]);
+      setPupil(student);
     });
+  };
+
+  const checkUser = async (user) => {
+    const docRef = doc(db, "students", user.uid);
+    const docSnap = await getDoc(docRef);
+
+    if (docSnap.exists()) {
+      return true;
+    } else {
+      return false;
+    }
   };
 
   const deleteStudent = async (student) => {
@@ -106,6 +117,7 @@ const StudentProvider = ({ children }) => {
         students,
         classes,
         checkStudent,
+        checkUser,
         getStudents,
         selfRegister,
         updateStudent,

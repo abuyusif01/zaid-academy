@@ -10,11 +10,11 @@ import { UseAuth } from "../context/AuthContext";
 const Signup = () => {
   const { user, signInWithGoogle } = UseAuth();
   const router = useRouter();
-  useEffect(() => {
-    if (user) {
-      router.push("/register");
-    }
-  }, [user, router]);
+  // useEffect(() => {
+  //   if (user) {
+  //     router.push("/register");
+  //   }
+  // }, [user, router]);
 
   return (
     <div className="flex justify-center items-center h-[700px]">

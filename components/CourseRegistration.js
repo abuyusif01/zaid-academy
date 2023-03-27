@@ -129,7 +129,7 @@ const CourseRegistration = ({ student }) => {
               onClick={() => setPricing("special")}
             >
               <div className="flex justify-between items-center">
-                <h1 className="text-xl">Special</h1>
+                <h1 className="text-lg">Special</h1>
                 {pricing === "special" ? (
                   <BsCheckCircleFill className="text-xl text-indigo-500" />
                 ) : (
@@ -144,7 +144,7 @@ const CourseRegistration = ({ student }) => {
               onClick={() => setPricing("premium")}
             >
               <div className="flex justify-between items-center">
-                <h1 className="text-xl">Premium</h1>
+                <h1 className="text-lg">Premium</h1>
                 {pricing === "premium" ? (
                   <BsCheckCircleFill className="text-xl text-indigo-500" />
                 ) : (
@@ -159,7 +159,7 @@ const CourseRegistration = ({ student }) => {
               onClick={() => setPricing("family")}
             >
               <div className="flex justify-between items-center">
-                <h1 className="text-xl">Family</h1>
+                <h1 className="text-lg">Family</h1>
                 {pricing === "family" ? (
                   <BsCheckCircleFill className="text-xl text-indigo-500" />
                 ) : (
@@ -207,7 +207,7 @@ const CourseRegistration = ({ student }) => {
               onClick={() => setProgram("beginners")}
             >
               <div className="flex justify-between items-center">
-                <h1 className="text-xl">Beginners</h1>
+                <h1 className="text-lg">Beginners (Alphabets) </h1>
                 {program === "beginners" ? (
                   <BsCheckCircleFill className="text-xl text-indigo-500" />
                 ) : (
@@ -222,7 +222,7 @@ const CourseRegistration = ({ student }) => {
               onClick={() => setProgram("tilawah")}
             >
               <div className="flex justify-between items-center">
-                <h1 className="text-xl">Tilawah</h1>
+                <h1 className="text-lg">Tilawah</h1>
                 {program === "tilawah" ? (
                   <BsCheckCircleFill className="text-xl text-indigo-500" />
                 ) : (
@@ -237,7 +237,7 @@ const CourseRegistration = ({ student }) => {
               onClick={() => setProgram("muraja")}
             >
               <div className="flex justify-between items-center">
-                <h1 className="text-xl">Muraja</h1>
+                <h1 className="text-lg">Muraja</h1>
                 {program === "muraja" ? (
                   <BsCheckCircleFill className="text-xl text-indigo-500" />
                 ) : (
@@ -252,7 +252,7 @@ const CourseRegistration = ({ student }) => {
               onClick={() => setProgram("hifz")}
             >
               <div className="flex justify-between items-center">
-                <h1 className="text-xl">Hifz</h1>
+                <h1 className="text-lg">Hifz</h1>
                 {program === "hifz" ? (
                   <BsCheckCircleFill className="text-xl text-indigo-500" />
                 ) : (
@@ -306,12 +306,29 @@ const CourseRegistration = ({ student }) => {
                 ))}
               </div>
             ) : (
-              <div className="relative px-12 py-4 bg-indigo-600 rounded-md text-center text-white">
-                <p>{plan.plan}</p>
-                <RiCloseCircleFill
-                  className="absolute -top-2 -right-2 text-white cursor-pointer text-2xl"
-                  onClick={() => setPlan({ plan: "" })}
-                />
+              <div>
+                <div className="text-lg space-y-3 mb-3">
+                  <p className="capitalize">
+                    Full Name: {studentData.fullName}
+                  </p>
+                  <p className="capitalize">Phone: {studentData.phone}</p>
+                  <p className="capitalize">Email: {studentData.email}</p>
+                  <p className="capitalize">Whatsapp: {studentData.whatsapp}</p>
+                  <p className="capitalize">Gender: {studentData.gender}</p>
+                  <p className="capitalize">
+                    Nationality: {studentData.nationality}
+                  </p>
+                  <p className="capitalize">Language: {studentData.language}</p>
+                  <p className="capitalize">Program: {studentData.program}</p>
+                  <p className="capitalize">Pricing: {studentData.pricing}</p>
+                </div>
+                <div className="relative px-12 py-4 bg-indigo-600 rounded-md text-center text-white">
+                  <p>{plan.plan}</p>
+                  <RiCloseCircleFill
+                    className="absolute -top-2 -right-2 text-white cursor-pointer text-2xl"
+                    onClick={() => setPlan({ plan: "" })}
+                  />
+                </div>
               </div>
             )}
           </div>
@@ -331,8 +348,9 @@ const CourseRegistration = ({ student }) => {
               type="button"
               disabled={plan.plan === ""}
               onClick={() => {
-                const studData = { ...studentData, ...plan };
-                console.log(studData);
+                const studData = { ...studentData, ...plan, active: false };
+                selfRegister(studData);
+                router.replace("dashboard");
               }}
             >
               Submit

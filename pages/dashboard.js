@@ -25,29 +25,14 @@ const Dashboard = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  console.log("Pupil is", pupil);
+
   return (
     <div className="px-8 md:px-24 my-10 space-y-8 min-h-screen">
       <Head>
         <title>Dashboard | {user.displayName}</title>
       </Head>
-      {pupil && (
-        <>
-          {pupil.active ? (
-            <StudentDashboard student={pupil} open={openModal} />
-          ) : (
-            <div className="text-center space-y-4">
-              <p className="text-2xl">Welcome, {user.displayName}</p>
-              <p className="text-xl font-bold">
-                Wait for admin to give you access
-              </p>
-              <p className="text-gray-700 text-lg">
-                To enroll, contact:{" "}
-                <span className="text-semibold">+60-11-1605-0164</span>
-              </p>
-            </div>
-          )}
-        </>
-      )}
+      {pupil[0] && <StudentDashboard student={pupil[0]} open={openModal} />}
 
       {/* <div>
         <Modal open={showModal} close={closeModal}>
