@@ -17,15 +17,11 @@ const Admin = () => {
   const onChange = (e) => {
     setAdmin({ ...admin, [e.target.name]: e.target.value });
   };
-  const onSubmit = (e) => {
+  const onSubmit = async (e) => {
     e.preventDefault();
-    const user = signInWithEmail(admin.email, admin.password);
-    console.log(user);
+    await signInWithEmail(admin.email, admin.password);
+    router.replace("admin/dash/students");
   };
-
-  useEffect(() => {
-    console.log(adminUser?.email);
-  }, [adminUser]);
 
   return (
     <div className="flex h-screen">

@@ -1,5 +1,4 @@
-import Link from "next/link";
-import React, { useEffect } from "react";
+import React from "react";
 import { FaChalkboardTeacher } from "react-icons/fa";
 import {
   BsEnvelopeFill,
@@ -25,30 +24,34 @@ const SideBar = () => {
       </div>
       <div className="space-y-4">
         <SidebarLink
-          icon={<BsFillPeopleFill />}
-          name="Classes"
-          url="/admin/dash/classes"
-          active
-        />
-        <SidebarLink
           icon={<BsPersonCheck />}
           name="Students"
           url="/admin/dash/students"
+          active="students"
+        />
+        <SidebarLink
+          icon={<BsFillPeopleFill />}
+          name="Classes"
+          url="/admin/dash/classes"
+          active="classes"
         />
         <SidebarLink
           icon={<FaChalkboardTeacher />}
           name="Add Instructors"
           url="/admin/dash/instructors"
+          active="instructors"
         />
         <SidebarLink
           icon={<BsEnvelopeFill />}
           name="Messages"
           url="/admin/dash/messages"
+          active="messages"
         />
         <SidebarLink
           icon={<BsEnvelopeOpenFill />}
           name="Request"
           url="/admin/dash/requests"
+          active="requests"
         />
       </div>
       <button

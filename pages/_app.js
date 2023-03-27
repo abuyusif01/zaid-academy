@@ -14,6 +14,7 @@ import AuthProvider from "../context/AuthContext";
 import "../styles/globals.css";
 import InstructorProvider from "../context/InstructorContext";
 import AdminRoute from "../components/AdminRoute";
+import SideBar from "../components/SideBar";
 
 const authRequired = ["/", "/"];
 
@@ -50,7 +51,14 @@ function MyApp({ Component, pageProps }) {
                 ) : null}
                 {adminRequired ? (
                   <AdminRoute>
-                    <Component {...pageProps} />
+                    <div className="flex w-full">
+                      <div className="hidden md:block w-4/12 lg:w-3/12 2xl:w-2/12">
+                        <SideBar />
+                      </div>
+                      <div className="flex-1">
+                        <Component {...pageProps} />
+                      </div>
+                    </div>
                   </AdminRoute>
                 ) : null}
                 {!authRequired && !adminRequired ? (
