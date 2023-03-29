@@ -8,11 +8,12 @@ import { useStudent } from "../context/StudentContext";
 const Register = () => {
   const router = useRouter();
   const { user } = UseAuth();
-  const [render, setRender] = useState(false);
+  const [render, setRender] = useState(true);
   const { pupil, checkStudent, checkUser } = useStudent();
 
   useEffect(() => {
     user?.email && checkStudent(user?.email);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -20,7 +21,6 @@ const Register = () => {
       if (user) {
         const studentExist = await checkUser(user);
         setRender(studentExist);
-        console.log(studentExist);
         studentExist ? router.replace("dashboard") : null;
       }
     })();
@@ -33,15 +33,14 @@ const Register = () => {
         <title>Register</title>
       </Head>
       <div>
+        {!user && (
+          <div className="animate-ping h-6 w-6 rounded-full bg-indigo-600 mx-auto"></div>
+        )}
         {!render ? (
-          <div>
-            <p>Loading</p>
-          </div>
-        ) : (
           <div className="w-full sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-5/12 mx-auto">
             <CourseRegistration student={user} />
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   );

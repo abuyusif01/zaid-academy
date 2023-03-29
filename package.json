@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "boring-avatars": "^1.7.0",
     "firebase": "^9.9.0",
     "formik": "^2.2.9",
     "i18next": "^21.8.14",

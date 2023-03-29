@@ -55,7 +55,7 @@ function MyApp({ Component, pageProps }) {
                       <div className="hidden md:block w-4/12 lg:w-3/12 2xl:w-2/12">
                         <SideBar />
                       </div>
-                      <div className="flex-1">
+                      <div className="flex-1 py-16 px-12">
                         <Component {...pageProps} />
                       </div>
                     </div>

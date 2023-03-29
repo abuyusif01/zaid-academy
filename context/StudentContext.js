@@ -23,6 +23,7 @@ const StudentProvider = ({ children }) => {
   const [pupil, setPupil] = useState([]);
   const [students, setStudents] = useState([]);
   const [classes, setClasses] = useState([]);
+  const [studentById, setStudentById] = useState({});
 
   const getStudents = () => {
     const q = query(collection(db, "students"));
@@ -48,6 +49,17 @@ const StudentProvider = ({ children }) => {
       });
       setClasses(msg);
     });
+  };
+
+  const getStudentById = async (uid) => {
+    const studentRef = doc(db, "students", uid);
+    const docSnap = await getDoc(studentRef);
+
+    if (docSnap.exists()) {
+      setStudentById(docSnap.data());
+    } else {
+      console.log("No such document!");
+    }
   };
 
   const updateStudent = async (id, data) => {
@@ -125,7 +137,8 @@ const StudentProvider = ({ children }) => {
         addAttendance,
         deleteStudent,
         getVideo,
-        // registerNewStudent,
+        getStudentById,
+        studentById,
       }}
     >
       {children}
