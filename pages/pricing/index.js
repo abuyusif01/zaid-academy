@@ -97,21 +97,31 @@ const PricingX = () => {
             <div className="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
               <Plan
                 title="basic"
+                price={80}
+                description="This is suitable for 3 people"
+                items={[
+                  `2-3 ${t("student")}`,
+                  `2 ${t("sessionPerWeek")}`,
+                  `60 ${t("minutePerSession")}`,
+                ]}
+              />
+              <Plan
+                title="regular"
                 price={110}
                 description="This is suitable for 3 people"
                 items={[
                   `2-3 ${t("student")}`,
                   `3 ${t("sessionPerWeek")}`,
-                  `50 ${t("minutePerSession")}`,
+                  `60 ${t("minutePerSession")}`,
                 ]}
               />
               <Plan
                 title="intensive"
-                price={180}
+                price={160}
                 items={[
                   `2-3 ${t("student")}`,
                   `5 ${t("sessionPerWeek")}`,
-                  `50 ${t("minutePerSession")}`,
+                  `60 ${t("minutePerSession")}`,
                 ]}
               />
             </div>
@@ -207,7 +217,7 @@ const PricingX = () => {
                 <div className="w-full md:w-1/2 p-4">
                   <Plan
                     title="Silver E"
-                    price={100}
+                    price={90}
                     items={[
                       "30 minutes",
                       `20 ${t("classes")}`,
@@ -218,7 +228,7 @@ const PricingX = () => {
                 <div className="w-full md:w-1/2 p-4">
                   <Plan
                     title="Gold D"
-                    price={120}
+                    price={110}
                     items={[
                       "45 minutes",
                       `16 ${t("classes")}`,
@@ -229,7 +239,7 @@ const PricingX = () => {
                 <div className="w-full md:w-1/2 p-4">
                   <Plan
                     title="Gold E"
-                    price={150}
+                    price={130}
                     items={[
                       "45 minutes",
                       `20 ${t("classes")}`,

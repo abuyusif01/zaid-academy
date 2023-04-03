@@ -5,10 +5,11 @@ import { useRouter } from "next/router";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Logo from "../../utils/logo.png";
+import { UseAdminAuth } from "../../context/AdminAuthContext";
 import { UseAuth } from "../../context/AuthContext";
 
 const Admin = () => {
-  const { signInWithEmail, adminUser, roleCheck, loggedInAdmin } = UseAuth();
+  const { signInWithEmail } = UseAuth();
   const router = useRouter();
   const [admin, setAdmin] = useState({
     email: "",

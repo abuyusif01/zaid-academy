@@ -1,9 +1,7 @@
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import AddTeacher from "../../../components/AddTeacher";
-import Modal from "../../../components/Modal";
-import TableRow from "../../../components/TableRow";
-import { useInstructor } from "../../../context/InstructorContext";
+import AddTeacher from "../../../../components/AddTeacher";
+import { useInstructor } from "../../../../context/InstructorContext";
 
 const Instructors = () => {
   const { instructors, getInstructors, deleteInstructor } = useInstructor();
@@ -23,6 +21,9 @@ const Instructors = () => {
       <Head>
         <title>Admin Instructors</title>
       </Head>
+      <div>
+        <AddTeacher />
+      </div>
     </div>
   );
 };
