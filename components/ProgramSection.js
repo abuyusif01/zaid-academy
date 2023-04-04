@@ -37,20 +37,15 @@ const ProgramSection = () => {
             <div className="w-full border border-gray-200 rounded-lg px-6 py-8 space-y-4 hover:shadow-lg ">
               <h2 className="text-2xl  font-semibold">{program.name}</h2>
               <p className=" leading-relaxed text-justify">{program.details}</p>
-              {/* <button
+              <button
                 className="px-12 select-none py-3 rounded-md bg-indigo-500 text-sm text-white"
                 onClick={() => {
                   console.log(program.name);
-                  router.push(
-                    `/pricing/${program.link
-                      .split(" ")
-                      .join("-")
-                      .toLowerCase()}`
-                  );
+                  router.push(`/signup`);
                 }}
               >
                 {t("enroll")}
-              </button> */}
+              </button>
             </div>
           </div>
         ))}

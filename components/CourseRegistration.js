@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import { BsCircle, BsCheckCircleFill } from "react-icons/bs";
+import { BsCircle, BsCheckCircleFill, BsCheckLg } from "react-icons/bs";
 import { RiCloseCircleFill } from "react-icons/ri";
 import { Form, Formik } from "formik";
 import { useTranslation } from "react-i18next";
@@ -30,28 +30,32 @@ const CourseRegistration = ({ student }) => {
     family: {
       name: "family",
       details: [],
-      subs: [{ plan: "basic" }, { plan: "regular" }, { plan: "intensive" }],
+      subs: [
+        { plan: "basic", price: 80 },
+        { plan: "regular", price: 100 },
+        { plan: "intensive", price: 160 },
+      ],
     },
     special: {
       name: "special",
       details: [],
       subs: [
-        { plan: "silver A" },
-        { plan: "silver B" },
-        { plan: "silver C" },
-        { plan: "gold A" },
-        { plan: "gold B" },
-        { plan: "gold C" },
+        { plan: "silver A", price: 20 },
+        { plan: "silver B", price: 40 },
+        { plan: "silver C", price: 60 },
+        { plan: "gold A", price: 30 },
+        { plan: "gold B", price: 60 },
+        { plan: "gold C", price: 90 },
       ],
     },
     premium: {
       name: "premium",
       details: [],
       subs: [
-        { plan: "silver D" },
-        { plan: "silver E" },
-        { plan: "gold D" },
-        { plan: "gold E" },
+        { plan: "silver D", price: 80 },
+        { plan: "silver E", price: 90 },
+        { plan: "gold D", price: 110 },
+        { plan: "gold E", price: 130 },
       ],
     },
   };
@@ -123,48 +127,93 @@ const CourseRegistration = ({ student }) => {
           <h4 className="text-2xl text-semibold mb-8">Pricing</h4>
           <div className="space-y-5">
             <div
-              className={`border border-2 h-48 w-full spc rounded-lg ${
+              className={`border border-2 h-48 w-full spc rounded-lg space-y-4 ${
                 pricing === "special" ? "border-indigo-500" : "border-gray-400"
               } p-4 cursor-pointer`}
               onClick={() => setPricing("special")}
             >
               <div className="flex justify-between items-center">
-                <h1 className="text-lg">Special</h1>
+                <h1 className="text-xl font-semibold">Special</h1>
                 {pricing === "special" ? (
                   <BsCheckCircleFill className="text-xl text-indigo-500" />
                 ) : (
                   <BsCircle className="text-xl" />
                 )}
               </div>
+              {/* Details */}
+              <div className="space-y-4 text-lg">
+                <p className="flex space-x-4 items-center">
+                  <BsCheckLg className="text-indigo-500" />
+                  <span>1 - 3 classes per week</span>
+                </p>
+                <p className="flex space-x-4 items-center">
+                  <BsCheckLg className="text-indigo-500" />
+                  <span>4 - 12 Classes per month</span>
+                </p>
+                <p className="flex space-x-4 items-center">
+                  <BsCheckLg className="text-indigo-500" />
+                  <span>30 or 45 Minutes per Session</span>
+                </p>
+              </div>
             </div>
             <div
-              className={`border border-2 h-48 w-full rounded-lg ${
+              className={`border border-2 h-48 w-full rounded-lg space-y-4 ${
                 pricing === "premium" ? "border-indigo-500" : "border-gray-400"
               } p-4 cursor-pointer`}
               onClick={() => setPricing("premium")}
             >
               <div className="flex justify-between items-center">
-                <h1 className="text-lg">Premium</h1>
+                <h1 className="text-xl font-semibold">Premium</h1>
                 {pricing === "premium" ? (
                   <BsCheckCircleFill className="text-xl text-indigo-500" />
                 ) : (
                   <BsCircle className="text-xl" />
                 )}
               </div>
+              {/* Details */}
+              <div className="space-y-4 text-lg">
+                <p className="flex space-x-4 items-center">
+                  <BsCheckLg className="text-indigo-500" />
+                  <span>4 - 5 classes per week</span>
+                </p>
+                <p className="flex space-x-4 items-center">
+                  <BsCheckLg className="text-indigo-500" />
+                  <span>16 - 20 Classes per month</span>
+                </p>
+                <p className="flex space-x-4 items-center">
+                  <BsCheckLg className="text-indigo-500" />
+                  <span>30 or 45 Minutes per Session</span>
+                </p>
+              </div>
             </div>
             <div
-              className={`border border-2 h-48 w-full rounded-lg ${
+              className={`border border-2 h-48 w-full rounded-lg space-y-4 ${
                 pricing === "family" ? "border-indigo-500" : "border-gray-400"
               } p-4 cursor-pointer`}
               onClick={() => setPricing("family")}
             >
               <div className="flex justify-between items-center">
-                <h1 className="text-lg">Family</h1>
+                <h1 className="text-xl font-semibold">Family</h1>
                 {pricing === "family" ? (
                   <BsCheckCircleFill className="text-xl text-indigo-500" />
                 ) : (
                   <BsCircle className="text-xl" />
                 )}
+              </div>
+              {/* Details */}
+              <div className="space-y-4 text-lg">
+                <p className="flex space-x-4 items-center">
+                  <BsCheckLg className="text-indigo-500" />
+                  <span>2-3 Students</span>
+                </p>
+                <p className="flex space-x-4 items-center">
+                  <BsCheckLg className="text-indigo-500" />
+                  <span>2-5 Sessions</span>
+                </p>
+                <p className="flex space-x-4 items-center">
+                  <BsCheckLg className="text-indigo-500" />
+                  <span>60 Minutes per Session</span>
+                </p>
               </div>
             </div>
           </div>
@@ -295,13 +344,14 @@ const CourseRegistration = ({ student }) => {
               <div className="space-y-5">
                 {planData[pricing].subs.map((item, index) => (
                   <div
-                    className="border border-2 px-4 py-6 text-xl capitalize rounded cursor-pointer"
+                    className="border border-2 px-4 py-6 text-xl capitalize rounded cursor-pointer flex items-center justify-between"
                     key={item.plan}
                     onClick={() => {
                       setPlan(item);
                     }}
                   >
-                    {item.plan}
+                    <p>{item.plan}</p>
+                    <p>$ {item.price}</p>
                   </div>
                 ))}
               </div>
