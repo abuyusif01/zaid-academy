@@ -8,7 +8,7 @@ import { useStudent } from "../context/StudentContext";
 import personalSchema from "../validation/register";
 import TextField from "./TextField";
 import SelectField from "./SelectField";
-import Select from "./Select";
+import countries from "../validation/countries.json";
 
 const CourseRegistration = ({ student }) => {
   const [display, setDisplay] = useState("personal");
@@ -19,6 +19,8 @@ const CourseRegistration = ({ student }) => {
   const router = useRouter();
   const { selfRegister, checkStudent, pupil } = useStudent();
   const { t } = useTranslation();
+
+  const countriesData = countries.map((count) => count.country);
 
   const pricingdata = [
     { name: "special" },
@@ -97,12 +99,18 @@ const CourseRegistration = ({ student }) => {
                   name="gender"
                   data={["Male", "Female"]}
                 />
-                <TextField
+                <SelectField
                   label={t("nationality")}
+                  placeholder="Choose your Nationality"
                   name="nationality"
-                  type="text"
+                  data={countriesData}
                 />
-                <TextField label="residence" name="residence" type="text" />
+                <SelectField
+                  label="residence"
+                  placeholder="Choose your country of residence"
+                  name="residence"
+                  data={countriesData}
+                />
 
                 <SelectField
                   label={t("language")}

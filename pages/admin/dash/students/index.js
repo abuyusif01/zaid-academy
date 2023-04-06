@@ -10,19 +10,12 @@ import Student1 from "../../../../components/Student1";
 
 const Students = () => {
   const { students, getStudents } = useStudent();
-  const [student, setStudent] = useState({});
-  const [studentShow, setStudentShow] = useState(false);
-  const studentRef = useRef({});
-  const [show, setShow] = useState(false);
 
   useEffect(() => {
     getStudents();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const setModalData = (data) => {
-    studentRef.current = data;
-  };
   return (
     <div className="relative">
       <Head>

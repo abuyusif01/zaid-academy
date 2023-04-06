@@ -5,10 +5,12 @@ import { useStudent } from "../../../../context/StudentContext";
 import { useRouter } from "next/router";
 import moment from "moment";
 import { BsTrash, BsCheck2 } from "react-icons/bs";
+import { useInstructor } from "../../../../context/InstructorContext";
 
 const StudentsDetails = () => {
   const [showAttendance, setShowAttendance] = useState(false);
   const [showPayment, setShowPayment] = useState(false);
+  const [showInstructors, setShowInstructors] = useState(false);
   const [classDate, setClassDate] = useState(new Date().getTime());
   const [classTime, setClassTime] = useState(new Date().getTime());
   const [classes, setClasses] = useState([]);
@@ -26,6 +28,9 @@ const StudentsDetails = () => {
     addToPaymentHistory,
     setExpiry,
   } = useStudent();
+
+  const { instructors } = useInstructor();
+
   useEffect(() => {
     (async () => {
       await getStudentById(id);
@@ -105,25 +110,40 @@ const StudentsDetails = () => {
           <p>Language: {studentById.language}</p>
         </div>
         {/* TODO: Course and Teacher */}
-        <div className="min-h-64 lg:col-span-2 col-span-5 shadow bg-green-200 bg-opacity-10 rounded-lg p-5 text-green-900 space-y-5">
-          <p className="font-semibold">Courses and Teacher</p>
+        <div className="min-h-64 relative lg:col-span-2 col-span-5 shadow bg-green-200 bg-opacity-10 rounded-lg p-5 text-green-900 space-y-5">
+          <div className="flex justify-between items-center">
+            <p className="font-semibold">Courses and Teacher</p>
+            <button
+              className="bg-green-700 text-white py-3 px-4 rounded"
+              onClick={() => setShowInstructors((prev) => !prev)}
+            >
+              {showInstructors ? "Close" : "Choose Teacher"}
+            </button>
+          </div>
+          {showInstructors && (
+            <div className="z-10 w-full p-2 left-0 absolute bg-white space-y-4 text-lg font-semibold text-black min-h-32 overflow-y">
+              {[...instructors].map((instructor) => (
+                <p
+                  className="cursor pointer p-2 bg-gray-400 bg-opacity-20 capitalize rounded"
+                  key={instructor.uid}
+                >
+                  {instructor.fullName}
+                </p>
+              ))}
+            </div>
+          )}
           <p className="font-semibold text-3xl tracking-wide capitalize">
             {studentById.program}
           </p>
           <p className="capitalize">Pricing: {studentById.pricing}</p>
           <p className="capitalize">Plan: {studentById.plan}</p>
-          <div className="flex justify-between items-center">
-            <p>
-              Teacher:{" "}
-              <span className="font-bold">
-                {" "}
-                {studentById.teacher ? studentById.teacher : "No Teacher"}
-              </span>
-            </p>
-            <button className="bg-green-700 text-white py-3 px-4 rounded">
-              Choose Teacher
-            </button>
-          </div>
+          <p>
+            Teacher:{" "}
+            <span className="font-bold">
+              {" "}
+              {studentById.teacher ? studentById.teacher : "No Teacher"}
+            </span>
+          </p>
         </div>
         {/* TODO: Attendance */}
         <div className="lg:col-span-2 col-span-5 p-5 shadow min-h-64 rounded-lg relative space-y-4">

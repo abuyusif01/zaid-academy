@@ -1,18 +1,38 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
+import { useInstructor } from "../../../../context/InstructorContext";
+import DashInstructor from "../../../../components/DashInstructor";
 
 const Instructors = () => {
   const router = useRouter();
+  const { getInstructors, instructors } = useInstructor();
+  useEffect(() => {
+    getInstructors();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
-    <div className="w-full">
-      <div className="flex items-center justify-">
-        <p className="font-semibold text-lg capitalize">Instructors</p>
-        <button
-          className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white mt-8 mx-auto"
-          onClick={() => router.push("/admin/dash/instructors/add")}
-        >
-          Add Instructors
-        </button>
+    <div>
+      <Head>
+        <title>Instructors</title>
+      </Head>
+      <div className="w-full">
+        <div className="flex justify-between items-center">
+          <p className="font-semibold text-lg capitalize">Instructors</p>
+          <button
+            className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white"
+            onClick={() => router.push("/admin/dash/instructors/add")}
+          >
+            Add Instructors
+          </button>
+        </div>
+        <div className="flex flex-wrap">
+          {instructors.map((instructor) => (
+            <div className="p-4 w-[400px]" key={instructor.uid}>
+              <DashInstructor instructor={instructor} />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

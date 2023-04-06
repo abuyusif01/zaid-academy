@@ -4,7 +4,7 @@ import AddTeacher from "../../../../components/AddTeacher";
 import { useInstructor } from "../../../../context/InstructorContext";
 
 const Instructors = () => {
-  const { instructors, getInstructors, deleteInstructor } = useInstructor();
+  const { getInstructors, deleteInstructor } = useInstructor();
   const [show, setShow] = useState(false);
   const openModal = () => {
     setShow(true);

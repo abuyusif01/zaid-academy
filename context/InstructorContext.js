@@ -4,7 +4,7 @@ import {
   deleteUser,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth, db } from "../config/firebase";
+import { auth, db, storage } from "../config/firebase";
 import {
   collection,
   deleteDoc,
@@ -14,6 +14,7 @@ import {
   setDoc,
   where,
 } from "firebase/firestore";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 
 const InstructorContext = createContext();
 
@@ -22,6 +23,8 @@ export const useInstructor = () => useContext(InstructorContext);
 const InstructorProvider = ({ children }) => {
   const [instructors, setInstructors] = useState([]);
   const [loggedInAdmin, setLoggedInAdmin] = useState([]);
+  const [imgUrl, setImgUrl] = useState("");
+  const [progress, setProgress] = useState(0);
 
   const addNewInstructor = async (instructor) => {
     const userCredential = await createUserWithEmailAndPassword(
@@ -44,13 +47,7 @@ const InstructorProvider = ({ children }) => {
   };
 
   const addInstructorToDb = async (instructor) => {
-    await setDoc(doc(db, "instructors", instructor.uid), {
-      displayName: instructor.displayName,
-      email: instructor.email,
-      uid: instructor.uid,
-      role: instructor.role,
-      password: instructor.password,
-    });
+    await setDoc(doc(db, "instructors", instructor.uid), instructor);
   };
 
   const checkRole = async (email) => {
@@ -70,6 +67,29 @@ const InstructorProvider = ({ children }) => {
     });
   };
 
+  const uploadPicture = (file) => {
+    const storageRef = ref(storage, `/instructors/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const prog = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(prog);
+      },
+      (err) => console.log(err),
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          // console.log("downloadable url", url);
+          setImgUrl(url);
+          // return url;
+        });
+      }
+    );
+    return imgUrl;
+  };
+
   const getInstructors = () => {
     const q = query(collection(db, "instructors"));
 
@@ -86,9 +106,15 @@ const InstructorProvider = ({ children }) => {
     await deleteDoc(doc(db, "instructors", instructor.uid));
   };
 
+  const clearImgUrl = () => {
+    setImgUrl("");
+  };
+
   return (
     <InstructorContext.Provider
       value={{
+        progress,
+        imgUrl,
         instructors,
         loggedInAdmin,
         checkRole,
@@ -97,6 +123,8 @@ const InstructorProvider = ({ children }) => {
         addNewInstructor,
         addInstructorToDb,
         deleteInstructor,
+        uploadPicture,
+        clearImgUrl,
       }}
     >
       {children}
