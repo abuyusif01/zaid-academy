@@ -48,6 +48,7 @@ const StudentsDetails = () => {
     setPayments(studentById.payments ? studentById.payments : []);
     setExpiresOn(studentById.expiry ? studentById.expiry : null);
     getMyInstructor(studentById.instructor ? studentById.instructor : null);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [studentById]);
 
   const saveClass = (data) => {
@@ -133,12 +134,14 @@ const StudentsDetails = () => {
         <div className="min-h-64 relative lg:col-span-2 col-span-5 shadow bg-green-200 bg-opacity-10 rounded-lg p-5 text-green-900 space-y-5">
           <div className="flex justify-between items-center">
             <p className="font-semibold">Courses and Teacher</p>
-            <button
-              className="bg-green-700 text-white py-3 px-4 rounded"
-              onClick={() => setShowInstructors((prev) => !prev)}
-            >
-              {showInstructors ? "Close" : "Choose Teacher"}
-            </button>
+            {!studentById.instructor && (
+              <button
+                className="bg-green-700 text-white py-3 px-4 rounded"
+                onClick={() => setShowInstructors((prev) => !prev)}
+              >
+                {showInstructors ? "Close" : "Choose Teacher"}
+              </button>
+            )}
           </div>
           {showInstructors && (
             <div className="z-10 w-full p-2 left-0 shadow-lg absolute bg-white space-y-4 text-lg font-semibold text-black min-h-32 overflow-y">

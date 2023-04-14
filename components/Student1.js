@@ -20,6 +20,7 @@ const Student1 = ({ student }) => {
         }
       }
     })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

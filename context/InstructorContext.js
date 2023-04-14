@@ -9,6 +9,7 @@ import {
   collection,
   deleteDoc,
   doc,
+  getDoc,
   onSnapshot,
   query,
   setDoc,
@@ -23,6 +24,7 @@ export const useInstructor = () => useContext(InstructorContext);
 const InstructorProvider = ({ children }) => {
   const [instructors, setInstructors] = useState([]);
   const [loggedInAdmin, setLoggedInAdmin] = useState([]);
+  const [instructorById, setInstructorById] = useState({});
   const [imgUrl, setImgUrl] = useState("");
   const [progress, setProgress] = useState(0);
 
@@ -106,6 +108,17 @@ const InstructorProvider = ({ children }) => {
     await deleteDoc(doc(db, "instructors", instructor.uid));
   };
 
+  const getInstructorById = async (uid) => {
+    const studentRef = doc(db, "instructors", uid);
+    const docSnap = await getDoc(studentRef);
+
+    if (docSnap.exists()) {
+      setInstructorById(docSnap.data());
+    } else {
+      console.log("No such document!");
+    }
+  };
+
   const clearImgUrl = () => {
     setImgUrl("");
   };
@@ -114,6 +127,7 @@ const InstructorProvider = ({ children }) => {
     <InstructorContext.Provider
       value={{
         progress,
+        instructorById,
         imgUrl,
         instructors,
         loggedInAdmin,
@@ -125,6 +139,7 @@ const InstructorProvider = ({ children }) => {
         deleteInstructor,
         uploadPicture,
         clearImgUrl,
+        getInstructorById,
       }}
     >
       {children}

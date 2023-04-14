@@ -80,7 +80,7 @@ const CourseRegistration = ({ student }) => {
             validationSchema={personalSchema}
             onSubmit={(values) => {
               const data = { ...student, ...values };
-              setStudentData({ ...studentData, ...data });
+              setStudentData({ ...studentData, ...data, date: new Date() });
               setDisplay("program");
             }}
           >

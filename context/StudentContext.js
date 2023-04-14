@@ -151,12 +151,8 @@ const StudentProvider = ({ children }) => {
 
   const enrollStudentToLecturer = async (uid, instructor) => {
     const studentRef = doc(db, "students", uid);
-    const instructorRef = doc(db, "instructors", instructor.uid);
     await updateDoc(studentRef, {
       instructor: instructor.uid,
-    });
-    await updateDoc(instructorRef, {
-      students: arrayUnion(uid),
     });
   };
 
