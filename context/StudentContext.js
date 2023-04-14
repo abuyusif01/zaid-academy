@@ -26,6 +26,7 @@ const StudentProvider = ({ children }) => {
   const [students, setStudents] = useState([]);
   const [classes, setClasses] = useState([]);
   const [studentById, setStudentById] = useState({});
+  const [myInstructor, setMyInstructor] = useState(null);
 
   const getStudents = () => {
     const q = query(collection(db, "students"));
@@ -148,6 +149,34 @@ const StudentProvider = ({ children }) => {
     });
   };
 
+  const enrollStudentToLecturer = async (uid, instructor) => {
+    const studentRef = doc(db, "students", uid);
+    const instructorRef = doc(db, "instructors", instructor.uid);
+    await updateDoc(studentRef, {
+      instructor: instructor.uid,
+    });
+    await updateDoc(instructorRef, {
+      students: arrayUnion(uid),
+    });
+  };
+
+  const getMyInstructor = async (uid) => {
+    if (uid) {
+      const instructorRef = doc(db, "instructors", uid);
+      const docSnap = await getDoc(instructorRef);
+
+      if (docSnap.exists()) {
+        setMyInstructor(docSnap.data());
+      } else {
+        console.log("No such document!");
+      }
+    }
+  };
+
+  const setInstructorMy = (instructor) => {
+    setMyInstructor(instructor);
+  };
+
   const getVideo = async () => {
     return "https://firebasestorage.googleapis.com/v0/b/zaid-276fa.appspot.com/o/video%2Fabout.MP4?alt=media&token=3a63c2eb-d2b5-4676-b085-e1ad4042eb2d";
   };
@@ -174,6 +203,10 @@ const StudentProvider = ({ children }) => {
         removeClass,
         addToPaymentHistory,
         setExpiry,
+        enrollStudentToLecturer,
+        myInstructor,
+        getMyInstructor,
+        setInstructorMy,
       }}
     >
       {children}

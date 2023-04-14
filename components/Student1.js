@@ -1,10 +1,27 @@
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Avatar from "boring-avatars";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import Link from "next/link";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../config/firebase";
 
 const Student1 = ({ student }) => {
+  const [instructor, setInstructor] = useState({});
+  useEffect(() => {
+    (async () => {
+      if (student.instructor) {
+        const instructorRef = doc(db, "instructors", student.instructor);
+        const docSnap = await getDoc(instructorRef);
+        if (docSnap.exists()) {
+          setInstructor(docSnap.data());
+        } else {
+          console.log("No such document!");
+        }
+      }
+    })();
+  }, []);
+
   return (
     <Link href={`/admin/dash/students/${student.uid}`}>
       <div className="relative shadow w-full rounded-lg cursor-pointer hover:shadow-lg">
@@ -35,7 +52,7 @@ const Student1 = ({ student }) => {
             <p className="font-semibold">{student.fullName}</p>
             <p className="text-sm text-gray-500">{student.email}</p>
             <p className="">
-              {student.teacher ? student.teacher : "No Teacher"}
+              {student.instructor ? instructor.fullName : "No Teacher"}
             </p>
           </div>
           <div className="select-none flex justify-between w-full p-4 border-t border-t-2 border-t-gray-700 border-dashed">

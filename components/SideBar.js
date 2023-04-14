@@ -25,15 +25,15 @@ const SideBar = () => {
       <div className="space-y-4">
         <SidebarLink
           icon={<BsPersonCheck />}
-          name="Students"
+          name="New Students"
           url="/admin/dash/students"
           active="students"
         />
         <SidebarLink
           icon={<BsFillPeopleFill />}
-          name="Classes"
-          url="/admin/dash/classes"
-          active="classes"
+          name="Active Student"
+          url="/admin/dash/active"
+          active="active"
         />
         <SidebarLink
           icon={<FaChalkboardTeacher />}
@@ -61,7 +61,7 @@ const SideBar = () => {
           router.replace("/admin");
         }}
       >
-        SignOut
+        Sign Out
       </button>
     </div>
   );

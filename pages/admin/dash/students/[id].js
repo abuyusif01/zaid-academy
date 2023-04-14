@@ -27,13 +27,18 @@ const StudentsDetails = () => {
     removeClass,
     addToPaymentHistory,
     setExpiry,
+    enrollStudentToLecturer,
+    myInstructor,
+    setInstructorMy,
+    getMyInstructor,
   } = useStudent();
 
-  const { instructors } = useInstructor();
+  const { instructors, getInstructors } = useInstructor();
 
   useEffect(() => {
     (async () => {
       await getStudentById(id);
+      getInstructors();
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -42,6 +47,7 @@ const StudentsDetails = () => {
     setClasses(studentById.classes ? studentById.classes : []);
     setPayments(studentById.payments ? studentById.payments : []);
     setExpiresOn(studentById.expiry ? studentById.expiry : null);
+    getMyInstructor(studentById.instructor ? studentById.instructor : null);
   }, [studentById]);
 
   const saveClass = (data) => {
@@ -72,6 +78,12 @@ const StudentsDetails = () => {
     setShowPayment(false);
   };
 
+  const chooseInstructor = (instructor) => {
+    setInstructorMy(instructor);
+    enrollStudentToLecturer(id, instructor);
+    setShowInstructors(false);
+  };
+
   const isexpired =
     new Date(expiresOn?.toDate).getTime() > new Date().getTime();
 
@@ -82,7 +94,7 @@ const StudentsDetails = () => {
       </Head>
       <div className="grid grid-cols-5 gap-4">
         {/* TODO: Personal Information */}
-        <div className="min-h-64 lg:col-span-3 col-span-5 bg-indigo-500 shadow rounded-lg bg-opacity-20 p-5 text-indigo-900 space-y-4">
+        <div className="min-h-64 lg:col-span-3 col-span-5 bg-indigo-500 shadow rounded-lg bg-opacity-20 p-5 text-indigo-900 space-y-6">
           <div className="flex items-center justify-between">
             <p className="font-bold">Personal Information</p>
             <p className="font-bold">
@@ -104,10 +116,18 @@ const StudentsDetails = () => {
               {!isexpired ? "Inactive" : "Active"}
             </span>
           </div>
-          <p>Email: {studentById.email}</p>
-          <p>Whatsapp: {studentById.whatsapp}</p>
-          <p>Phone: {studentById.phone}</p>
-          <p>Language: {studentById.language}</p>
+          <div className="flex justify-between">
+            <p>Email: {studentById.email}</p>
+            <p>Residence: {studentById.residence}</p>
+          </div>
+          <div className="flex justify-between">
+            <p>Whatsapp: {studentById.whatsapp}</p>
+            <p>Nationality: {studentById.nationality}</p>
+          </div>
+          <div className="flex justify-between">
+            <p>Phone: {studentById.phone}</p>
+            <p>Language: {studentById.language}</p>
+          </div>
         </div>
         {/* TODO: Course and Teacher */}
         <div className="min-h-64 relative lg:col-span-2 col-span-5 shadow bg-green-200 bg-opacity-10 rounded-lg p-5 text-green-900 space-y-5">
@@ -121,11 +141,12 @@ const StudentsDetails = () => {
             </button>
           </div>
           {showInstructors && (
-            <div className="z-10 w-full p-2 left-0 absolute bg-white space-y-4 text-lg font-semibold text-black min-h-32 overflow-y">
+            <div className="z-10 w-full p-2 left-0 shadow-lg absolute bg-white space-y-4 text-lg font-semibold text-black min-h-32 overflow-y">
               {[...instructors].map((instructor) => (
                 <p
-                  className="cursor pointer p-2 bg-gray-400 bg-opacity-20 capitalize rounded"
+                  className="cursor-pointer p-2 bg-gray-400 bg-opacity-20 capitalize rounded"
                   key={instructor.uid}
+                  onClick={() => chooseInstructor(instructor)}
                 >
                   {instructor.fullName}
                 </p>
@@ -141,7 +162,7 @@ const StudentsDetails = () => {
             Teacher:{" "}
             <span className="font-bold">
               {" "}
-              {studentById.teacher ? studentById.teacher : "No Teacher"}
+              {myInstructor ? myInstructor.fullName : "No Teacher"}
             </span>
           </p>
         </div>
