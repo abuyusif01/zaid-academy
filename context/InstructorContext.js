@@ -6,6 +6,7 @@ import {
 } from "firebase/auth";
 import { auth, db, storage } from "../config/firebase";
 import {
+  arrayUnion,
   collection,
   deleteDoc,
   doc,
@@ -13,6 +14,7 @@ import {
   onSnapshot,
   query,
   setDoc,
+  updateDoc,
   where,
 } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
@@ -119,6 +121,13 @@ const InstructorProvider = ({ children }) => {
     }
   };
 
+  const addToPaymentHistory = async (uid, data) => {
+    const studentRef = doc(db, "instructors", uid);
+    await updateDoc(studentRef, {
+      payments: arrayUnion(data),
+    });
+  };
+
   const clearImgUrl = () => {
     setImgUrl("");
   };
@@ -140,6 +149,7 @@ const InstructorProvider = ({ children }) => {
         uploadPicture,
         clearImgUrl,
         getInstructorById,
+        addToPaymentHistory,
       }}
     >
       {children}

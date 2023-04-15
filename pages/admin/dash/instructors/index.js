@@ -26,9 +26,9 @@ const Instructors = () => {
             Add Instructors
           </button>
         </div>
-        <div className="flex flex-wrap">
+        <div className="flex flex-wrap justify-center">
           {instructors.map((instructor) => (
-            <div className="p-4 w-[400px]" key={instructor.uid}>
+            <div className="p-4 w-full lg:w-1/2 2xl:w-1/4" key={instructor.uid}>
               <DashInstructor instructor={instructor} />
             </div>
           ))}
