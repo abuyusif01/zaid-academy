@@ -4,7 +4,7 @@ import { v4 as uuidv4 } from "uuid";
 import { useStudent } from "../../../../context/StudentContext";
 import { useRouter } from "next/router";
 import moment from "moment";
-import { BsTrash, BsCheck2 } from "react-icons/bs";
+import { BsTrash, BsCheck2, BsX } from "react-icons/bs";
 import { useInstructor } from "../../../../context/InstructorContext";
 
 const StudentsDetails = () => {
@@ -63,10 +63,10 @@ const StudentsDetails = () => {
     removeClass(id, remain);
   };
 
-  const markAttendance = (data) => {
+  const markAttendance = (data, status) => {
     const remain = classes.filter((lec) => lec.id !== data.id);
     const target = classes.find((lec) => lec.id === data.id);
-    const newData = [{ ...target, attended: true }, ...remain];
+    const newData = [{ ...target, attended: status }, ...remain];
     setClasses(newData);
     removeClass(id, newData);
   };
@@ -203,7 +203,8 @@ const StudentsDetails = () => {
                       classDate,
                       classTime,
                       id: uuidv4(),
-                      attended: false,
+                      attended: null,
+                      plan: studentById.plan,
                     })
                   }
                   className="bg-indigo-500 text-white py-3 px-4 rounded"
@@ -218,16 +219,29 @@ const StudentsDetails = () => {
               <div
                 key={classData.id}
                 className={`flex justify-between items-center space-x-4 p-4 ${
-                  classData.attended ? "bg-green-500" : "bg-gray-400"
+                  classData.attended === null && "bg-gray-500"
+                }
+                ${classData.attended === "absent" && "bg-red-500"} ${
+                  classData.attended === "present" && "bg-green-500"
                 } rounded-lg bg-opacity-20`}
               >
                 <p>{moment(classData.classDate).format("MMMM Do YYYY")}</p>
                 <p>{classData.classTime}</p>
                 {!classData.attended ? (
-                  <BsCheck2
-                    className="text-xl cursor-pointer"
-                    onClick={() => markAttendance(classData)}
-                  />
+                  <>
+                    {new Date(classData.classDate) < new Date() && (
+                      <div className="flex space-x-6 items-center">
+                        <BsCheck2
+                          className="text-xl cursor-pointer"
+                          onClick={() => markAttendance(classData, "present")}
+                        />
+                        <BsX
+                          className="text-2xl cursor-pointer"
+                          onClick={() => markAttendance(classData, "absent")}
+                        />
+                      </div>
+                    )}
+                  </>
                 ) : (
                   <div></div>
                 )}
