@@ -13,8 +13,6 @@ const TeacherSection = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  console.log(executives);
-
   return (
     <div className="md:px-24">
       <p className="text-center md:text-2xl font-bold my-6 uppercase">

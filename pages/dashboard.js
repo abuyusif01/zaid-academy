@@ -30,7 +30,7 @@ const Dashboard = () => {
       <Head>
         <title>Dashboard | {user.displayName}</title>
       </Head>
-      {pupil[0] && <StudentDashboard student={pupil[0]} open={openModal} />}
+      {pupil[0] && <StudentDashboard student={pupil[0]} />}
     </div>
   );
 };
