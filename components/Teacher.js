@@ -2,21 +2,21 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import React from "react";
 
-const Teacher = ({ teacher, image }) => {
+const Teacher = ({ teacher }) => {
   const router = useRouter();
   const goToDetails = () => {
     router.push({
-      pathname: `/instructors/${teacher.id}`,
-      query: { id: teacher.id },
+      pathname: `/instructors/${teacher.uid}`,
+      query: { id: teacher.uid },
     });
   };
   return (
-    <div className="w-full md:w-1/3 px-8">
+    <div className="w-full">
       <div className="cursor-pointer" onClick={goToDetails}>
-        <div className="border border-gray-50 rounded-lg shadow hover:shadow-xl py-8 cursor-pointer transition duration-300 ease-in">
+        <div className="border border-gray-50 rounded-lg shadow hover:shadow-xl p-4 cursor-pointer transition duration-300 ease-in">
           <div className="h-[250px] w-[250px] relative mb-6 mx-auto">
             <Image
-              src={image}
+              src={teacher.profile}
               alt="teacher"
               layout="fill"
               objectFit="cover"
@@ -26,9 +26,11 @@ const Teacher = ({ teacher, image }) => {
           </div>
           <div className="text-center">
             <h4 className="text-xl text-center tracking-wide font-semibold leading-relaxed text-gray-700">
-              {teacher.name}
+              {teacher.fullName}
             </h4>
-            <h6 className="text-gray-500 text-center">{teacher.role}</h6>
+            <h6 className="text-gray-500 text-center">
+              {teacher.qualification}
+            </h6>
           </div>
         </div>
       </div>

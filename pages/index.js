@@ -2,7 +2,6 @@ import Head from "next/head";
 import React from "react";
 import AboutSection from "../components/AboutSection";
 import Banner from "../components/Banner";
-import PricingSection from "../components/PricingSection";
 import ProgramSection from "../components/ProgramSection";
 import TeacherSection from "../components/TeacherSection";
 
@@ -17,7 +16,7 @@ const Home = () => {
       <div className="py-12">
         <ProgramSection />
       </div>
-      <div className="bg-gray-100 py-12">
+      <div className="bg-gray-100 bg-opacity-50 py-12">
         <TeacherSection />
       </div>
     </div>

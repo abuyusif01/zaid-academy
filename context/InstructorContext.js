@@ -1,9 +1,5 @@
 import React, { createContext, useContext, useState } from "react";
-import {
-  createUserWithEmailAndPassword,
-  deleteUser,
-  signInWithEmailAndPassword,
-} from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db, storage } from "../config/firebase";
 import {
   arrayUnion,
@@ -25,6 +21,7 @@ export const useInstructor = () => useContext(InstructorContext);
 
 const InstructorProvider = ({ children }) => {
   const [instructors, setInstructors] = useState([]);
+  const [executives, setExecutives] = useState([]);
   const [loggedInAdmin, setLoggedInAdmin] = useState([]);
   const [instructorById, setInstructorById] = useState({});
   const [imgUrl, setImgUrl] = useState("");
@@ -106,13 +103,27 @@ const InstructorProvider = ({ children }) => {
     });
   };
 
+  const getExecutives = () => {
+    const q = query(
+      collection(db, "instructors"),
+      where("role", "==", "Executive")
+    );
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const msg = [];
+      querySnapshot.forEach((doc) => {
+        msg.push({ id: doc.id, ...doc.data() });
+      });
+      setExecutives(msg);
+    });
+  };
+
   const deleteInstructor = async (instructor) => {
     await deleteDoc(doc(db, "instructors", instructor.uid));
   };
 
   const getInstructorById = async (uid) => {
-    const studentRef = doc(db, "instructors", uid);
-    const docSnap = await getDoc(studentRef);
+    const instructorRef = doc(db, "instructors", uid);
+    const docSnap = await getDoc(instructorRef);
 
     if (docSnap.exists()) {
       setInstructorById(docSnap.data());
@@ -136,6 +147,7 @@ const InstructorProvider = ({ children }) => {
     <InstructorContext.Provider
       value={{
         progress,
+        executives,
         instructorById,
         imgUrl,
         instructors,
@@ -150,6 +162,7 @@ const InstructorProvider = ({ children }) => {
         clearImgUrl,
         getInstructorById,
         addToPaymentHistory,
+        getExecutives,
       }}
     >
       {children}

@@ -1,28 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import Ousmane from "../utils/ousmane.jpeg";
-import Biallo from "../utils/muhamed-1.JPEG";
-import Mujtaba from "../utils/muhamed2.png";
 
 import Teacher from "./Teacher";
+import { useInstructor } from "../context/InstructorContext";
 
 const TeacherSection = () => {
   const { t } = useTranslation();
-  const teachers = t("teachers", { returnObjects: true });
-  const images = [Ousmane, Biallo, Mujtaba];
+  const { executives, getExecutives } = useInstructor();
+
+  useEffect(() => {
+    getExecutives();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  console.log(executives);
 
   return (
     <div className="md:px-24">
       <p className="text-center md:text-2xl font-bold my-6 uppercase">
         {t("popularTeacher")}
       </p>
-      <div className="flex flex-col md:flex-row items-center justify-center">
-        {teachers.map((teacher) => (
-          <Teacher
-            key={teacher.name}
-            teacher={teacher}
-            image={images[teacher.id - 1]}
-          />
+      <div className="flex flex-wrap items-center justify-center">
+        {executives.map((teacher) => (
+          <div className="p-4 w-full md:w-1/3 lg:w-1/4" key={teacher.uid}>
+            <Teacher teacher={teacher} />
+          </div>
         ))}
       </div>
     </div>

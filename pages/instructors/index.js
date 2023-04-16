@@ -1,7 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
-import Madrasah from "../../utils/madrosah-sunnah-UyWPZMofyi0-unsplash.jpg";
-import teachers from "../../utils/teachers";
 import Teacher from "../../components/Teacher";
 import Head from "next/head";
 import Ousmane from "../../utils/ousmane.jpeg";
@@ -9,6 +7,7 @@ import Biallo from "../../utils/muhamed-1.JPEG";
 import Mujtaba from "../../utils/muhamed2.png";
 import Banner1 from "../../utils/banner1.jpeg";
 import { useTranslation } from "react-i18next";
+import { useInstructor } from "../../context/InstructorContext";
 
 const style = {
   backgroundColor: "rgba(0, 0, 0, 0.5)",
@@ -16,8 +15,15 @@ const style = {
 
 const Instructor = () => {
   const { t } = useTranslation();
+  const { getInstructors, instructors } = useInstructor();
   const teachers = t("teachers", { returnObjects: true });
   const images = [Ousmane, Biallo, Mujtaba];
+
+  useEffect(() => {
+    getInstructors();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+  console.log(instructors);
   return (
     <div className="relative">
       <Head>
@@ -50,13 +56,11 @@ const Instructor = () => {
         <p className="text-center font-light text-gray-500 leading-loose">
           {t("struggle")}
         </p>
-        <div className="flex flex-col md:flex-row items-center justify-center mt-10">
-          {teachers.map((teacher) => (
-            <Teacher
-              key={teacher.name}
-              teacher={teacher}
-              image={images[teacher.id - 1]}
-            />
+        <div className="flex flex-wrap items-center justify-center mt-10">
+          {instructors.map((teacher) => (
+            <div className="p-4 w-full md:w-1/3 lg:w-1/4" key={teacher.name}>
+              <Teacher teacher={teacher} image={images[teacher.id - 1]} />
+            </div>
           ))}
         </div>
       </div>
