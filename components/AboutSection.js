@@ -18,7 +18,7 @@ const AboutSection = () => {
   if (!ready) return "loading translations....";
   const datas = t("visions", { returnObjects: true });
   return (
-    <div className="my-16 flex flex-col sm:flex-row justify-center items-center">
+    <section className="my-16 flex flex-col sm:flex-row justify-center items-center">
       <div className="w-full md:w-1/2 relative py-4 px-8">
         <div className="relative md:w-11/12 h-[200px]  md:h-[500px] md:w-[500px] mx-auto">
           <Image
@@ -58,7 +58,7 @@ const AboutSection = () => {
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

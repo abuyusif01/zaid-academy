@@ -21,7 +21,7 @@ const ProgramSection = () => {
     { link: `muraja`, name: "Muraja", details: MurajaDetails },
   ];
   return (
-    <div className="space-y-12">
+    <aside className="space-y-12">
       <div className="text-center">
         <h2 className="text-center inline font-semibold px-12 py-4 rounded-md text-2xl">
           {t("ourProgram")}
@@ -57,7 +57,7 @@ const ProgramSection = () => {
           </button>
         </Link>
       </div>
-    </div>
+    </aside>
   );
 };
 

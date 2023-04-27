@@ -14,7 +14,7 @@ const Banner = () => {
   const router = useRouter();
   const { t } = useTranslation();
   return (
-    <div className="relative">
+    <section className="relative">
       <div className="relative w-[100vw] min-h-[650px]">
         <Image src={Quran} alt="banner" layout="fill" className="w-[100vw]" />
       </div>
@@ -44,7 +44,7 @@ const Banner = () => {
           </button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

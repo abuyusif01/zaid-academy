@@ -10,6 +10,11 @@ const Home = () => {
     <div className="">
       <Head>
         <title>Zaid | Home</title>
+        <meta name="description" content="Zaid Academy, Learning Quran" />
+        <meta
+          name="keywords"
+          content="Learn Quran, Teach Quran, Help me learn quran, Quran class, Quran class online"
+        />
       </Head>
       <Banner />
       <AboutSection />

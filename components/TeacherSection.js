@@ -14,7 +14,7 @@ const TeacherSection = () => {
   }, []);
 
   return (
-    <div className="md:px-24">
+    <section className="md:px-24">
       <p className="text-center md:text-2xl font-bold my-6 uppercase">
         {t("popularTeacher")}
       </p>
@@ -25,7 +25,7 @@ const TeacherSection = () => {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

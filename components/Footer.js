@@ -13,7 +13,7 @@ import { useTranslation } from "react-i18next";
 const Footer = () => {
   const { t } = useTranslation();
   return (
-    <div className="w-full space-y-8 xl:space-y-0 md:px-16 py-8 bg-gray-100 flex flex-col xl:flex-row items-center justify-between">
+    <footer className="w-full space-y-8 xl:space-y-0 md:px-16 py-8 bg-gray-100 flex flex-col xl:flex-row items-center justify-between">
       <div className="w-48 h-24">
         <Image src={Logo} alt="logo" />
       </div>
@@ -90,7 +90,7 @@ const Footer = () => {
           </a>
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 
