@@ -8,6 +8,7 @@ import Head from "next/head";
 import Student1 from "../../../../components/Student1";
 import pricingData from "../../../../validation/pricing.json";
 import {
+  BsBoxArrowUpRight,
   BsCashCoin,
   BsCashStack,
   BsClockHistory,
@@ -108,9 +109,24 @@ const InstructorDetails = () => {
                 <BsPerson className="text-blue-700 text-xl" />
               </div>
             </div>
-            <div className="text-center space-y-2">
-              <p className="text-xl font-semibold">{instructorById.fullName}</p>
-              <p className="text-gray-500 text-sm">{instructorById.email}</p>
+            <div className="flex items-center justify-between">
+              <div className="text-center space-y-2">
+                <p className="text-xl font-semibold">
+                  {instructorById.fullName}
+                </p>
+                <p className="text-gray-500 text-sm">{instructorById.email}</p>
+              </div>
+              <a
+                target="_blank"
+                rel="noreferrer"
+                href={`https://zaid-teacher.vercel.app/auth/${instructorById.uid}`}
+                className="cursor-pointer space-y-4 flex flex-col items-center"
+              >
+                <BsBoxArrowUpRight className="text-black" />
+                <span className="text-gray-500 text-sm">
+                  Instructor Login Link
+                </span>
+              </a>
             </div>
           </div>
           <div className="col-span-6 lg:col-span-3 2xl:col-span-2 rounded-lg shadow-lg p-8 space-y-4">
