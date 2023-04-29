@@ -5,7 +5,7 @@ import React from "react";
 const DashInstructor = ({ instructor }) => {
   return (
     <Link href={`/admin/dash/instructors/${instructor.uid}`}>
-      <div className="w-full p-5 shadow-lg rounded flex cursor-pointer items-center space-x-4">
+      <div className="w-full p-5 shadow-lg rounded flex flex-col cursor-pointer items-center space-y-4">
         <div className="relative h-16 w-16 rounded-full">
           <Image
             src={instructor.profile}

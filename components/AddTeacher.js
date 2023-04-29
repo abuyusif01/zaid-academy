@@ -8,28 +8,16 @@ import SelectField from "./SelectField";
 import { BsCameraFill, BsCheckLg } from "react-icons/bs";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import Animation from "./Animation";
 
 const AddTeacher = ({ close }) => {
   const [edu, setEdu] = useState("");
   const router = useRouter();
   const [education, setEducation] = useState([]);
   const [description, setDescription] = useState("");
-  const {
-    addNewInstructor,
-    addInstructorToDb,
-    uploadPicture,
-    imgUrl,
-    clearImgUrl,
-  } = useInstructor();
-  const [instructor, setInstructor] = useState({
-    email: "",
-    displayName: "",
-    password: "",
-    role: "",
-  });
-  const onChange = (e) => {
-    setInstructor({ ...instructor, [e.target.name]: e.target.value });
-  };
+  const { addInstructorToDb, uploadPicture, imgUrl, clearImgUrl, imgLoading } =
+    useInstructor();
+
   const addEducation = () => {
     setEducation((prev) => [...prev, edu]);
     setEdu("");
@@ -131,6 +119,11 @@ const AddTeacher = ({ close }) => {
                       objectPosition="top"
                       className="rounded-lg hover:scale-125 transition duration-300 ease-in"
                     />
+                  ) : null}
+                  {imgLoading ? (
+                    <div className="flex h-56 w-full items-center justify-center">
+                      <Animation />
+                    </div>
                   ) : null}
                 </div>
                 <div className="flex w-1/2 items-center justify-center h-56 border rounded border-gray-400 border-dashed">

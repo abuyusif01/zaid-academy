@@ -21,6 +21,7 @@ export const useInstructor = () => useContext(InstructorContext);
 
 const InstructorProvider = ({ children }) => {
   const [instructors, setInstructors] = useState([]);
+  const [imgLoading, setImgLoading] = useState(false);
   const [executives, setExecutives] = useState([]);
   const [loggedInAdmin, setLoggedInAdmin] = useState([]);
   const [instructorById, setInstructorById] = useState({});
@@ -69,6 +70,7 @@ const InstructorProvider = ({ children }) => {
   };
 
   const uploadPicture = (file) => {
+    setImgLoading(true);
     const storageRef = ref(storage, `/instructors/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
     uploadTask.on(
@@ -82,9 +84,8 @@ const InstructorProvider = ({ children }) => {
       (err) => console.log(err),
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((url) => {
-          // console.log("downloadable url", url);
+          setImgLoading(false);
           setImgUrl(url);
-          // return url;
         });
       }
     );
@@ -148,6 +149,7 @@ const InstructorProvider = ({ children }) => {
       value={{
         progress,
         executives,
+        imgLoading,
         instructorById,
         imgUrl,
         instructors,
