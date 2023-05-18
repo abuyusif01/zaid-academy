@@ -18,7 +18,7 @@ const SelectField = ({ label, ...props }) => {
           </div>
           <div className="w-full">
             <select
-              className={`w-full py-2.5 text-base text-coolGray-900 font-normal outline-none focus:border-indigo-500 border ${
+              className={`w-full py-4 px-2 text-base text-coolGray-900 font-normal outline-none focus:border-indigo-500 border ${
                 meta.touched && meta.error
                   ? "border-red-500"
                   : "border-coolGray-200"
@@ -29,7 +29,7 @@ const SelectField = ({ label, ...props }) => {
             >
               <option value="">{placeholder}</option>
               {data.map((opt) => (
-                <option key={opt} value={opt}>
+                <option key={opt} value={opt} className="capitalize">
                   {opt}
                 </option>
               ))}

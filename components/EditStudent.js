@@ -1,58 +1,30 @@
-import React, { useEffect, useId, useState } from "react";
+import React from "react";
 import { Formik, Form } from "formik";
 import { useTranslation } from "react-i18next";
-import { useInstructor } from "../context/InstructorContext";
 import { useStudent } from "../context/StudentContext";
 import SelectField from "./SelectField";
-import Select from "./Select";
-import TextField from "./TextField";
 
-const EditStudent = ({ student, close }) => {
-  const { updateStudent, deleteStudent } = useStudent();
-  const [lecturers, SetLecturers] = useState([]);
-  const { getInstructors, instructors } = useInstructor();
+const EditStudent = ({ student, close, edit }) => {
+  const { updateStudent } = useStudent();
   const { t } = useTranslation();
-
-  useEffect(() => {
-    getInstructors();
-    SetLecturers(instructors.map((inst) => inst.displayName));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-  console.log(lecturers);
 
   return (
     <div className="space-y-8">
-      <div className="flex items-center justify-between pb-8 border-b border-b-gray-200">
-        <p>Delete student account</p>
-        <button
-          onClick={() => {
-            deleteStudent(student);
-            close();
-          }}
-          className="px-4 py-2 font-semibold bg-red-500 text-white rounded text-sm"
-        >
-          Delete
-        </button>
-      </div>
       <Formik
         initialValues={{
           program: student.program,
+          language: student.language,
+          pricing: student.pricing,
           plan: student.plan,
-          intensive: student.intensive,
-          planType: student.planType,
-          lecturer: student.lecturer,
-          payment: student.payment,
-          expiryDate: student.expiryDate,
-          active: true,
-          registered: true,
         }}
         onSubmit={(values) => {
           updateStudent(student.uid, values);
+          edit(values);
           close();
         }}
       >
         {(formik) => (
-          <Form>
+          <Form className="space-y-6">
             <SelectField
               label="Program"
               placeholder="Choose a Program"
@@ -60,48 +32,53 @@ const EditStudent = ({ student, close }) => {
               data={["beginners", "hifz", "muraja", "tilawah"]}
             />
             <SelectField
-              label="Plan"
-              placeholder="Choose a Plan"
-              name="plan"
-              data={["family", "special"]}
+              label={t("language")}
+              placeholder="Choose a language"
+              name="language"
+              data={["Arabic", "English", "Wollof", "French", "Fulani"]}
             />
-            {formik.values.plan === "family" && (
+            <SelectField
+              label="Pricing"
+              placeholder="Choose a Pricing"
+              name="pricing"
+              data={["family", "special", "premium"]}
+            />
+            {formik.values.pricing === "family" && (
               <SelectField
-                label="Intesive Level"
-                placeholder="Choose a intensive level"
+                label="Plan"
+                placeholder="Choose a Plan"
                 name="intensive"
-                data={["intensive", "basic"]}
+                data={["intensive", "basic", "regular"]}
               />
             )}
 
-            {formik.values.plan === "special" && (
+            {formik.values.pricing === "premium" && (
+              <SelectField
+                label="Plan"
+                placeholder="Choose a Plan"
+                name="plan"
+                data={["silver D", "silver E", "gold D", "gold E"]}
+              />
+            )}
+
+            {formik.values.pricing === "special" && (
               <>
                 <SelectField
-                  label="Intensive Level"
-                  placeholder="Choose a intensive level"
-                  name="intensive"
-                  data={["gold", "silver"]}
-                />
-                <Select
-                  label="Special Option"
-                  name="planType"
-                  intensive={formik.values.intensive}
+                  label="Plan"
+                  placeholder="Choose a Plan"
+                  name="plan"
+                  data={[
+                    "silver A",
+                    "silver B",
+                    "silver C",
+                    "gold A",
+                    "gold B",
+                    "gold C",
+                  ]}
                 />
               </>
             )}
-            <SelectField
-              label="Instructor"
-              placeholder="Choose a instructor"
-              name="lecturer"
-              data={lecturers.length > 0 ? lecturers : []}
-            />
-            <SelectField
-              label="Payment"
-              placeholder="------------"
-              name="payment"
-              data={["unpaid", "paid"]}
-            />
-            <TextField label="Expiry Date" name="expiryDate" type="date" />
+
             <div className="space-x-4">
               <button
                 className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white mt-8 mx-auto"
