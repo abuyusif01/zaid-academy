@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { useRouter } from "next/router";
 import i18n from "i18next";
-import { initReactI18next, useTranslation } from "react-i18next";
+import { initReactI18next } from "react-i18next";
 
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";

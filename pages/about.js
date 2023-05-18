@@ -5,9 +5,9 @@ import AboutZaid from "../components/AboutZaid";
 // import Link from "next/link";
 import Vision from "../components/Vision";
 import Mission from "../components/Mission";
-// import { t } from "i18next";
+import i18n from "i18next";
 import { BsFillPauseFill, BsFillPlayFill } from "react-icons/bs";
-import { useTranslation } from "react-i18next";
+import { useTranslation, initReactI18next } from "react-i18next";
 import Head from "next/head";
 import Video from "../components/Video";
 

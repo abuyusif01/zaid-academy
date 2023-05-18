@@ -19,6 +19,7 @@ const Students = () => {
       <div className="flex flex-wrap justify-start">
         {[...students]
           .filter((stud) => !stud.active)
+          .sort((a, b) => a.date - b.date)
           .map((student) => (
             <div
               key={student.uid}

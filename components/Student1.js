@@ -5,6 +5,7 @@ import { BsThreeDotsVertical } from "react-icons/bs";
 import Link from "next/link";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../config/firebase";
+import moment from "moment";
 
 const Student1 = ({ student }) => {
   const [instructor, setInstructor] = useState({});
@@ -54,6 +55,11 @@ const Student1 = ({ student }) => {
             <p className="text-sm text-gray-500">{student.email}</p>
             <p className="">
               {student.instructor ? instructor.fullName : "No Teacher"}
+            </p>
+            <p>
+              {student.date
+                ? moment(new Date(student.date)).format("MMMM Do YYYY")
+                : "No date"}
             </p>
           </div>
           <div className="select-none flex justify-between w-full p-4 border-t border-t-2 border-t-gray-700 border-dashed">
