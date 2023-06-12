@@ -1,10 +1,11 @@
-import React from "react";
-import { Formik, Form } from "formik";
+import React, { useState } from "react";
+import { Formik, Form, Field } from "formik";
 import { useTranslation } from "react-i18next";
 import { useStudent } from "../context/StudentContext";
 import SelectField from "./SelectField";
 
 const EditStudent = ({ student, close, edit }) => {
+  const [checked, setChecked] = useState(student.isSent ? true : false);
   const { updateStudent } = useStudent();
   const { t } = useTranslation();
 
@@ -18,7 +19,7 @@ const EditStudent = ({ student, close, edit }) => {
           plan: student.plan,
         }}
         onSubmit={(values) => {
-          updateStudent(student.uid, values);
+          updateStudent(student.uid, { ...values, isSent: checked });
           edit(values);
           close();
         }}
@@ -78,6 +79,15 @@ const EditStudent = ({ student, close, edit }) => {
                 />
               </>
             )}
+
+            <div className="space-x-5">
+              <input
+                type="checkbox"
+                checked={checked}
+                onChange={() => setChecked((props) => !props)}
+              />
+              <span className="text-lg">Message Already Sent</span>
+            </div>
 
             <div className="space-x-4">
               <button

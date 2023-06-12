@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import Avatar from "boring-avatars";
-import { BsThreeDotsVertical } from "react-icons/bs";
+import { BsCheckCircleFill, BsThreeDotsVertical } from "react-icons/bs";
 import Link from "next/link";
 import { doc, getDoc } from "firebase/firestore";
 import { db } from "../config/firebase";
@@ -37,7 +37,11 @@ const Student1 = ({ student }) => {
               {student.active ? "Paid" : "Unpaid"}
             </p>
             <div>
-              <BsThreeDotsVertical />
+              {student.isSent ? (
+                <BsCheckCircleFill className="text-indigo-500 text-xl" />
+              ) : (
+                <BsThreeDotsVertical />
+              )}
             </div>
           </div>
         </div>
