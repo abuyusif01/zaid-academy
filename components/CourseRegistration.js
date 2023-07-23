@@ -139,7 +139,7 @@ const CourseRegistration = ({ student }) => {
           <h4 className="text-2xl text-semibold mb-8">Pricing</h4>
           <div className="space-y-5">
             <div
-              className={`border border-2 h-48 w-full spc rounded-lg space-y-4 ${
+              className={`border border-2 min-h-48 w-full spc rounded-lg space-y-4 ${
                 pricing === "special" ? "border-indigo-500" : "border-gray-400"
               } p-4 cursor-pointer`}
               onClick={() => setPricing("special")}
@@ -169,7 +169,7 @@ const CourseRegistration = ({ student }) => {
               </div>
             </div>
             <div
-              className={`border border-2 h-48 w-full rounded-lg space-y-4 ${
+              className={`border border-2 min-h-48 w-full rounded-lg space-y-4 ${
                 pricing === "premium" ? "border-indigo-500" : "border-gray-400"
               } p-4 cursor-pointer`}
               onClick={() => setPricing("premium")}
@@ -199,7 +199,7 @@ const CourseRegistration = ({ student }) => {
               </div>
             </div>
             <div
-              className={`border border-2 h-48 w-full rounded-lg space-y-4 ${
+              className={`border border-2 min-h-48 w-full rounded-lg space-y-4 ${
                 pricing === "family" ? "border-indigo-500" : "border-gray-400"
               } p-4 cursor-pointer`}
               onClick={() => setPricing("family")}
