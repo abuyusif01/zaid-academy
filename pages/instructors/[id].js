@@ -3,25 +3,29 @@ import Image from "next/image";
 import { BsCheck } from "react-icons/bs";
 import { useRouter } from "next/router";
 import Head from "next/head";
+import { useTranslation } from "react-i18next";
 import Logo from "../../utils/logo.jpg";
-import { doc, getDoc } from "firebase/firestore";
-import { db } from "../../config/firebase";
+// import { doc, getDoc } from "firebase/firestore";
+// import { db } from "../../config/firebase";
 
 const IntructorsDetail = () => {
   const [teacher, setTeacher] = useState({});
+  const { t } = useTranslation();
+  const teachers = t("teachers", { returnObjects: true });
   const { query } = useRouter();
   const id = query.id;
   useEffect(() => {
-    (async () => {
-      const instructorRef = doc(db, "instructors", id);
-      const docSnap = await getDoc(instructorRef);
+    // (async () => {
+    //   const instructorRef = doc(db, "instructors", id);
+    //   const docSnap = await getDoc(instructorRef);
 
-      if (docSnap.exists()) {
-        setTeacher(docSnap.data());
-      } else {
-        console.log("No such document!");
-      }
-    })();
+    //   if (docSnap.exists()) {
+    //     setTeacher(docSnap.data());
+    //   } else {
+    //     console.log("No such document!");
+    //   }
+    // })();
+    setTeacher(teachers.find((teacher) => teacher.uid == id));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (

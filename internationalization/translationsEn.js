@@ -1,6 +1,9 @@
 import Mohammad1 from "../utils/muhamed-1.JPEG";
 import Mohammad2 from "../utils/muhamed2.png";
 import Ousmane from "../utils/ousmane.jpeg";
+import AhmadMoussa from "../utils/ahmedmoussa.jpeg";
+import SouleymaneYahya from "../utils/Souleymane Yahya.jpeg";
+import Female from "../utils/female.jpeg";
 
 const translationsEn = {
   learn: "Learn",
@@ -76,6 +79,48 @@ const translationsEn = {
         "A'achour Bukhari memorisation center, Makkah, Saoudi Arabia.",
         "Dar Al Quran of Anyama in Abidjan, ivory Coast",
         "Oubbaya bin kaab memorisation center, Conakry, Guinea",
+      ],
+    },
+    {
+      fullName: "Moussa Ahmad",
+      qualification: "Bachelors in Science of the Holy Quran",
+      profile: AhmadMoussa,
+      uid: 4,
+      description:
+        "I am currently pursuing my education in the United Arab Emirates, specializing in the sacred field of Holy Quran Science. From a young age, I was blessed with the opportunity to memorize the Holy Quran, and I am honored to be authorized and certified by esteemed scholars to read and teach it. Teaching the Quran has been my passion for many years. Now, I invite you to join our academy, where we strive to make learning the Quran an enjoyable and accessible experience. Together, we will embark on a journey of enlightenment and understanding, as we delve into the divine teachings of this sacred scripture. Join us, and let's make learning the Quran easier and more meaningful.",
+      education: [
+        "Al Qasimia University, Sharjah, United Arab Emirates",
+        "Dar Al-Iman Institute, Dakar, Senegal",
+        "Dar Al Najah Institute, Dakar, Senegal",
+        "Dar Al Ihsan, Dakar, Senegal",
+        "Al Falah School, Dakar, Senegal",
+      ],
+    },
+    {
+      fullName: "Souleymane Yahya",
+      qualification: "Master's degree in Sharia and law",
+      profile: SouleymaneYahya,
+      uid: 5,
+      description:
+        "I am currently pursuing a master's degree in Sharia and law at Taif University in the Kingdom of Saudi Arabia. I had the opportunity to memorize the Holy Quran at a young age, and prior to starting university, I had several years of experience teaching the Holy Quran and basic Islamic studies. So, I can't wait to see you in my classes for learning the Quran.",
+      education: [
+        "Taif University, Taif, Kingdom of Saudi Arabia",
+        "Dar Al-Iman Institute, Dakar, Senegal",
+        "Peace Path Institute, Dakar, Senegal",
+        "Abdullah Bah School, Dakar, Senegal",
+      ],
+    },
+    {
+      fullName: "Khadijah Zakaria",
+      qualification: "Bachelors in Science of the Holy Quran",
+      profile: Female,
+      uid: 6,
+      description:
+        "I am presently engaged in my studies in the United Arab Emirates, specializing in the field of Holy Quran Science. I consider myself fortunate to have memorized the Holy Quran during my early years. My teaching experience spans multiple years, and I am enthusiastic about sharing knowledge. You are welcome to join our academy, where we strive to simplify the process of learning the Quran.",
+      education: [
+        "Al Qasimia University, Sharjah, United Arab Emirates",
+        "Elhaj Omar Tall School, Thies, Senegal",
+        "Ahmad Sakhir Lo Institute, Dakar, Senegal",
       ],
     },
   ],

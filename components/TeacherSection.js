@@ -6,6 +6,7 @@ import { useInstructor } from "../context/InstructorContext";
 
 const TeacherSection = () => {
   const { t } = useTranslation();
+  const teachers = t("teachers", { returnObjects: true });
   const { executives, getExecutives } = useInstructor();
 
   useEffect(() => {
@@ -19,7 +20,7 @@ const TeacherSection = () => {
         {t("popularTeacher")}
       </p>
       <div className="flex flex-wrap items-center justify-center">
-        {executives.map((teacher) => (
+        {teachers.splice(0, 3).map((teacher) => (
           <div className="p-4 w-full md:w-1/3 lg:w-1/4" key={teacher.uid}>
             <Teacher teacher={teacher} />
           </div>

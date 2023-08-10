@@ -23,7 +23,6 @@ const Instructor = () => {
     getInstructors();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-  console.log(instructors);
   return (
     <div className="relative">
       <Head>
@@ -57,8 +56,8 @@ const Instructor = () => {
           {t("struggle")}
         </p>
         <div className="flex flex-wrap items-center justify-center mt-10">
-          {instructors.map((teacher) => (
-            <div className="p-4 w-full md:w-1/3 lg:w-1/4" key={teacher.name}>
+          {teachers.map((teacher) => (
+            <div className="p-4 w-full md:w-1/3 lg:w-1/4" key={teacher.uid}>
               <Teacher teacher={teacher} image={images[teacher.id - 1]} />
             </div>
           ))}
