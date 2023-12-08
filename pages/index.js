@@ -17,7 +17,9 @@ const Home = () => {
         />
       </Head>
       <Banner />
-      <AboutSection />
+      <div className="max-w-full">
+        <AboutSection />
+      </div>
       <div className="py-12">
         <ProgramSection />
       </div>

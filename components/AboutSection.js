@@ -38,7 +38,7 @@ const AboutSection = () => {
       </motion.div>
       <motion.div className="w-full py-4 px-8 md:w-1/2">
         <motion.h4
-          initial={{ opacity: 0, x: 300 }}
+          initial={{ opacity: 0, x: 1 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
           className="text-gray-800 text-2xl uppercase font-semibold leading-loose tracking-wider"
@@ -46,7 +46,7 @@ const AboutSection = () => {
           {t("we")}
         </motion.h4>
         <motion.p
-          initial={{ opacity: 0, x: 300 }}
+          initial={{ opacity: 0, x: 1 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
           className="text-xl leading-relaxed"
@@ -54,7 +54,7 @@ const AboutSection = () => {
           {t("learnQuran")}
         </motion.p>
         <motion.p
-          initial={{ opacity: 0, x: 300 }}
+          initial={{ opacity: 0, x: 1 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
           className="text-sm leading-relaxed text-gray-700"
@@ -65,7 +65,7 @@ const AboutSection = () => {
         <ul className="mt-6">
           {datas.map((data, index) => (
             <motion.li
-              initial={{ opacity: 0, x: 300 }}
+              initial={{ opacity: 0, x: 1 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.25 * (index + 1) }}
               viewPort={{ once: true }}
@@ -80,7 +80,7 @@ const AboutSection = () => {
         <div className="relative">
           <Link href="/">
             <motion.button
-              initial={{ opacity: 0, x: 300 }}
+              initial={{ opacity: 0, x: 1 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
               viewPort={{ once: true }}
