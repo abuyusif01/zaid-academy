@@ -219,6 +219,83 @@ const translationsFr = {
     "5 séances par semaine",
     "50 minutes par séance",
   ],
+  faqintro: "Vous avez des questions ? Nous sommes là pour vous aider.",
+  faqs: [
+    {
+      title: "Qu'est-ce que Zaid Academy?",
+      description:
+        "Zaid Academy est une académie coranique en ligne qui propose des cours d'études coraniques et d'éducation islamique. Notre mission est de fournir une expérience d'apprentissage de haute qualité pour les étudiants de tous âges et horizons.",
+    },
+    {
+      title: "Pourquoi la plateforme s'appelle-t-elle Zaid Academy?",
+      description:
+        "Zaid Academy est nommée d'après Zaid ibn Thabit, un compagnon du Prophète Muhammad (que la paix soit sur lui) connu pour son expertise dans l'écriture et l'enregistrement des révélations du Coran. Nous avons choisi le nom Zaid Academy pour honorer son héritage et souligner l'importance du Coran en tant que fondement de notre plateforme d'apprentissage.",
+    },
+    {
+      title: "Quels cours proposons-nous?",
+      description:
+        "Nous proposons une large gamme de cours, comprenant la prononciation des lettres (Noorani Qaeda), la récitation (Tilawah), la mémorisation (Hifz), des cours de Tajwid et Qiraat, la révision (Muradja') et la certification (Ijazah bi sanad).",
+    },
+    {
+      title: "Proposez-vous des cours d'arabe et d'islam?",
+      description:
+        "Actuellement, nous ne proposons pas de cours d'arabe et d'islam, mais nous pouvons personnaliser des cours pour les étudiants intéressés par ces sujets. Faites-nous simplement part de vos objectifs d'apprentissage, et nous travaillerons avec vous pour créer un plan de cours personnalisé.",
+    },
+    {
+      title: "Qui sont les enseignants de Zaid Academy?",
+      description:
+        "Nos enseignants sont hautement qualifiés et expérimentés dans les études coraniques et l'éducation islamique. Ils ont une compréhension approfondie du Coran et de ses enseignements et sont passionnés par le partage de leurs connaissances avec les étudiants.",
+    },
+    {
+      title:
+        "Comment se déroulent les cours ? Sont-ils en ligne ou en personne?",
+      description:
+        "Tous nos cours sont dispensés en ligne, ce qui permet aux étudiants d'apprendre de n'importe où dans le monde. Nos cours en ligne se déroulent via des logiciels de visioconférence tels que Zoom, Google Meet, Google Teams, et utilisent des méthodes d'enseignement interactives pour maintenir l'engagement et la motivation des étudiants.",
+    },
+    {
+      title:
+        "À quoi ressemble l'emploi du temps des cours? Puis-je choisir mon propre horaire?",
+      description:
+        "Nous proposons des options d'emploi du temps flexibles pour répondre aux besoins de nos étudiants. Vous pouvez choisir parmi une variété d'horaires et de durées de cours qui vous conviennent le mieux.",
+    },
+    {
+      title: "Quel est le coût des cours?",
+      description:
+        "Le coût de nos cours varie en fonction des jours et heures que vous choisissez. Nous nous efforçons de maintenir nos tarifs abordables et proposons des plans de paiement pour rendre nos cours accessibles à tous. Consultez notre liste de prix pour en savoir plus sur nos tarifs : https://www.zaidacademy.org/pricing",
+    },
+    {
+      title: "Comment puis-je m'inscrire à un cours chez Zaid Academy?",
+      description:
+        "Vous pouvez vous inscrire à nos cours en remplissant le formulaire d'inscription sur notre site web ou en nous contactant directement par e-mail ou WhatsApp. Nous vous guiderons tout au long du processus d'inscription et vous aiderons à choisir le cours qui convient le mieux à vos besoins.",
+    },
+    {
+      title:
+        "Y a-t-il une limite d'âge pour s'inscrire à un cours chez Zaid Academy?",
+      description:
+        "Non, il n'y a pas de limite d'âge pour s'inscrire à nos cours. Nous accueillons des étudiants de tous âges et horizons.",
+    },
+    {
+      title: "Comment puis-je payer les cours?",
+      description:
+        "Nous acceptons les paiements par divers moyens. Nous vous fournirons des instructions détaillées de paiement après votre inscription à un cours.",
+    },
+    {
+      title: "Quelle est votre politique de remboursement?",
+      description:
+        "Nous proposons une politique de remboursement pour les étudiants qui ne sont pas satisfaits de leur cours. Veuillez consulter notre site web pour des informations détaillées sur notre politique de remboursement.",
+    },
+    {
+      title: "Puis-je annuler ou reporter un cours en cas d'urgence?",
+      description:
+        "Oui, nous comprenons que des urgences peuvent survenir. Nous proposons des options d'emploi du temps flexibles et travaillerons avec vous pour reporter tout cours manqué.",
+    },
+    {
+      title:
+        "Puis-je assister à un cours d'essai avant de m'inscrire à un cours?",
+      description:
+        "Oui, nous proposons des cours d'essai pour donner aux étudiants la possibilité de découvrir nos méthodes d'enseignement et d'interagir avec nos enseignants avant de s'inscrire à un cours. Veuillez nous contacter pour planifier un cours d'essai.",
+    },
+  ],
 };
 
 export default translationsFr;
