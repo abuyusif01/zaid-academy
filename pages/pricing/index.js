@@ -2,36 +2,6 @@ import Head from "next/head";
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
 import Plan from "../../components/Plan";
-import Pricing from "../../components/Pricing";
-
-const TajweedItem = [
-  "Reading with Intonation",
-  "Recommended for Everyone",
-  "3 sessions per week",
-  "50 minutes per session",
-];
-
-const TajweedIntensiveItem = [
-  "Reading with Intonation",
-  "Recommended for Everyone",
-  "5 sessions per week",
-  "50 minutes per session",
-];
-
-const IjazahItem = [
-  "Chain Certificate",
-
-  "Recommended for Hafiz",
-  "3 sessions per week",
-  "50 minutes per session",
-];
-
-const IjazahIntensiveItem = [
-  "Chain Certificate",
-  "Recommended for Hafiz",
-  "3 sessions per week",
-  "50 minutes per session",
-];
 
 const PricingX = () => {
   const [pricingPlan, setPricingPlan] = useState("special");
@@ -39,18 +9,6 @@ const PricingX = () => {
   const showSpecial = () => setPricingPlan("special");
   const showPremium = () => setPricingPlan("premium");
   const { t } = useTranslation();
-  const BeginnersItem = t("BeginnersItem", { returnObjects: true });
-  const BeginnersIntensiveItem = t("BeginnersIntensiveItem", {
-    returnObjects: true,
-  });
-  const HifzItems = t("HifzItems", { returnObjects: true });
-  const HifzIntensiveItems = t("HifzIntensiveItems", { returnObjects: true });
-  const TilawahItem = t("TilawahItem", { returnObjects: true });
-  const TilawahIntensiveItem = t("TilawahIntensiveItem", {
-    returnObjects: true,
-  });
-  const MurajaItem = t("MurajaItem", { returnObjects: true });
-  const MurajaIntensiveItem = t("MurajaIntensiveItem", { returnObjects: true });
   return (
     <div className="my-10 space-y-6">
       <Head>
@@ -62,31 +20,28 @@ const PricingX = () => {
         </h4>
         <div className="mx-4 md:mx-auto mb-8 flex items-center justify-center space-x-4">
           <div
-            className={`px-4 py-1 text-center ${
-              pricingPlan === "special"
-                ? "bg-indigo-500 text-white"
-                : "bg-white text-gray-700"
-            } text-white rounded-2xl cursor-pointer`}
+            className={`px-4 py-1 text-center ${pricingPlan === "special"
+              ? "bg-indigo-500 text-white"
+              : "bg-white text-gray-700"
+              } text-white rounded-2xl cursor-pointer`}
             onClick={showSpecial}
           >
             {t("specialPackage")}
           </div>
           <div
-            className={`px-4 py-1 text-center ${
-              pricingPlan === "premium"
-                ? "bg-indigo-500 text-white"
-                : "bg-white text-gray-700"
-            } text-white rounded-2xl cursor-pointer`}
+            className={`px-4 py-1 text-center ${pricingPlan === "premium"
+              ? "bg-indigo-500 text-white"
+              : "bg-white text-gray-700"
+              } text-white rounded-2xl cursor-pointer`}
             onClick={showPremium}
           >
             {t("premiumPackage")}
           </div>
           <div
-            className={`px-4 py-1 text-center ${
-              pricingPlan === "family"
-                ? "bg-indigo-500 text-white"
-                : "bg-white text-gray-700"
-            } text-white rounded-2xl cursor-pointer`}
+            className={`px-4 py-1 text-center ${pricingPlan === "family"
+              ? "bg-indigo-500 text-white"
+              : "bg-white text-gray-700"
+              } text-white rounded-2xl cursor-pointer`}
             onClick={showFamily}
           >
             {t("familyPackage")}
@@ -132,17 +87,6 @@ const PricingX = () => {
                 <div className="w-full p-4">
                   <Plan
                     title="Silver A"
-                    price={20}
-                    items={[
-                      "30 minutes",
-                      `4 ${t("classes")}`,
-                      `1 ${t("weeklyClass")}`,
-                    ]}
-                  />
-                </div>
-                <div className="w-full p-4">
-                  <Plan
-                    title="Silver B"
                     price={40}
                     items={[
                       "30 minutes",
@@ -153,12 +97,23 @@ const PricingX = () => {
                 </div>
                 <div className="w-full p-4">
                   <Plan
-                    title="Silver C"
+                    title="Silver B"
                     price={60}
                     items={[
                       "30 minutes",
                       `12 ${t("classes")}`,
                       `3 ${t("weeklyClass")}`,
+                    ]}
+                  />
+                </div>
+                <div className="w-full p-4">
+                  <Plan
+                    title="Silver C"
+                    price={80}
+                    items={[
+                      "30 minutes",
+                      `16 ${t("classes")}`,
+                      `4 ${t("weeklyClass")}`,
                     ]}
                   />
                 </div>
@@ -206,17 +161,6 @@ const PricingX = () => {
                 <div className="w-full md:w-1/2 p-4">
                   <Plan
                     title="Silver D"
-                    price={80}
-                    items={[
-                      "30 minutes",
-                      `16 ${t("classes")}`,
-                      `4 ${t("weeklyClass")}`,
-                    ]}
-                  />
-                </div>
-                <div className="w-full md:w-1/2 p-4">
-                  <Plan
-                    title="Silver E"
                     price={90}
                     items={[
                       "30 minutes",
@@ -225,6 +169,7 @@ const PricingX = () => {
                     ]}
                   />
                 </div>
+                
                 <div className="w-full md:w-1/2 p-4">
                   <Plan
                     title="Gold D"
