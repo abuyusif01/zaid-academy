@@ -9,10 +9,7 @@ const PricingX = () => {
   const showSpecial = () => setPricingPlan("special");
   const showPremium = () => setPricingPlan("premium");
   const { t } = useTranslation();
-<<<<<<< HEAD
 
-=======
->>>>>>> 9010984c1b19b11c5cc4ae19b1acc3492af4004d
   return (
     <div className="my-10 space-y-6">
       <Head>
@@ -27,11 +24,7 @@ const PricingX = () => {
             className={`px-4 py-1 text-center ${pricingPlan === "special"
               ? "bg-indigo-500 text-white"
               : "bg-white text-gray-700"
-<<<<<<< HEAD
               } rounded-2xl cursor-pointer`}
-=======
-              } text-white rounded-2xl cursor-pointer`}
->>>>>>> 9010984c1b19b11c5cc4ae19b1acc3492af4004d
             onClick={showSpecial}
           >
             {t("specialPackage")}
@@ -40,11 +33,7 @@ const PricingX = () => {
             className={`px-4 py-1 text-center ${pricingPlan === "premium"
               ? "bg-indigo-500 text-white"
               : "bg-white text-gray-700"
-<<<<<<< HEAD
               } rounded-2xl cursor-pointer`}
-=======
-              } text-white rounded-2xl cursor-pointer`}
->>>>>>> 9010984c1b19b11c5cc4ae19b1acc3492af4004d
             onClick={showPremium}
           >
             {t("premiumPackage")}
@@ -53,11 +42,7 @@ const PricingX = () => {
             className={`px-4 py-1 text-center ${pricingPlan === "family"
               ? "bg-indigo-500 text-white"
               : "bg-white text-gray-700"
-<<<<<<< HEAD
               } rounded-2xl cursor-pointer`}
-=======
-              } text-white rounded-2xl cursor-pointer`}
->>>>>>> 9010984c1b19b11c5cc4ae19b1acc3492af4004d
             onClick={showFamily}
           >
             {t("familyPackage")}
@@ -185,7 +170,7 @@ const PricingX = () => {
                     ]}
                   />
                 </div>
-                
+
                 <div className="w-full md:w-1/2 p-4">
                   <Plan
                     title="Gold D"
