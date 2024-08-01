@@ -1,5 +1,5 @@
 import Head from "next/head";
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useStudent } from "../../../../context/StudentContext";
 import Student1 from "../../../../components/Student1";
 
@@ -8,7 +8,21 @@ const Students = () => {
 
   useEffect(() => {
     getStudents();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+
+    const scrollPosition = sessionStorage.getItem('scrollPosition');
+    if (scrollPosition) {
+      window.scrollTo(0, parseInt(scrollPosition, 10));
+    }
+
+    const handleScroll = () => {
+      sessionStorage.setItem('scrollPosition', window.scrollY);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (
@@ -19,7 +33,7 @@ const Students = () => {
       <div className="flex flex-wrap justify-start">
         {[...students]
           .filter((stud) => !stud.active)
-          .sort((a, b) => a.date - b.date)
+          .sort((a, b) => b.date - a.date)
           .map((student) => (
             <div
               key={student.uid}

@@ -28,9 +28,8 @@ const Student1 = ({ student }) => {
     <Link href={`/admin/dash/students/${student.uid}`}>
       <div className="relative shadow w-full rounded-lg cursor-pointer hover:shadow-lg">
         <div
-          className={`relative p-4 w-full h-32 bg-opacity-20 rounded-t-lg ${
-            student.teacher ? "bg-indigo-500" : "bg-gray-500"
-          }`}
+          className={`relative p-4 w-full h-32 bg-opacity-20 rounded-t-lg ${student.teacher ? "bg-indigo-500" : "bg-gray-500"
+            }`}
         >
           <div className="flex justify-between space-center">
             <p className="px-3 py-1 rounded-xl inline bg-indigo-500 font-bold text-white text-sm">
