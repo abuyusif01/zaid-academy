@@ -9,13 +9,13 @@ const Students = () => {
   useEffect(() => {
     getStudents();
 
-    const scrollPosition = sessionStorage.getItem('scrollPosition');
+    const scrollPosition = localStorage.getItem('scrollPosition');
     if (scrollPosition) {
       window.scrollTo(0, parseInt(scrollPosition, 10));
     }
 
     const handleScroll = () => {
-      sessionStorage.setItem('scrollPosition', window.scrollY);
+      localStorage.setItem('scrollPosition', window.scrollY);
     };
 
     window.addEventListener('scroll', handleScroll);
