@@ -158,42 +158,34 @@ const PricingX = () => {
           )}
           {pricingPlan === "premium" && (
             <div className="flex flex-col md:flex-row justify-center space-y-6 md:space-y-0 md:space-x-6">
-              <div className="w-full flex flex-col lg:flex-row flex-wrap">
-                <div className="w-full md:w-1/2 p-4">
-                  <Plan
-                    title="Silver D"
-                    price={90}
-                    items={[
-                      "30 minutes",
-                      `20 ${t("classes")}`,
-                      `5 ${t("weeklyClass")}`,
-                    ]}
-                  />
-                </div>
+              <Plan
+                title="Silver D"
+                price={90}
+                items={[
+                  "30 minutes",
+                  `20 ${t("classes")}`,
+                  `5 ${t("weeklyClass")}`,
+                ]}
+              />
 
-                <div className="w-full md:w-1/2 p-4">
-                  <Plan
-                    title="Gold D"
-                    price={110}
-                    items={[
-                      "45 minutes",
-                      `16 ${t("classes")}`,
-                      `4 ${t("weeklyClass")}`,
-                    ]}
-                  />
-                </div>
-                <div className="w-full md:w-1/2 p-4">
-                  <Plan
-                    title="Gold E"
-                    price={130}
-                    items={[
-                      "45 minutes",
-                      `20 ${t("classes")}`,
-                      `5 ${t("weeklyClass")}`,
-                    ]}
-                  />
-                </div>
-              </div>
+              <Plan
+                title="Gold D"
+                price={110}
+                items={[
+                  "45 minutes",
+                  `16 ${t("classes")}`,
+                  `4 ${t("weeklyClass")}`,
+                ]}
+              />
+              <Plan
+                title="Gold E"
+                price={130}
+                items={[
+                  "45 minutes",
+                  `20 ${t("classes")}`,
+                  `5 ${t("weeklyClass")}`,
+                ]}
+              />
             </div>
           )}
         </div>
