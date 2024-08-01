@@ -22,7 +22,7 @@ const CourseRegistrationPlan = ({ title, price, items, studentData }) => {
   const router = useRouter();
   const { t } = useTranslation();
   return (
-    <div className="border border-gray-200 p-10 rounded w-full text-center space-y-4">
+    <div className="border border-gray-200 p-5 rounded w-full text-center space-y-4">
       <h5 className="border border-gray-500 rounded-2xl px-4 py-1 inline-flex text-sm">
         {title}
       </h5>
