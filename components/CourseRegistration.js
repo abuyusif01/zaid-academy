@@ -1,69 +1,30 @@
-import { useRouter } from "next/router";
-import React, { useEffect, useState } from "react";
-import { BsCircle, BsCheckCircleFill, BsCheckLg } from "react-icons/bs";
-import { RiCloseCircleFill } from "react-icons/ri";
+import React, { useState } from "react";
+import { BsCircle, BsCheckCircleFill } from "react-icons/bs";
 import { Form, Formik } from "formik";
 import { useTranslation } from "react-i18next";
-import { useStudent } from "../context/StudentContext";
 import personalSchema from "../validation/register";
 import TextField from "./TextField";
 import SelectField from "./SelectField";
 import countries from "../validation/countries.json";
+import Course from "../utils/courses";
+import CourseRegistrationPlan from "./CourseRegistrationPlan";
 
 const CourseRegistration = ({ student }) => {
   const [display, setDisplay] = useState("personal");
-  const [pricing, setPricing] = useState("special");
   const [program, setProgram] = useState("");
-  const [plan, setPlan] = useState({ plan: "" });
   const [studentData, setStudentData] = useState({});
-  const router = useRouter();
-  const { selfRegister, checkStudent, pupil } = useStudent();
   const { t } = useTranslation();
+  const [pricingPlan, setPricingPlan] = useState("special");
+  const showFamily = () => setPricingPlan("family");
+  const showSpecial = () => setPricingPlan("special");
+  const showPremium = () => setPricingPlan("premium");
 
   const countriesData = countries.map((count) => count.country);
-
-  const pricingdata = [
-    { name: "special" },
-    { name: "premium" },
-    { name: "family" },
-  ];
-
-  const planData = {
-    family: {
-      name: "family",
-      details: [],
-      subs: [
-        { plan: "basic", price: 80 },
-        { plan: "regular", price: 100 },
-        { plan: "intensive", price: 160 },
-      ],
-    },
-    special: {
-      name: "special",
-      details: [],
-      subs: [
-        { plan: "silver A", price: 20 },
-        { plan: "silver B", price: 40 },
-        { plan: "silver C", price: 60 },
-        { plan: "gold A", price: 30 },
-        { plan: "gold B", price: 60 },
-        { plan: "gold C", price: 90 },
-      ],
-    },
-    premium: {
-      name: "premium",
-      details: [],
-      subs: [
-        { plan: "silver D", price: 80 },
-        { plan: "silver E", price: 90 },
-        { plan: "gold D", price: 110 },
-        { plan: "gold E", price: 130 },
-      ],
-    },
-  };
+  const courses = new Course();
+  const currentCourses = courses.getCoursesByCategory(pricingPlan);
 
   return (
-    <div className="p-8">
+    <div className="my-10 space-y-6">
       {display === "personal" ? (
         <div className="space-y-4">
           <h4 className="text-2xl text-semibold mb-8">Personal Information</h4>
@@ -133,138 +94,15 @@ const CourseRegistration = ({ student }) => {
           </Formik>
         </div>
       ) : null}
-
-      {display === "pricing" ? (
-        <div className="space-y-8">
-          <h4 className="text-2xl text-semibold mb-8">Pricing</h4>
-          <div className="space-y-5">
-            <div
-              className={`border border-2 min-h-48 w-full spc rounded-lg space-y-4 ${
-                pricing === "special" ? "border-indigo-500" : "border-gray-400"
-              } p-4 cursor-pointer`}
-              onClick={() => setPricing("special")}
-            >
-              <div className="flex justify-between items-center">
-                <h1 className="text-xl font-semibold">Special</h1>
-                {pricing === "special" ? (
-                  <BsCheckCircleFill className="text-xl text-indigo-500" />
-                ) : (
-                  <BsCircle className="text-xl" />
-                )}
-              </div>
-              {/* Details */}
-              <div className="space-y-4 text-lg">
-                <p className="flex space-x-4 items-center">
-                  <BsCheckLg className="text-indigo-500" />
-                  <span>1 - 3 classes per week</span>
-                </p>
-                <p className="flex space-x-4 items-center">
-                  <BsCheckLg className="text-indigo-500" />
-                  <span>4 - 12 Classes per month</span>
-                </p>
-                <p className="flex space-x-4 items-center">
-                  <BsCheckLg className="text-indigo-500" />
-                  <span>30 or 45 Minutes per Session</span>
-                </p>
-              </div>
-            </div>
-            <div
-              className={`border border-2 min-h-48 w-full rounded-lg space-y-4 ${
-                pricing === "premium" ? "border-indigo-500" : "border-gray-400"
-              } p-4 cursor-pointer`}
-              onClick={() => setPricing("premium")}
-            >
-              <div className="flex justify-between items-center">
-                <h1 className="text-xl font-semibold">Premium</h1>
-                {pricing === "premium" ? (
-                  <BsCheckCircleFill className="text-xl text-indigo-500" />
-                ) : (
-                  <BsCircle className="text-xl" />
-                )}
-              </div>
-              {/* Details */}
-              <div className="space-y-4 text-lg">
-                <p className="flex space-x-4 items-center">
-                  <BsCheckLg className="text-indigo-500" />
-                  <span>4 - 5 classes per week</span>
-                </p>
-                <p className="flex space-x-4 items-center">
-                  <BsCheckLg className="text-indigo-500" />
-                  <span>16 - 20 Classes per month</span>
-                </p>
-                <p className="flex space-x-4 items-center">
-                  <BsCheckLg className="text-indigo-500" />
-                  <span>30 or 45 Minutes per Session</span>
-                </p>
-              </div>
-            </div>
-            <div
-              className={`border border-2 min-h-48 w-full rounded-lg space-y-4 ${
-                pricing === "family" ? "border-indigo-500" : "border-gray-400"
-              } p-4 cursor-pointer`}
-              onClick={() => setPricing("family")}
-            >
-              <div className="flex justify-between items-center">
-                <h1 className="text-xl font-semibold">Family</h1>
-                {pricing === "family" ? (
-                  <BsCheckCircleFill className="text-xl text-indigo-500" />
-                ) : (
-                  <BsCircle className="text-xl" />
-                )}
-              </div>
-              {/* Details */}
-              <div className="space-y-4 text-lg">
-                <p className="flex space-x-4 items-center">
-                  <BsCheckLg className="text-indigo-500" />
-                  <span>2-3 Students</span>
-                </p>
-                <p className="flex space-x-4 items-center">
-                  <BsCheckLg className="text-indigo-500" />
-                  <span>2-5 Sessions</span>
-                </p>
-                <p className="flex space-x-4 items-center">
-                  <BsCheckLg className="text-indigo-500" />
-                  <span>60 Minutes per Session</span>
-                </p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <button
-              className="pr-12 py-4 rounded-md text-indigo-500 text-sm mt-8 mx-auto"
-              type="button"
-              disabled={program === ""}
-              onClick={() => {
-                setDisplay("program");
-              }}
-            >
-              Previous
-            </button>
-            <button
-              className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white mt-8 mx-auto"
-              type="button"
-              disabled={pricing === ""}
-              onClick={() => {
-                setStudentData({ ...studentData, pricing });
-                setDisplay("plan");
-              }}
-            >
-              Next
-            </button>
-          </div>
-        </div>
-      ) : null}
-
       {display === "program" ? (
         <div className="space-y-8">
           <h4 className="text-2xl text-semibold mb-8">Program</h4>
           <div className="space-y-5">
             <div
-              className={`border border-2 w-full spc rounded-lg ${
-                program === "beginners"
-                  ? "border-indigo-500"
-                  : "border-gray-400"
-              } p-4 cursor-pointer`}
+              className={`border border-2 w-full spc rounded-lg ${program === "beginners"
+                ? "border-indigo-500"
+                : "border-gray-400"
+                } p-4 cursor-pointer`}
               onClick={() => setProgram("beginners")}
             >
               <div className="flex justify-between items-center">
@@ -277,9 +115,8 @@ const CourseRegistration = ({ student }) => {
               </div>
             </div>
             <div
-              className={`border border-2 w-full spc rounded-lg ${
-                program === "tilawah" ? "border-indigo-500" : "border-gray-400"
-              } p-4 cursor-pointer`}
+              className={`border border-2 w-full spc rounded-lg ${program === "tilawah" ? "border-indigo-500" : "border-gray-400"
+                } p-4 cursor-pointer`}
               onClick={() => setProgram("tilawah")}
             >
               <div className="flex justify-between items-center">
@@ -292,9 +129,8 @@ const CourseRegistration = ({ student }) => {
               </div>
             </div>
             <div
-              className={`border border-2 w-full spc rounded-lg ${
-                program === "muraja" ? "border-indigo-500" : "border-gray-400"
-              } p-4 cursor-pointer`}
+              className={`border border-2 w-full spc rounded-lg ${program === "muraja" ? "border-indigo-500" : "border-gray-400"
+                } p-4 cursor-pointer`}
               onClick={() => setProgram("muraja")}
             >
               <div className="flex justify-between items-center">
@@ -307,9 +143,8 @@ const CourseRegistration = ({ student }) => {
               </div>
             </div>
             <div
-              className={`border border-2 w-full spc rounded-lg ${
-                program === "hifz" ? "border-indigo-500" : "border-gray-400"
-              } p-4 cursor-pointer`}
+              className={`border border-2 w-full spc rounded-lg ${program === "hifz" ? "border-indigo-500" : "border-gray-400"
+                } p-4 cursor-pointer`}
               onClick={() => setProgram("hifz")}
             >
               <div className="flex justify-between items-center">
@@ -347,79 +182,64 @@ const CourseRegistration = ({ student }) => {
         </div>
       ) : null}
 
-      {display === "plan" ? (
-        <div className="space-y-8">
-          <h4 className="text-2xl text-semibold mb-8">Plan</h4>
-          <div className="space-y-4">
-            <h1 className="text-3xl capitalize">{planData[pricing].name}</h1>
-            {plan.plan === "" ? (
-              <div className="space-y-5">
-                {planData[pricing].subs.map((item, index) => (
-                  <div
-                    className="border border-2 px-4 py-6 text-xl capitalize rounded cursor-pointer flex items-center justify-between"
-                    key={item.plan}
-                    onClick={() => {
-                      setPlan(item);
-                    }}
-                  >
-                    <p>{item.plan}</p>
-                    <p>$ {item.price}</p>
-                  </div>
+      {display === "pricing" ?
+        (
+          <div>
+            <h4 className="uppercase text-2xl text-center font-bold mb-8">
+              Pricing
+            </h4>
+            <div className="mx-4 md:mx-auto mb-8 flex items-center justify-center space-x-4">
+              <div
+                className={`px-4 py-1 text-center ${pricingPlan === "special"
+                  ? "bg-indigo-500 text-white"
+                  : "bg-white text-gray-700"
+                  } text-white rounded-2xl cursor-pointer`}
+                onClick={showSpecial}
+              >
+                {t("specialPackage")}
+              </div>
+              <div
+                className={`px-4 py-1 text-center ${pricingPlan === "premium"
+                  ? "bg-indigo-500 text-white"
+                  : "bg-white text-gray-700"
+                  } text-white rounded-2xl cursor-pointer`}
+                onClick={showPremium}
+              >
+                {t("premiumPackage")}
+              </div>
+              <div
+                className={`px-4 py-1 text-center ${pricingPlan === "family"
+                  ? "bg-indigo-500 text-white"
+                  : "bg-white text-gray-700"
+                  } text-white rounded-2xl cursor-pointer`}
+                onClick={showFamily}
+              >
+                {t("familyPackage")}
+              </div>
+            </div>
+
+            <div className="my-10 space-y-6">
+              <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-2 gap-20">
+                {currentCourses.map((course, index) => (
+                  <CourseRegistrationPlan
+                    key={index}
+                    title={course.name}
+                    price={course.price}
+                    description={course.description || ""}
+                    items={[
+                      course.noStudent ? `${course.noStudent} ${t("student")}` : `${course.duration} ${t("minutePerSession")}`,
+                      `${course.totalMonthly} ${t("classes")}`,
+                      `${course.perWeek} ${t("weeklyClass")}`,
+                    ]}
+                    studentData={studentData}
+                  />
                 ))}
               </div>
-            ) : (
-              <div>
-                <div className="text-lg space-y-3 mb-3">
-                  <p className="capitalize">
-                    Full Name: {studentData.fullName}
-                  </p>
-                  <p className="capitalize">Phone: {studentData.phone}</p>
-                  <p className="capitalize">Email: {studentData.email}</p>
-                  <p className="capitalize">Whatsapp: {studentData.whatsapp}</p>
-                  <p className="capitalize">Gender: {studentData.gender}</p>
-                  <p className="capitalize">
-                    Nationality: {studentData.nationality}
-                  </p>
-                  <p className="capitalize">Language: {studentData.language}</p>
-                  <p className="capitalize">Program: {studentData.program}</p>
-                  <p className="capitalize">Pricing: {studentData.pricing}</p>
-                </div>
-                <div className="relative px-12 py-4 bg-indigo-600 rounded-md text-center text-white">
-                  <p>{plan.plan}</p>
-                  <RiCloseCircleFill
-                    className="absolute -top-2 -right-2 text-white cursor-pointer text-2xl"
-                    onClick={() => setPlan({ plan: "" })}
-                  />
-                </div>
-              </div>
-            )}
+            </div>
+
           </div>
-          <div>
-            <button
-              className="pr-12 py-4 rounded-md text-indigo-500 text-sm mt-8 mx-auto"
-              type="button"
-              disabled={program === ""}
-              onClick={() => {
-                setDisplay("pricing");
-              }}
-            >
-              Previous
-            </button>
-            <button
-              className="px-12 py-4 rounded-md bg-indigo-500 text-sm text-white mt-8 mx-auto"
-              type="button"
-              disabled={plan.plan === ""}
-              onClick={() => {
-                const studData = { ...studentData, ...plan, active: false };
-                selfRegister(studData);
-                router.replace("dashboard");
-              }}
-            >
-              Submit
-            </button>
-          </div>
-        </div>
-      ) : null}
+        )
+        : null}
     </div>
   );
 };
