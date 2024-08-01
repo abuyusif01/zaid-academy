@@ -49,7 +49,7 @@ const CourseRegistration = ({ student }) => {
               setDisplay("program");
             }}
           >
-            {(formik) => (
+            {() => (
               <Form className="space-y-6">
                 <TextField label="Full Name" name="fullName" type="text" />
                 <TextField label={t("phoneNumber")} name="phone" type="text" />
@@ -193,7 +193,7 @@ const CourseRegistration = ({ student }) => {
                 className={`px-4 py-1 text-center ${pricingPlan === "special"
                   ? "bg-indigo-500 text-white"
                   : "bg-white text-gray-700"
-                  } text-white rounded-2xl cursor-pointer`}
+                  } rounded-2xl cursor-pointer`}
                 onClick={showSpecial}
               >
                 {t("specialPackage")}
@@ -202,7 +202,7 @@ const CourseRegistration = ({ student }) => {
                 className={`px-4 py-1 text-center ${pricingPlan === "premium"
                   ? "bg-indigo-500 text-white"
                   : "bg-white text-gray-700"
-                  } text-white rounded-2xl cursor-pointer`}
+                  } rounded-2xl cursor-pointer`}
                 onClick={showPremium}
               >
                 {t("premiumPackage")}
@@ -211,15 +211,15 @@ const CourseRegistration = ({ student }) => {
                 className={`px-4 py-1 text-center ${pricingPlan === "family"
                   ? "bg-indigo-500 text-white"
                   : "bg-white text-gray-700"
-                  } text-white rounded-2xl cursor-pointer`}
+                  } rounded-2xl cursor-pointer`}
                 onClick={showFamily}
               >
                 {t("familyPackage")}
               </div>
             </div>
 
-            <div className="my-10 space-y-6">
-              <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-2 gap-20">
+            <div className="my-4 space-y-2">
+              <div className="grid grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-5">
                 {currentCourses.map((course, index) => (
                   <CourseRegistrationPlan
                     key={index}
@@ -236,7 +236,6 @@ const CourseRegistration = ({ student }) => {
                 ))}
               </div>
             </div>
-
           </div>
         )
         : null}
