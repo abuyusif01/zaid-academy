@@ -9,13 +9,21 @@ const Students = () => {
   useEffect(() => {
     getStudents();
 
-    const scrollPosition = localStorage.getItem('scrollPosition');
+    // Retrieve the scroll position from cookies
+    const getCookie = (name) => {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+    };
+
+    const scrollPosition = getCookie('scrollPosition');
     if (scrollPosition) {
       window.scrollTo(0, parseInt(scrollPosition, 10));
     }
 
     const handleScroll = () => {
-      localStorage.setItem('scrollPosition', window.scrollY);
+      // Save the scroll position in cookies
+      document.cookie = `scrollPosition=${window.scrollY}; path=/; max-age=86400`; // max-age=86400 sets the cookie to expire in 1 day
     };
 
     window.addEventListener('scroll', handleScroll);
