@@ -1,13 +1,10 @@
-import { useState } from 'react';
 import { useRouter } from 'next/router';
 import { useStudent } from "../context/StudentContext";
 
 
 const CheckoutDisplay = ({ studentData }) => {
   const { selfRegister } = useStudent();
-  const [plan, setPlan] = useState({ plan: '' });
   const router = useRouter();
-
 
   return (
     <div className="bg-white shadow-md rounded-lg p-6">
@@ -28,11 +25,7 @@ const CheckoutDisplay = ({ studentData }) => {
           <p><span className="font-semibold">Title:</span> {studentData.title}</p>
           <p><span className="font-semibold">Description:</span> {studentData.items}</p>
           <p><span className="font-semibold">Pricing:</span> ${studentData.price}</p>
-          <div className="mt-4 relative px-12 py-4 bg-indigo-600 rounded-md text-center text-white">
-            <button onClick={() => router.replace('pricing')}>
-              View All Plans
-            </button>
-          </div>
+
         </div>
       </div>
       <div className="flex justify-end mt-6">
@@ -40,9 +33,14 @@ const CheckoutDisplay = ({ studentData }) => {
           className="px-6 py-2 rounded-md bg-indigo-500 text-white text-sm"
           type="button"
           onClick={() => {
-            const studData = { ...studentData, ...plan, active: false };
+
+            const studData = {
+              ...studentData, plan: studentData.title, active: false, pricing: studentData.price,
+
+            };
             // Assuming selfRegister is defined elsewhere
             selfRegister(studData);
+            console.log("", studData);
             router.replace('dashboard');
           }}
         >

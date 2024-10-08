@@ -9,6 +9,8 @@ import moment from "moment";
 
 const Student1 = ({ student }) => {
   const [instructor, setInstructor] = useState({});
+  student.plan = student.plan.replace(/([a-z])([A-Z])/g, '$1 $2')
+
   useEffect(() => {
     (async () => {
       if (student.instructor) {
@@ -23,6 +25,7 @@ const Student1 = ({ student }) => {
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
 
   return (
     <Link href={`/admin/dash/students/${student.uid}`}>
@@ -61,18 +64,18 @@ const Student1 = ({ student }) => {
             </p>
             <p>
               {student.date
-                ? moment(new Date(student.date)).format("MMMM Do YYYY")
+                ? moment(new Date(parseInt(student.date))).format("MMMM DD YYYY")
                 : "No date"}
             </p>
           </div>
-          <div className="select-none flex justify-between w-full p-4 border-t border-t-2 border-t-gray-700 border-dashed">
+          <div className="select-none flex justify-between w-full p-4 border-t border-t-gray-700 border-dashed">
             <div className="text-center">
               <p className="capitalize text-gray-600 text-sm">Program</p>
               <p className="font-bold capitalize">{student.program}</p>
             </div>
             <div className="text-center">
               <p className="capitalize text-gray-600 text-sm">pricing</p>
-              <p className="font-bold capitalize">{student.pricing}</p>
+              <p className="font-bold capitalize">${student.price}</p>
             </div>
             <div className="text-center">
               <p className="capitalize text-gray-600 text-sm">plan</p>
