@@ -1,0 +1,14 @@
+name: prod.zaid-academy
+services:
+  prod.zaid-academy.org:
+    container_name: prod.zaid-academy.org
+    image: prod.image.zaid-academy.org
+    restart: always
+    build:
+      context: .
+    networks:
+      - net.docker.main
+
+networks:
+  net.docker.main:
+    external: true

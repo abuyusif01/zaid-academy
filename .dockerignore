@@ -1,0 +1,8 @@
+.deployment
+*.log
+.git
+.gitignore
+.husky
+.sanity
+package-lock.json
+LICENSE.md
