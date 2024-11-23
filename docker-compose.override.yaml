@@ -1,0 +1,10 @@
+name: prod.zaid-academy
+services:
+  prod.zaid-academy.org:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
